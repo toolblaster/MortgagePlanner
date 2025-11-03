@@ -190,21 +190,6 @@ input, select {
 .results-animate-in { animation: fadeInSlideUp 0.6s ease-out forwards; }
 @keyframes fadeInSlideUp { 0% { opacity: 0; transform: translateY(15px); } 100% { opacity: 1; transform: translateY(0); } }
 
-/* UI/UX UPDATE: Replaced pop-in with a more polished "swoosh-in" animation */
-.savings-summary-pop-in {
-    animation: swoosh-in 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.2s both;
-}
-@keyframes swoosh-in {
-  0% {
-    transform: translateX(-50px) scale(0.98);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-  }
-}
-
 /* ADVANCED CHARTING: Styles for chart toggle switches */
 .toggle-checkbox:checked + .toggle-bg {
     background-color: #166534; /* accent color */
