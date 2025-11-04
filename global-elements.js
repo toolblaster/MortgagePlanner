@@ -59,7 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const headerHTML = `
         <header class="bg-white/80 backdrop-blur-lg shadow-sm no-print sticky md:static top-0 z-40">
-            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- UPDATED: Replaced Tailwind width/padding classes with .container-global -->
+            <nav class="container-global">
                 <div class="flex items-center justify-between h-16">
                     <a href="${homePath}" class="flex items-center space-x-3 text-primary hover:opacity-90 transition-opacity">
                         <svg class="h-9 w-9" aria-hidden="true">
@@ -107,7 +108,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const footerHTML = `
         <footer class="bg-gray-800 text-gray-400 text-sm no-print">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <!-- UPDATED: Replaced Tailwind width/padding classes with .container-global and kept py-6 -->
+            <div class="container-global py-6">
                 <div class="text-center text-xs space-y-1">
                     <p>&copy; <span id="copyright-year"></span> Strategic Mortgage Planner. All Rights Reserved.</p>
                     <p>A proud part of the <a href="https://toolblaster.com" target="_blank" rel="noopener noreferrer" class="text-white hover:underline font-semibold">toolblaster.com</a> Network by <a href="https://x.com/vikasrana03" target="_blank" rel="noopener noreferrer" class="text-white hover:underline font-semibold">Vikas Rana</a></p>
