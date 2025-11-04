@@ -41,11 +41,6 @@ details[open] summary ~ * { animation: sweep .5s ease-in-out; }
 }
 
 
-/* CLS Prevention */
-#results, #affordability-results, #rent-vs-buy-results, #refinance-results, #investment-results {
-    min-height: 350px;
-}
-
 /* Loading Overlay */
 .loading-overlay {
     position: absolute;
