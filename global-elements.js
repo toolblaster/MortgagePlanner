@@ -208,6 +208,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- NEW: Centralized Related Articles ---
     function setupRelatedArticles() {
+        // --- ADDED CHECK ---
+        // Get the full path, including the filename
+        const fullPath = window.location.pathname;
+        // Check if the path ends with the specific index pages or their parent directories
+        if (fullPath.endsWith('/calculators/index.html') || fullPath.endsWith('/calculators/') ||
+            fullPath.endsWith('/blog/index.html') || fullPath.endsWith('/blog/')) {
+            return; // Do not add related articles to these index pages
+        }
+        // --- END ADDED CHECK ---
+
         const desktopPlaceholder = document.getElementById('desktop-sidebar-placeholder');
         const mobilePlaceholder = document.getElementById('mobile-sidebar-placeholder');
 
@@ -224,10 +234,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (relatedArticles.length === 0) return;
 
+        // Use rootPath to correct the article hrefs
         const generateDesktopLinksHTML = (articles) => {
             return articles.map(article => `
                 <li>
-                    <a href="${article.href}" class="font-semibold text-primary hover:underline group">
+                    <a href="${rootPath}blog/${article.href}" class="font-semibold text-primary hover:underline group">
                         <span class="block text-sm">${article.title}</span>
                         <span class="block text-xs text-gray-500 group-hover:text-accent">${article.desc}</span>
                     </a>
@@ -260,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return articles.map(article => {
                     const iconSVG = icons[article.href] || defaultIcon;
                     return `
-                        <a href="${article.href}" class="mobile-article-card group">
+                        <a href="${rootPath}blog/${article.href}" class="mobile-article-card group">
                             <div class="flex items-center justify-center h-10 w-10 rounded-lg bg-primary/10 text-primary mb-2 transition-colors group-hover:bg-primary group-hover:text-white">
                                 ${iconSVG}
                             </div>
