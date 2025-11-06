@@ -139,8 +139,10 @@
 <body class="bg-gray-100">
     <!-- Main Content Area -->
     <main class="content-wrapper">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-4 md:my-8">
-            <div class="relative max-w-4xl mx-auto">
+        <!-- UPDATED: Replaced max-w-7xl and padding with .container-global -->
+        <div class="container-global my-4 md:my-8">
+            <!-- UPDATED: Replaced relative max-w-4xl mx-auto with blog-layout-grid -->
+            <div class="blog-layout-grid">
                 <!-- Main Article Content -->
                 <article class="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-2xl">
                     <!-- Article Header -->
@@ -201,7 +203,7 @@
                             <p>Beyond the basic formula, several other critical elements determine your final <strong>home loan eligibility</strong> and overall buying power.</p>
                              <ul class="space-y-4 mt-4">
                                 <li class="flex items-start">
-                                   <span class="flex-shrink-0 w-6 h-6 mr-3 text-primary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 6v.01M12 18v-2m0-2v-2m0-2v-2m0-2V7m0 0V6" /></svg></span>
+                                   <span class="flex-shrink-0 w-6 h-6 mr-3 text-primary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 6v.01M12 18v-2m0-2v-2m0-2V7m0 0V6" /></svg></span>
                                     <div><strong>Down Payment:</strong> The amount you pay upfront. A larger <strong>down payment</strong> (ideally 20% or more) reduces your loan amount, lowers your monthly payment, and helps you avoid Private Mortgage Insurance (PMI).</div>
                                 </li>
                                 <li class="flex items-start">
@@ -371,8 +373,8 @@
                     </div>
                 </article>
 
-                <!-- Desktop Sidebar -->
-                <aside id="desktop-sidebar-placeholder" class="hidden lg:block absolute top-0 left-full ml-8 w-72"></aside>
+                <!-- UPDATED: Moved aside to be a sibling of article and removed all utility classes -->
+                <aside id="desktop-sidebar-placeholder"></aside>
             </div>
         </div>
 
