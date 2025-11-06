@@ -150,7 +150,7 @@
                 <!-- UPDATED: Reduced padding from p-3 sm:p-4 to p-3 -->
                 <div id="calculator-container" class="bg-white p-3 rounded-xl shadow-2xl">
                     <header class="text-center mb-4">
-                        <h1 class="text-base md:text-lg font-extrabold text-primary">Interactive Mortgage Amortisation Calculator</h1>
+                        <h1 class="text-xl font-extrabold text-primary">Interactive Mortgage Amortisation Calculator</h1>
                         <p class="mt-1 text-xs text-gray-700">Visualize your loan payments, see the impact of extra contributions, and plan your path to being mortgage-free.</p>
                     </header>
     
@@ -195,7 +195,7 @@
                                     
                                     <div>
                                         <label for="currency" class="block font-medium text-xs text-gray-700">Currency:</label>
-                                        <select id="currency" class="w-full p-1.5 text-xs border border-gray-300 rounded-md h-[30px]">
+                                        <select id="currency" class="w-full p-1 text-xs border border-gray-300 rounded-md h-[28px]">
                                             <option value="USD">USD ($)</option>
                                             <option value="EUR">EUR (€)</option>
                                             <option value="GBP">GBP (£)</option>
@@ -212,15 +212,15 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                     <div>
                                         <label for="extraMonthly" class="block font-medium text-xs text-gray-700">Extra Monthly Pmt (<span class="currency-symbol-small">$</span>):</label>
-                                        <input type="number" id="extraMonthly" value="100" class="w-full p-1.5 text-xs border border-gray-300 rounded-md">
+                                        <input type="number" id="extraMonthly" value="100" class="w-full p-1 text-xs border border-gray-300 rounded-md">
                                     </div>
                                     <div>
                                         <label for="oneTimePayment" class="block font-medium text-xs text-gray-700">One-Time Pmt (<span class="currency-symbol-small">$</span>):</label>
-                                        <input type="number" id="oneTimePayment" value="5000" class="w-full p-1.5 text-xs border border-gray-300 rounded-md">
+                                        <input type="number" id="oneTimePayment" value="5000" class="w-full p-1 text-xs border border-gray-300 rounded-md">
                                     </div>
                                     <div class="sm:col-span-2">
                                          <label for="oneTimePaymentMonth" class="block font-medium text-xs text-gray-700">Apply One-Time Pmt in Month #:</label>
-                                        <input type="number" id="oneTimePaymentMonth" value="12" class="w-full p-1.5 text-xs border border-gray-300 rounded-md">
+                                        <input type="number" id="oneTimePaymentMonth" value="12" class="w-full p-1 text-xs border border-gray-300 rounded-md">
                                     </div>
                                     <div class="sm:col-span-2">
                                          <label for="investmentReturn" class="block font-medium text-xs text-gray-700">
@@ -229,7 +229,7 @@
                                                 <span class="tooltip-text" role="tooltip">The average annual return you expect if you invested your extra payments instead.</span>
                                             </span>
                                         </label>
-                                        <input type="number" id="investmentReturn" value="7.0" step="0.1" class="w-full p-1.5 text-xs border border-gray-300 rounded-md">
+                                        <input type="number" id="investmentReturn" value="7.0" step="0.1" class="w-full p-1 text-xs border border-gray-300 rounded-md">
                                     </div>
                                 </div>
                             </div>
@@ -240,11 +240,11 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                     <div>
                                         <label for="propertyTax" class="block font-medium text-xs text-gray-700">Annual Property Tax (<span class="currency-symbol-small">$</span>):</label>
-                                        <input type="number" id="propertyTax" value="3600" class="w-full p-1.5 text-xs border border-gray-300 rounded-md">
+                                        <input type="number" id="propertyTax" value="3600" class="w-full p-1 text-xs border border-gray-300 rounded-md">
                                     </div>
                                     <div>
                                         <label for="homeInsurance" class="block font-medium text-xs text-gray-700">Annual Insurance (<span class="currency-symbol-small">$</span>):</label>
-                                        <input type="number" id="homeInsurance" value="1200" class="w-full p-1.5 text-xs border border-gray-300 rounded-md">
+                                        <input type="number" id="homeInsurance" value="1200" class="w-full p-1 text-xs border border-gray-300 rounded-md">
                                     </div>
                                     <div class="text-xs text-gray-600 sm:col-span-2 italic">
                                         These optional costs are part of your <strong>escrow</strong> payment. 
@@ -257,9 +257,9 @@
                             </div>
                             
                             <div class="sticky bottom-2 sm:bottom-4">
-                                 <button id="calculateBtn" class="w-full px-4 py-2 bg-primary text-white font-bold rounded-lg shadow-lg hover:bg-sky-700 transition duration-150 text-sm">
+                                 <button id="calculateBtn" class="w-full px-4 py-1.5 bg-primary text-white font-bold rounded-lg shadow-lg hover:bg-sky-700 transition duration-150 text-xs">
                                     Calculate Schedule
-                                </button>
+                                 </button>
                             </div>
                         </div>
     
@@ -379,11 +379,11 @@
     
                 <!-- SEO Content Section -->
                 <!-- UPDATED: Reduced p-4 sm:p-5 to p-4 and mt-4 to mt-2 -->
-                <div class="bg-white p-4 mt-2 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-sm">
-                    <h2 class="text-xl font-extrabold text-primary !mb-4">A Homeowner's Guide to Mortgage Amortisation</h2>
+                <div class="bg-white p-4 mt-2 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs">
+                    <h2 class="text-lg font-extrabold text-primary !mb-4">A Homeowner's Guide to Mortgage Amortisation</h2>
                     
                     <section class="bg-gray-50/70 p-4 rounded-lg border">
-                        <h3 class="text-lg font-bold text-gray-800">What is a Mortgage Amortisation Schedule?</h3>
+                        <h3 class="text-base font-bold text-gray-800">What is a Mortgage Amortisation Schedule?</h3>
                         <p class="mt-2 text-xs">An <strong>amortisation schedule</strong> is a detailed, month-by-month table that shows exactly where your mortgage payment goes. It breaks down each payment into two key components:</p>
                         <ul class="space-y-2 mt-2 text-xs">
                             <li class="flex items-start">
@@ -404,7 +404,7 @@
                     </section>
     
                     <section class="bg-gray-50/70 p-4 rounded-lg border">
-                        <h3 class="text-lg font-bold text-gray-800">How to Read Your Amortisation Table</h3>
+                        <h3 class="text-base font-bold text-gray-800">How to Read Your Amortisation Table</h3>
                         <p class="mt-2 text-xs">Understanding your <strong>loan amortization schedule</strong> is key to financial planning. When you use this calculator, it generates an <strong>amortization table mortgage</strong> lenders use, which shows a clear breakdown. Each row in the table represents one payment period (usually a month) and contains several important columns:</p>
                         <ul class="space-y-2 mt-2 text-xs">
                             <li class="flex items-start">
@@ -427,7 +427,7 @@
                     </section>
     
                     <section class="bg-gray-50/70 p-4 rounded-lg border">
-                        <h3 class="text-lg font-bold text-gray-800">Amortisation for Different Terms</h3>
+                        <h3 class="text-base font-bold text-gray-800">Amortisation for Different Terms</h3>
                         <p class="mt-2 text-xs">The length of your loan has a massive impact on your monthly payment and the total interest you'll pay. Use the tabs below to see a quick comparison for the same loan amount.</p>
                         <div id="term-tabs-container" class="my-4 flex justify-center space-x-2 rounded-lg bg-gray-200 p-1">
                             <button class="term-tab w-full rounded-md py-2 px-4 text-xs font-semibold text-gray-700" data-term="15">15 Year</button>
@@ -443,7 +443,7 @@
                     </section>
     
                     <section class="bg-gray-50/70 p-4 rounded-lg border">
-                        <h3 class="text-lg font-bold text-gray-800">Amortisation in Action: An Example Scenario</h3>
+                        <h3 class="text-base font-bold text-gray-800">Amortisation in Action: An Example Scenario</h3>
                         <p class="mt-2 text-xs">Let's look at a common <strong>amortization example</strong>: a $300,000 loan at 6.5% interest on a <strong>30-year schedule</strong>. The chart below visualizes how the principal and interest portions of your payment change over time.</p>
                         <div class="relative h-56 mt-4">
                             <canvas id="exampleAmortizationChart"></canvas>
@@ -452,7 +452,7 @@
                     </section>
                     
                     <section class="bg-gray-50/70 p-4 rounded-lg border">
-                         <h3 class="text-lg font-bold text-gray-800">Strategies to Pay Off Your Mortgage Faster</h3>
+                         <h3 class="text-base font-bold text-gray-800">Strategies to Pay Off Your Mortgage Faster</h3>
                          <p class="mt-2 text-xs">This calculator demonstrates the secret weapon for homeowners: <strong>extra principal payments</strong>. By adding even a small amount to your monthly payment, you can dramatically shorten your loan term and save thousands. Here are the most common strategies:</p>
                          <ul class="space-y-2 mt-2 text-xs">
                             <li class="flex items-start">
@@ -476,11 +476,11 @@
     
                     <!-- FAQ Section -->
                     <section class="py-4">
-                        <h3 class="text-lg font-bold text-primary mb-3 text-center">Frequently Asked Questions</h3>
+                        <h3 class="text-base font-bold text-primary mb-3 text-center">Frequently Asked Questions</h3>
                         <div class="max-w-3xl mx-auto border-t border-b border-gray-200 divide-y divide-gray-200" id="faq-accordion">
                             <div class="faq-item">
                                 <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-                                    <span class="text-sm">What does mortgage amortization mean?</span>
+                                    <span class="text-xs">What does mortgage amortization mean?</span>
                                     <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
                                 </button>
                                 <div class="faq-answer">
@@ -491,7 +491,7 @@
                             </div>
                              <div class="faq-item">
                                 <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-                                    <span class="text-sm">How much of my payment goes to interest vs principal?</span>
+                                    <span class="text-xs">How much of my payment goes to interest vs principal?</span>
                                     <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
                                 </button>
                                 <div class="faq-answer">
@@ -502,7 +502,7 @@
                             </div>
                              <div class="faq-item">
                                 <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-                                    <span class="text-sm">How can I pay off my mortgage faster?</span>
+                                    <span class="text-xs">How can I pay off my mortgage faster?</span>
                                     <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
                                 </button>
                                 <div class="faq-answer">
@@ -513,7 +513,7 @@
                             </div>
                             <div class="faq-item">
                                 <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-                                    <span class="text-sm">What’s the difference between amortized and interest-only loans?</span>
+                                    <span class="text-xs">What’s the difference between amortized and interest-only loans?</span>
                                     <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
                                 </button>
                                 <div class="faq-answer">
@@ -524,7 +524,7 @@
                             </div>
                             <div class="faq-item">
                                 <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-                                    <span class="text-sm">Can I change amortization terms mid-loan?</span>
+                                    <span class="text-xs">Can I change amortization terms mid-loan?</span>
                                     <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
                                 </button>
                                 <div class="faq-answer">
