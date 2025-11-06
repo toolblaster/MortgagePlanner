@@ -344,6 +344,23 @@ input, select {
     font-weight: 700;
 }
 
+/* NEW: Centralized Blog Heading Sizes */
+.prose h1 {
+    font-size: 25px; /* User Requested 25px */
+    color: #1C768F; /* Primary color */
+    font-weight: 800; /* Extra-bold for H1 */
+}
+.prose h2 {
+    font-size: 21px; /* User Requested 21px */
+    color: #1C768F; /* Primary color */
+    font-weight: 700;
+}
+.prose h3 {
+    font-size: 16px; /* User Requested 16px */
+    color: #111827; /* Dark gray for H3 */
+    font-weight: 700;
+}
+
 .prose ul, .content-section ul {
     list-style-position: inside;
     padding-left: 1rem;
@@ -363,6 +380,7 @@ input, select {
     border: 1px solid #e5e7eb;
     border-radius: 0.75rem;
     padding: 1rem;
+    border-left: 4px solid #1C768F; /* NEW: Added primary color border */
 }
 @media (min-width: 640px) {
     .content-section {
