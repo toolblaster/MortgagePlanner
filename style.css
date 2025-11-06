@@ -470,46 +470,56 @@ input, select {
     }
 }
 
-/* --- NEW BLOG LAYOUT (75/25 Split) --- */
-
-/* This class will be applied to the parent div in the blog HTML files */
+/* NEW: 75/25 Grid Layout for Blog Pages */
 .blog-layout-grid {
-    position: relative;
     display: grid;
     grid-template-columns: 1fr; /* Mobile-first: single column */
     gap: 1.5rem; /* 24px gap */
-    max-width: 100%; /* Will be constrained by container-global */
 }
 
-/* On large screens (1024px, matches lg: breakpoint) */
-@media (min-width: 1024px) {
+/* Desktop and tablet layout */
+@media (min-width: 1024px) { /* lg: breakpoint */
     .blog-layout-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4-column grid */
-        gap: 2rem; /* 32px gap */
+        grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4-column grid */
     }
 
-    /* The main article content takes 3 columns (75%) */
     .blog-layout-grid > article {
-        grid-column: span 3 / span 3;
+        grid-column: span 3 / span 3; /* Article takes 3 of 4 columns (75%) */
+        min-width: 0; /* Prevents overflow issues */
     }
 
-    /* The sidebar takes 1 column (25%) */
-    /* This targets the placeholder ID. The inline classes in the HTML will be REMOVED in the next steps. */
-    #desktop-sidebar-placeholder {
-        grid-column: span 1 / span 1;
-        display: block; /* Ensure it's visible on large screens */
-        position: relative;
-        width: 100%;
-        /* Resetting any utility class values */
-        top: auto;
-        left: auto;
-        margin-left: 0;
+    .blog-layout-grid > aside {
+        grid-column: span 1 / span 1; /* Sidebar takes 1 of 4 columns (25%) */
+        min-width: 0; /* Prevents overflow issues */
     }
 }
 
-/* On mobile, we still want to hide the desktop sidebar to avoid redundancy */
-@media (max-width: 1023px) {
-     #desktop-sidebar-placeholder {
-        display: none;
-     }
+/* NEW: 80/20 Grid Layout for Standalone Calculator Pages */
+.calculator-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile-first: single column */
+    gap: 1.5rem; /* 24px gap */
+}
+
+/* Desktop and tablet layout */
+@media (min-width: 1024px) { /* lg: breakpoint */
+    .calculator-layout-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr)); /* 5-column grid for 80/20 split */
+    }
+
+    .calculator-layout-grid > main {
+        grid-column: span 4 / span 4; /* Main content takes 4 of 5 columns (80%) */
+        min-width: 0; /* Prevents overflow issues */
+    }
+
+    .calculator-layout-grid > aside {
+        grid-column: span 1 / span 1; /* Sidebar takes 1 of 5 columns (20%) */
+        min-width: 0; /* Prevents overflow issues */
+    }
+    
+    /* Sticky sidebar for calculator pages */
+    .calculator-layout-grid > aside > .sticky {
+        position: sticky;
+        top: 6rem; /* 96px, assumes 60px header + 24px margin + 12px padding */
+    }
 }
