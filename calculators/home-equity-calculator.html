@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Title: 59 chars -->
     <title>Home Equity Calculator: HELOC vs. Cash-Out Refinance</title>
     
     <!-- Primary Meta Tags -->
+    <!-- Meta Description: 156 chars -->
     <meta name="description" content="Compare a HELOC vs. a cash-out refinance. Calculate your available home equity, estimate monthly payments for both options, and see which is right for you.">
     <meta name="keywords" content="home equity calculator, heloc calculator, cash-out refinance calculator, compare heloc vs cash-out, home equity line of credit, calculate home equity, opportunity cost, cash-out refinance vs home equity loan, when to use HELOC, how to tap home equity, refinance or equity loan, HELOC interest rates, refinance savings calculator">
     <meta name="author" content="Vikas Rana">
@@ -224,19 +226,24 @@
             <!-- UPDATED: Wrapped main content in <main> tag for 80% column -->
             <!-- This <main> tag now wraps the calculator, share section, and SEO content -->
             <main class="space-y-4">
-                <div class="bg-white p-4 rounded-xl shadow-2xl">
+                <!-- UPDATED: Reduced p-4 to p-3 -->
+                <div class="bg-white p-3 rounded-xl shadow-2xl">
                     <!-- Header -->
                     <header class="text-center mb-3 pb-3 border-b">
                         <h1 class="text-lg md:text-xl font-extrabold text-primary">Home Equity: HELOC vs. Cash-Out Refinance</h1>
                         <p class="mt-1 text-xs text-gray-700">Unlock the value in your home. Compare your options to see which is best for you.</p>
                     </header>
                     
-                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-x-6 gap-y-4">
+                    <!-- UPDATED: Reduced gap-x-6 gap-y-4 to gap-x-4 gap-y-3 -->
+                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-x-4 gap-y-3">
                         <!-- Input Section -->
-                        <div class="lg:col-span-2 space-y-3">
-                            <details open class="bg-gray-50 p-3 rounded-lg border">
+                        <!-- UPDATED: Reduced space-y-3 to space-y-2 -->
+                        <div class="lg:col-span-2 space-y-2">
+                            <!-- UPDATED: Reduced p-3 to p-2 -->
+                            <details open class="bg-gray-50 p-2 rounded-lg border">
                                 <summary class="font-bold text-base text-primary cursor-pointer">Your Home & Mortgage</summary>
-                                <div class="space-y-4 mt-3">
+                                <!-- UPDATED: Reduced space-y-4 mt-3 to space-y-3 mt-2 -->
+                                <div class="space-y-3 mt-2">
                                     <div>
                                         <div class="flex justify-between items-center">
                                             <label for="homeValue" class="block font-medium text-xs text-gray-700">Current Home Value:</label>
@@ -270,9 +277,11 @@
                                 </div>
                             </details>
     
-                            <details open class="bg-gray-50 p-3 rounded-lg border">
+                            <!-- UPDATED: Reduced p-3 to p-2 -->
+                            <details open class="bg-gray-50 p-2 rounded-lg border">
                                 <summary class="font-bold text-base text-primary cursor-pointer">Option 1: HELOC Scenario</summary>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
+                                <!-- UPDATED: Reduced gap-3 mt-3 to gap-2 mt-2 -->
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
                                     <div>
                                         <label for="ltvRatio" class="block font-medium text-xs text-gray-700">
                                             <span class="tooltip-container">Lender's LTV Ratio (%):
@@ -287,15 +296,18 @@
                                         <input type="number" id="helocTerm" value="15" class="w-full mt-1 p-2 text-xs border border-gray-300 rounded-md">
                                     </div>
                                 </div>
-                                <div class="mt-3">
+                                <!-- UPDATED: Reduced mt-3 to mt-2 -->
+                                <div class="mt-2">
                                     <label for="helocRateSlider" class="block font-medium text-xs text-gray-700">Estimated HELOC Rate: <span id="helocRateValue" class="font-bold text-primary">8.5%</span></label>
                                     <input type="range" id="helocRateSlider" min="3" max="15" value="8.5" step="0.1" class="w-full mt-2 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer range-slider">
                                 </div>
                             </details>
                             
-                            <details open class="bg-gray-50 p-3 rounded-lg border">
+                            <!-- UPDATED: Reduced p-3 to p-2 -->
+                            <details open class="bg-gray-50 p-2 rounded-lg border">
                                 <summary class="font-bold text-base text-primary cursor-pointer">Option 2: Cash-Out Refinance</summary>
-                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
+                                 <!-- UPDATED: Reduced gap-3 mt-3 to gap-2 mt-2 -->
+                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
                                      <div>
                                         <label for="refiTerm" class="block font-medium text-xs text-gray-700">New Mortgage Term (Years):</label>
                                         <input type="number" id="refiTerm" value="30" class="w-full mt-1 p-2 text-xs border border-gray-300 rounded-md">
@@ -305,15 +317,18 @@
                                         <input type="number" id="refiClosingCosts" value="5000" class="w-full mt-1 p-2 text-xs border border-gray-300 rounded-md">
                                     </div>
                                 </div>
-                                <div class="mt-3">
+                                <!-- UPDATED: Reduced mt-3 to mt-2 -->
+                                <div class="mt-2">
                                     <label for="refiRateSlider" class="block font-medium text-xs text-gray-700">New Mortgage Rate: <span id="refiRateValue" class="font-bold text-primary">6.5%</span></label>
                                     <input type="range" id="refiRateSlider" min="3" max="15" value="6.5" step="0.1" class="w-full mt-2 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer range-slider">
                                 </div>
                             </details>
                             
-                             <details open class="bg-gray-50 p-3 rounded-lg border">
+                             <!-- UPDATED: Reduced p-3 to p-2 -->
+                             <details open class="bg-gray-50 p-2 rounded-lg border">
                                 <summary class="font-bold text-base text-secondary cursor-pointer">Opportunity Cost Analysis</summary>
-                                <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <!-- UPDATED: Reduced mt-3 gap-3 to mt-2 gap-2 -->
+                                <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
                                     <div>
                                         <label for="homeAppreciation" class="block font-medium text-xs text-gray-700">Annual Home Appreciation (%):</label>
                                         <input type="number" id="homeAppreciation" value="3" class="w-full mt-1 p-2 text-xs border border-gray-300 rounded-md">
@@ -330,7 +345,8 @@
                                 </div>
                              </details>
     
-                            <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                            <!-- UPDATED: Reduced gap-3 pt-2 to gap-2 pt-1 -->
+                            <div class="flex flex-col sm:flex-row gap-2 pt-1">
                                  <button id="saveScenario" class="w-full px-4 py-2 bg-accent text-white font-semibold rounded-lg shadow-md hover:bg-green-800 transition duration-150 text-sm">
                                     Save & Share Scenario
                                 </button>
@@ -339,22 +355,28 @@
                         </div>
     
                         <!-- Results Section -->
-                        <div id="equityResults" class="lg:col-span-3 space-y-3">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-center">
-                                <div class="p-3 rounded-lg bg-accent/10 border-2 border-accent/50 shadow">
+                        <!-- UPDATED: Reduced space-y-3 to space-y-2 -->
+                        <div id="equityResults" class="lg:col-span-3 space-y-2">
+                            <!-- UPDATED: Reduced gap-3 to gap-2 -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-center">
+                                <!-- UPDATED: Reduced p-3 to p-2 -->
+                                <div class="p-2 rounded-lg bg-accent/10 border-2 border-accent/50 shadow">
                                     <h2 class="text-xs font-bold text-accent">Total Cash Available</h2>
                                     <p id="availableEquity" class="text-xl font-extrabold text-accent" data-value="0">$0</p>
                                 </div>
-                                 <div class="p-3 rounded-lg bg-gray-100 border shadow">
+                                 <!-- UPDATED: Reduced p-3 to p-2 -->
+                                 <div class="p-2 rounded-lg bg-gray-100 border shadow">
                                     <h2 class="text-xs font-bold text-gray-800">Your Total Equity</h2>
                                     <p id="totalEquity" class="text-xl font-extrabold text-gray-800" data-value="0">$0</p>
                                 </div>
                             </div>
                             
                             <!-- Comparison Cards -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <!-- UPDATED: Reduced gap-3 to gap-2 -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                 <!-- HELOC Results -->
-                                <div class="p-3 bg-gray-50 rounded-lg shadow-inner border border-gray-200 space-y-2">
+                                <!-- UPDATED: Reduced p-3 to p-2 and space-y-2 to space-y-1 -->
+                                <div class="p-2 bg-gray-50 rounded-lg shadow-inner border border-gray-200 space-y-1">
                                     <h3 class="font-bold text-primary text-center text-sm">HELOC Results</h3>
                                     <div class="text-center">
                                         <p class="text-xs font-medium text-gray-600">Estimated Monthly Pmt.</p>
@@ -366,7 +388,8 @@
                                     </div>
                                 </div>
                                 <!-- Cash-Out Refi Results -->
-                                <div class="p-3 bg-gray-50 rounded-lg shadow-inner border border-gray-200 space-y-2">
+                                <!-- UPDATED: Reduced p-3 to p-2 and space-y-2 to space-y-1 -->
+                                <div class="p-2 bg-gray-50 rounded-lg shadow-inner border border-gray-200 space-y-1">
                                     <h3 class="font-bold text-primary text-center text-sm">Cash-Out Refi Results</h3>
                                      <div class="text-center">
                                         <p class="text-xs font-medium text-gray-600">New Mortgage Pmt. (P&I)</p>
@@ -380,28 +403,35 @@
                             </div>
                             
                             <!-- Comparison Chart -->
-                            <div class="mt-3 pt-3 border-t">
+                            <!-- UPDATED: Reduced mt-3 pt-3 to mt-2 pt-2 -->
+                            <div class="mt-2 pt-2 border-t">
                                 <h3 class="text-sm font-bold text-primary text-center">Comparison Summary</h3>
-                                <div class="relative h-48 md:h-56 mt-2">
+                                <!-- UPDATED: Reduced h-48 md:h-56 to h-44 md:h-56 -->
+                                <div class="relative h-44 md:h-56 mt-2">
                                     <canvas id="comparisonChart"></canvas>
                                 </div>
                             </div>
     
                             <!-- Equity Breakdown Chart -->
-                            <div class="mt-4 pt-4 border-t">
+                            <!-- UPDATED: Reduced mt-4 pt-4 to mt-2 pt-2 -->
+                            <div class="mt-2 pt-2 border-t">
                                  <h3 class="text-sm font-bold text-primary text-center">Your Home Equity Breakdown</h3>
-                                 <div class="relative h-48 md:h-56 max-w-xs mx-auto mt-2">
+                                 <!-- UPDATED: Reduced h-48 md:h-56 to h-44 md:h-56 -->
+                                 <div class="relative h-44 md:h-56 max-w-xs mx-auto mt-2">
                                     <canvas id="equityChart"></canvas>
                                  </div>
                             </div>
                             
                             <!-- Opportunity Cost Section -->
-                            <div id="opportunity-cost-section" class="hidden mt-4 pt-4 border-t">
+                            <!-- UPDATED: Reduced mt-4 pt-4 to mt-2 pt-2 -->
+                            <div id="opportunity-cost-section" class="hidden mt-2 pt-2 border-t">
                                 <h3 class="text-sm font-bold text-secondary text-center">Opportunity Cost: Invest vs. Leave Equity</h3>
-                                <div class="relative h-48 sm:h-56 mt-2">
+                                <!-- UPDATED: Reduced h-48 sm:h-56 to h-44 sm:h-56 -->
+                                <div class="relative h-44 sm:h-56 mt-2">
                                     <canvas id="opportunityCostChart"></canvas>
                                 </div>
-                                <div id="opportunity-cost-summary" class="mt-4 text-xs text-center bg-secondary/10 p-3 rounded-lg">
+                                <!-- UPDATED: Reduced mt-4 p-3 to mt-2 p-2 -->
+                                <div id="opportunity-cost-summary" class="mt-2 text-xs text-center bg-secondary/10 p-2 rounded-lg">
                                     <!-- Summary text will be injected here by JS -->
                                 </div>
                             </div>
@@ -411,7 +441,8 @@
                 </div>
     
                 <!-- Share Section - RESTORED ORIGINAL SHARE SECTION -->
-                <div class="bg-white p-4 rounded-xl shadow-2xl mt-4">
+                <!-- UPDATED: Reduced p-4 to p-3, mt-4 to mt-2 -->
+                <div class="bg-white p-3 rounded-xl shadow-lg mt-2">
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
                         <h3 class="text-sm font-semibold text-gray-800">Share This Calculator:</h3>
                         <div class="flex items-center gap-3">
