@@ -147,7 +147,8 @@
         <div class="container-global calculator-layout-grid my-4 space-y-4 lg:space-y-0">
             <!-- UPDATED: Wrapped main content in <main> tag for 80% column -->
             <main class="space-y-4">
-                <div id="calculator-container" class="bg-white p-3 sm:p-4 rounded-xl shadow-2xl">
+                <!-- UPDATED: Reduced padding from p-3 sm:p-4 to p-3 -->
+                <div id="calculator-container" class="bg-white p-3 rounded-xl shadow-2xl">
                     <header class="text-center mb-4">
                         <h1 class="text-base md:text-lg font-extrabold text-primary">Interactive Mortgage Amortisation Calculator</h1>
                         <p class="mt-1 text-xs text-gray-700">Visualize your loan payments, see the impact of extra contributions, and plan your path to being mortgage-free.</p>
@@ -155,12 +156,16 @@
     
                     <div id="error-messages" class="hidden p-3 mb-3 text-sm text-red-800 rounded-lg bg-red-50" role="alert"></div>
     
-                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
+                    <!-- UPDATED: Reduced gap-4 to gap-3 -->
+                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-3">
                         <!-- Input Column -->
-                        <div class="lg:col-span-2 space-y-3">
-                            <div class="bg-gray-50 border rounded-lg p-3">
+                        <!-- UPDATED: Reduced space-y-3 to space-y-2 -->
+                        <div class="lg:col-span-2 space-y-2">
+                            <!-- UPDATED: Reduced p-3 to p-2 -->
+                            <div class="bg-gray-50 border rounded-lg p-2">
                                 <h2 class="text-sm font-bold text-primary mb-2">Loan Details</h2>
-                                <div class="space-y-4">
+                                <!-- UPDATED: Reduced space-y-4 to space-y-3 -->
+                                <div class="space-y-3">
                                     <!-- Loan Amount Slider -->
                                     <div>
                                         <div class="flex justify-between items-center">
@@ -201,7 +206,8 @@
                                 </div>
                             </div>
     
-                            <div class="bg-gray-50 border rounded-lg p-3">
+                            <!-- UPDATED: Reduced p-3 to p-2 -->
+                            <div class="bg-gray-50 border rounded-lg p-2">
                                 <h2 class="text-sm font-bold text-primary mb-2">Accelerate Your Payoff</h2>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                     <div>
@@ -228,7 +234,8 @@
                                 </div>
                             </div>
     
-                            <div class="bg-gray-50 border rounded-lg p-3">
+                            <!-- UPDATED: Reduced p-3 to p-2 -->
+                            <div class="bg-gray-50 border rounded-lg p-2">
                                 <h2 class="text-sm font-bold text-primary mb-2">Optional Costs</h2>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                     <div>
@@ -257,7 +264,8 @@
                         </div>
     
                         <!-- Results Column -->
-                        <div class="lg:col-span-3 space-y-3 min-h-[500px]">
+                        <!-- UPDATED: Reduced space-y-3 to space-y-2 and removed min-h-[500px] -->
+                        <div class="lg:col-span-3 space-y-2 min-h-0">
                             <div id="results-summary" class="hidden">
                                 <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-center">
                                     <div class="bg-primary/10 p-2 rounded-lg">
@@ -278,7 +286,8 @@
                                     </div>
                                 </div>
     
-                                <div class="mt-3 bg-gray-50 border rounded-lg p-3">
+                                <!-- UPDATED: Reduced mt-3 to mt-2 and p-3 to p-2 -->
+                                <div class="mt-2 bg-gray-50 border rounded-lg p-2">
                                     <h3 class="text-xs font-bold text-gray-700 text-center">Loan Payoff Progress</h3>
                                     <div class="bg-gray-200 rounded-full h-4 mt-2 overflow-hidden">
                                         <div id="progressBar" class="bg-accent h-full rounded-full transition-all duration-500 flex items-center justify-end">
@@ -287,7 +296,8 @@
                                     </div>
                                 </div>
                                 
-                                <div class="mt-3 bg-white border rounded-lg p-3">
+                                <!-- UPDATED: Reduced mt-3 to mt-2 and p-3 to p-2 -->
+                                <div class="mt-2 bg-white border rounded-lg p-2">
                                     <div class="flex justify-between items-center mb-2">
                                          <h3 class="text-xs font-bold text-primary">Loan Balance Over Time</h3>
                                          <label for="compareToggle" class="inline-flex items-center cursor-pointer">
@@ -298,18 +308,22 @@
                                             </span>
                                         </label>
                                     </div>
-                                    <div class="relative h-48 sm:h-56">
+                                    <!-- UPDATED: Reduced h-48 sm:h-56 to h-44 sm:h-56 -->
+                                    <div class="relative h-44 sm:h-56">
                                         <canvas id="amortizationChart"></canvas>
                                     </div>
                                 </div>
                                 
                                 <!-- Opportunity Cost Section -->
-                                <div id="opportunity-cost-section" class="hidden mt-3 bg-white border-2 border-secondary/50 rounded-lg p-3">
+                                <!-- UPDATED: Reduced mt-3 to mt-2 and p-3 to p-2 -->
+                                <div id="opportunity-cost-section" class="hidden mt-2 bg-white border-2 border-secondary/50 rounded-lg p-2">
                                     <h3 class="text-xs font-bold text-secondary text-center">Opportunity Cost: Pay Mortgage vs. Invest</h3>
-                                    <div class="relative h-48 sm:h-56 mt-2">
+                                    <!-- UPDATED: Reduced h-48 sm:h-56 to h-44 sm:h-56 -->
+                                    <div class="relative h-44 sm:h-56 mt-2">
                                         <canvas id="opportunityCostChart"></canvas>
                                     </div>
-                                    <div id="opportunity-cost-summary" class="mt-4 text-xs text-center bg-secondary/10 p-3 rounded-lg">
+                                    <!-- UPDATED: Reduced mt-4 to mt-2 and p-3 to p-2 -->
+                                    <div id="opportunity-cost-summary" class="mt-2 text-xs text-center bg-secondary/10 p-2 rounded-lg">
                                         <!-- Summary text will be injected here by JS -->
                                     </div>
                                 </div>
@@ -322,7 +336,8 @@
                  <div id="share-section-placeholder" class="mt-4"></div>
     
                 <!-- Amortization Table & Downloads -->
-                <details id="table-section" class="bg-white rounded-xl shadow-lg border group mt-4">
+                <!-- UPDATED: Reduced mt-4 to mt-2 -->
+                <details id="table-section" class="bg-white rounded-xl shadow-lg border group mt-2">
                      <summary class="p-4 cursor-pointer flex justify-between items-center list-none">
                         <div class="flex items-center">
                             <span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-3">
@@ -363,7 +378,8 @@
                 </details>
     
                 <!-- SEO Content Section -->
-                <div class="bg-white p-4 sm:p-5 mt-4 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-sm">
+                <!-- UPDATED: Reduced p-4 sm:p-5 to p-4 and mt-4 to mt-2 -->
+                <div class="bg-white p-4 mt-2 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-sm">
                     <h2 class="text-xl font-extrabold text-primary !mb-4">A Homeowner's Guide to Mortgage Amortisation</h2>
                     
                     <section class="bg-gray-50/70 p-4 rounded-lg border">
