@@ -61,12 +61,12 @@ document.addEventListener('DOMContentLoaded', function() {
         <header class="bg-white/80 backdrop-blur-lg shadow-sm no-print sticky md:static top-0 z-40">
             <!-- UPDATED: Replaced Tailwind width/padding classes with .container-global -->
             <nav class="container-global">
-                <div class="flex items-center justify-between h-16">
-                    <a href="${homePath}" class="flex items-center space-x-3 text-primary hover:opacity-90 transition-opacity">
-                        <svg class="h-9 w-9" aria-hidden="true">
+                <div class="flex items-center justify-between h-14">
+                    <a href="${homePath}" class="flex items-center space-x-2 text-primary hover:opacity-90 transition-opacity">
+                        <svg class="h-8 w-8" aria-hidden="true">
                             <use href="${logoIconPath}"></use>
                         </svg>
-                        <span class="font-extrabold text-xl text-gray-800">
+                        <span class="font-extrabold text-lg text-gray-800">
                             <span class="border-b-4 border-sky-500 pb-0.5">Strategic</span>
                             <span class="text-gray-600 font-bold">Mortgage Planner</span>
                         </span>
@@ -96,11 +96,11 @@ document.addEventListener('DOMContentLoaded', function() {
             <!-- Mobile menu, show/hide based on menu state. -->
             <div class="md:hidden hidden" id="mobile-menu">
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="${homePath}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">All-in-One Planner</a>
-                    <a href="${calcHubPath}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Calculator Hub</a>
-                    <a href="${quizPath}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Refinance Quiz</a>
-                    <a href="${blogPath}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Blog</a>
-                    <a href="${legalPath}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Contact & Legal</a>
+                    <a href="${homePath}" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50">All-in-One Planner</a>
+                    <a href="${calcHubPath}" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Calculator Hub</a>
+                    <a href="${quizPath}" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Refinance Quiz</a>
+                    <a href="${blogPath}" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Blog</a>
+                    <a href="${legalPath}" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Contact & Legal</a>
                 </div>
             </div>
         </header>
