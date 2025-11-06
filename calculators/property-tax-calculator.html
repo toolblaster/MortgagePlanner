@@ -137,21 +137,26 @@
         <div class="container-global calculator-layout-grid my-4 space-y-4 lg:space-y-0">
             <!-- UPDATED: Wrapped main content in <main> tag for 80% column -->
             <main class="space-y-4">
-                <div id="calculator-container" class="bg-white p-3 sm:p-4 rounded-xl shadow-2xl">
+                <!-- UPDATED: Reduced padding from p-3 sm:p-4 to p-3 -->
+                <div id="calculator-container" class="bg-white p-3 rounded-xl shadow-2xl">
                     <!-- Header -->
                     <header class="text-center mb-4 pb-4 border-b">
-                        <!-- H1: Main heading for the page -->
-                        <h1 class="text-xl md:text-2xl font-extrabold text-primary">Property Tax Calculator</h1>
+                        <!-- H1: UPDATED to text-xl (20px) -->
+                        <h1 class="text-xl font-extrabold text-primary">Property Tax Calculator</h1>
                         <p class="mt-1 text-xs text-gray-700">Estimate your annual and monthly real estate taxes based on your location and home value.</p>
                     </header>
     
-                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
+                    <!-- UPDATED: Reduced gap-4 to gap-3 -->
+                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-3">
                         <!-- Input Column -->
-                        <div class="lg:col-span-2 space-y-3">
-                            <div class="bg-gray-50 border rounded-lg p-3">
+                        <!-- UPDATED: Reduced space-y-3 to space-y-2 -->
+                        <div class="lg:col-span-2 space-y-2">
+                            <!-- UPDATED: Reduced p-3 to p-2 -->
+                            <div class="bg-gray-50 border rounded-lg p-2">
                                 <!-- H2: Grouping for inputs -->
                                 <h2 class="text-sm font-bold text-primary mb-2">Property Details</h2>
-                                <div class="space-y-4">
+                                <!-- UPDATED: Reduced space-y-4 to space-y-3 -->
+                                <div class="space-y-3">
                                     <!-- Property Value -->
                                     <div>
                                         <div class="flex justify-between items-center">
@@ -174,10 +179,12 @@
                                 </div>
                             </div>
     
-                            <div class="bg-gray-50 border rounded-lg p-3">
+                            <!-- UPDATED: Reduced p-3 to p-2 -->
+                            <div class="bg-gray-50 border rounded-lg p-2">
                                 <!-- H2: Grouping for inputs -->
                                 <h2 class="text-sm font-bold text-primary mb-2">Tax Rate Information</h2>
-                                 <div class="space-y-4">
+                                 <!-- UPDATED: Reduced space-y-4 to space-y-3 -->
+                                 <div class="space-y-3">
                                     <!-- Location (State) -->
                                     <div>
                                         <label for="location" class="block font-medium text-xs text-gray-700">Location (US State Average):</label>
@@ -209,25 +216,31 @@
                         </div>
     
                         <!-- Results Column -->
-                        <div class="lg:col-span-3 space-y-3 min-h-[400px]">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-center">
-                                <div class="p-3 rounded-lg bg-primary/10 border-2 border-primary/50 shadow">
+                        <!-- UPDATED: Reduced space-y-3 to space-y-2 and min-h-[400px] to min-h-0 -->
+                        <div class="lg:col-span-3 space-y-2 min-h-0">
+                            <!-- UPDATED: Reduced gap-3 to gap-2 -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-center">
+                                <!-- UPDATED: Reduced p-3 to p-2 -->
+                                <div class="p-2 rounded-lg bg-primary/10 border-2 border-primary/50 shadow">
                                     <!-- H3: Result heading -->
                                     <h3 class="text-xs font-bold text-primary">Estimated Annual Tax</h3>
                                     <p id="annualTax" class="text-xl font-extrabold text-primary" data-value="0">$0</p>
                                 </div>
-                                <div class="p-3 rounded-lg bg-gray-100 border shadow">
+                                <!-- UPDATED: Reduced p-3 to p-2 -->
+                                <div class="p-2 rounded-lg bg-gray-100 border shadow">
                                     <!-- H3: Result heading -->
                                     <h3 class="text-xs font-bold text-gray-800">Estimated Monthly Tax</h3>
                                     <p id="monthlyTax" class="text-xl font-extrabold text-gray-800" data-value="0">$0</p>
                                 </div>
                             </div>
     
-                            <div class="p-3 bg-gray-50 rounded-lg shadow-inner border border-gray-200">
+                            <!-- UPDATED: Reduced p-3 to p-2 -->
+                            <div class="p-2 bg-gray-50 rounded-lg shadow-inner border border-gray-200">
                                 <!-- H2: Grouping for results -->
                                 <h2 class="font-bold text-primary text-center text-base mb-2">Tax Breakdown</h2>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-center">
-                                    <div class="relative h-40 md:h-48">
+                                    <!-- UPDATED: Reduced h-40 md:h-48 to h-40 -->
+                                    <div class="relative h-40">
                                         <canvas id="taxPieChart" role="img" aria-label="Pie chart showing property value vs. annual tax"></canvas>
                                     </div>
                                     <div class="text-center space-y-2">
@@ -237,7 +250,8 @@
                                 </div>
                             </div>
     
-                             <div class="mt-4 text-center p-4 bg-accent/10 border border-accent/20 rounded-lg">
+                             <!-- UPDATED: Reduced mt-4 to mt-2 and p-4 to p-3 -->
+                             <div class="mt-2 text-center p-3 bg-accent/10 border border-accent/20 rounded-lg">
                                 <!-- H3: Call to action heading -->
                                 <h3 class="font-bold text-accent">Planning a Purchase?</h3>
                                 <p class="text-xs text-gray-700 mt-1">See how this tax estimate fits into your total monthly payment with our full mortgage calculator.</p>
@@ -252,7 +266,8 @@
                 <div id="share-section-placeholder" class="mt-4"></div>
     
                  <!-- SEO Content Section -->
-                <div class="bg-white p-4 sm:p-5 mt-4 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-sm">
+                <!-- UPDATED: Reduced mt-4 to mt-2 -->
+                <div class="bg-white p-4 sm:p-5 mt-2 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-sm">
                     <!-- H2: Main SEO content heading -->
                     <h2 class="text-xl font-extrabold text-primary !mb-4">A Homeowner's Guide to Property Taxes</h2>
                     
