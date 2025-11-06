@@ -193,7 +193,7 @@
                     <!-- Header -->
                     <header class="text-center mb-4 pb-4 border-b">
                         <!-- H1: Main heading for the page -->
-                        <h1 class="text-xl md:text-2xl font-extrabold text-primary">Advanced Down Payment Calculator</h1>
+                        <h1 class="text-xl font-extrabold text-primary">Advanced Down Payment Calculator</h1>
                         <p class="mt-1 text-xs text-gray-700">See how your down payment impacts your loan, monthly costs, and savings timeline.</p>
                     </header>
     
@@ -204,7 +204,7 @@
                         <div class="lg:col-span-2 space-y-2">
                             <details open class="bg-gray-50 border rounded-lg">
                                 <!-- UPDATED: Reduced p-3 to p-2 -->
-                                <summary class="p-2 font-bold text-base text-primary cursor-pointer list-none flex justify-between items-center">
+                                <summary class="p-2 font-bold text-sm text-primary cursor-pointer list-none flex justify-between items-center">
                                     Purchase Details
                                     <!-- H2: Implicit grouping for inputs -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
@@ -238,7 +238,7 @@
                                         <!-- Currency -->
                                          <div>
                                             <label for="currency" class="block font-medium text-xs text-gray-700">Currency:</label>
-                                            <select id="currency" class="w-full p-1.5 text-xs border border-gray-300 rounded-md h-[30px]">
+                                            <select id="currency" class="w-full p-1 text-xs border border-gray-300 rounded-md h-[28px]">
                                                 <option value="USD">USD ($)</option>
                                                 <option value="EUR">EUR (€)</option>
                                                 <option value="GBP">GBP (£)</option>
@@ -252,7 +252,7 @@
     
                             <details open class="bg-gray-50 border rounded-lg">
                                  <!-- UPDATED: Reduced p-3 to p-2 -->
-                                 <summary class="p-2 font-bold text-base text-primary cursor-pointer list-none flex justify-between items-center">
+                                 <summary class="p-2 font-bold text-sm text-primary cursor-pointer list-none flex justify-between items-center">
                                     Loan Assumptions
                                     <!-- H2: Implicit grouping for inputs -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
@@ -262,15 +262,15 @@
                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                         <div>
                                             <label for="loanTerm" class="block font-medium text-xs text-gray-700">Loan Term (Years):</label>
-                                            <input type="number" id="loanTerm" value="30" class="w-full p-1.5 text-xs border border-gray-300 rounded-md">
+                                            <input type="number" id="loanTerm" value="30" class="w-full p-1 text-xs border border-gray-300 rounded-md">
                                         </div>
                                         <div>
                                             <label for="interestRate" class="block font-medium text-xs text-gray-700">Interest Rate (%):</label>
-                                            <input type="number" id="interestRate" value="6.5" step="0.01" class="w-full p-1.5 text-xs border border-gray-300 rounded-md">
+                                            <input type="number" id="interestRate" value="6.5" step="0.01" class="w-full p-1 text-xs border border-gray-300 rounded-md">
                                         </div>
                                         <div class="sm:col-span-2">
                                              <label for="loanType" class="block font-medium text-xs text-gray-700">Loan Type:</label>
-                                             <select id="loanType" class="w-full p-1.5 text-xs border border-gray-300 rounded-md h-[30px]">
+                                             <select id="loanType" class="w-full p-1 text-xs border border-gray-300 rounded-md h-[28px]">
                                                  <option value="conventional">Conventional</option>
                                                  <option value="fha">FHA</option>
                                                  <option value="va">VA</option>
@@ -283,7 +283,7 @@
     
                             <details open class="bg-gray-50 border rounded-lg">
                                 <!-- UPDATED: Reduced p-3 to p-2 -->
-                                <summary class="p-2 font-bold text-base text-primary cursor-pointer list-none flex justify-between items-center">
+                                <summary class="p-2 font-bold text-sm text-primary cursor-pointer list-none flex justify-between items-center">
                                     Advanced Features
                                     <!-- H2: Implicit grouping for inputs -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
@@ -296,11 +296,11 @@
                                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                             <div>
                                                 <label for="targetDownPayment" class="block font-medium text-xs text-gray-700">Target DP (%):</label>
-                                                <input type="number" id="targetDownPayment" value="20" class="w-full p-1.5 text-xs border border-gray-300 rounded-md">
+                                                <input type="number" id="targetDownPayment" value="20" class="w-full p-1 text-xs border border-gray-300 rounded-md">
                                             </div>
                                             <div>
                                                 <label for="monthlySavings" class="block font-medium text-xs text-gray-700">Monthly Savings (<span class="currency-symbol-small">$</span>):</label>
-                                                <input type="number" id="monthlySavings" value="500" class="w-full p-1.5 text-xs border border-gray-300 rounded-md">
+                                                <input type="number" id="monthlySavings" value="500" class="w-full p-1 text-xs border border-gray-300 rounded-md">
                                             </div>
                                         </div>
                                     </div>
@@ -310,11 +310,11 @@
                                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                             <div>
                                                 <label for="propertyTaxes" class="block font-medium text-xs text-gray-700">Property Taxes (<span class="currency-symbol-small">$</span>):</label>
-                                                <input type="number" id="propertyTaxes" value="4000" class="w-full p-1.5 text-xs border border-gray-300 rounded-md">
+                                                <input type="number" id="propertyTaxes" value="4000" class="w-full p-1 text-xs border border-gray-300 rounded-md">
                                             </div>
                                             <div>
                                                 <label for="homeInsurance" class="block font-medium text-xs text-gray-700">Home Insurance (<span class="currency-symbol-small">$</span>):</label>
-                                                <input type="number" id="homeInsurance" value="1200" class="w-full p-1.5 text-xs border border-gray-300 rounded-md">
+                                                <input type="number" id="homeInsurance" value="1200" class="w-full p-1 text-xs border border-gray-300 rounded-md">
                                             </div>
                                         </div>
                                     </div>
@@ -322,7 +322,7 @@
                             </details>
                             
                             <div class="sticky bottom-2 sm:bottom-4">
-                                <button id="saveScenarioBtn" class="w-full px-4 py-2 bg-accent text-white font-bold rounded-lg shadow-lg hover:bg-green-800 transition duration-150 text-sm">
+                                <button id="saveScenarioBtn" class="w-full px-4 py-1.5 bg-accent text-white font-bold rounded-lg shadow-lg hover:bg-green-800 transition duration-150 text-xs">
                                     Save & Share Scenario
                                 </button>
                                 <p id="saveFeedback" class="text-xs text-accent text-center h-5 mt-1"></p>
@@ -446,22 +446,23 @@
                         </div>
                     </div>
                 </div>
+    
                  <div id="share-section-placeholder" class="mt-4"></div>
     
                  <!-- SEO Content Section -->
-                <div class="bg-white p-4 sm:p-5 mt-4 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-sm">
+                <div class="bg-white p-4 sm:p-5 mt-4 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs">
                     <!-- H2: Main SEO content heading -->
-                    <h2 class="text-xl font-extrabold text-primary !mb-4">A Guide to Understanding Your Home Down Payment</h2>
+                    <h2 class="text-lg font-extrabold text-primary !mb-4">A Guide to Understanding Your Home Down Payment</h2>
                     
                     <section class="bg-gray-50/70 p-4 rounded-lg border">
                         <!-- H3: Content sub-heading -->
-                        <h3 class="text-lg font-bold text-gray-800">What is a Down Payment?</h3>
+                        <h3 class="text-base font-bold text-gray-800">What is a Down Payment?</h3>
                         <p class="mt-2 text-xs">A down payment is the initial, upfront portion of a home's purchase price that you pay out-of-pocket. It's not part of the mortgage loan. Think of it as your initial investment in your property. The size of your down payment directly impacts your loan amount, your monthly payment, and the terms your lender will offer you. Using a <strong>down payment calculator</strong> like this one is the first step in understanding these connections.</p>
                     </section>
     
                     <section class="bg-gray-50/70 p-4 rounded-lg border">
                         <!-- H3: Content sub-heading -->
-                        <h3 class="text-lg font-bold text-gray-800">How Much Down Payment Do I Need?</h3>
+                        <h3 class="text-base font-bold text-gray-800">How Much Down Payment Do I Need?</h3>
                         <p class="mt-2 text-xs">This is the most common question for first-time buyers. While the "20% rule" is well-known, it's not always a strict requirement. Here's a breakdown of your options:</p>
                         <ul class="space-y-2 mt-2 text-xs">
                             <li class="flex items-start">
@@ -480,7 +481,7 @@
     
                     <section class="bg-gray-50/70 p-4 rounded-lg border">
                         <!-- H3: Content sub-heading -->
-                        <h3 class="text-lg font-bold text-gray-800">Benefits of a Larger Down Payment</h3>
+                        <h3 class="text-base font-bold text-gray-800">Benefits of a Larger Down Payment</h3>
                         <p class="mt-2 text-xs">While saving can be tough, a larger down payment has significant long-term benefits:</p>
                         <ul class="space-y-2 mt-2 text-xs">
                             <li class="flex items-start">
@@ -514,27 +515,27 @@
                     <!-- NEW HOW-TO SECTION -->
                     <section class="bg-gray-50/70 p-4 rounded-lg border">
                         <!-- H3: Content sub-heading -->
-                        <h3 class="text-lg font-bold text-gray-800">How to Use the Advanced Down Payment Calculator</h3>
+                        <h3 class="text-base font-bold text-gray-800">How to Use the Advanced Down Payment Calculator</h3>
                         <p class="mt-2 text-xs">This tool is designed to be interactive and insightful. Follow these steps to get the most out of it:</p>
                         <ul class="space-y-3 mt-3 text-xs">
                             <li class="flex items-start">
-                               <span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold" aria-hidden="true">1</span>
+                               <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold" aria-hidden="true">1</span>
                                 <div><strong class="font-semibold text-primary block">Enter the Home Price:</strong> Start by inputting the total price of the home you are considering. You can use the slider for quick adjustments or type in a precise number.</div>
                             </li>
                              <li class="flex items-start">
-                               <span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold" aria-hidden="true">2</span>
+                               <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold" aria-hidden="true">2</span>
                                 <div><strong class="font-semibold text-primary block">Set Your Down Payment:</strong> Use the toggle to switch between a percentage (%) of the home price or a specific dollar amount ($). Adjust the slider to see how different down payment amounts affect your loan in real-time.</div>
                             </li>
                              <li class="flex items-start">
-                               <span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold" aria-hidden="true">3</span>
+                               <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold" aria-hidden="true">3</span>
                                 <div><strong class="font-semibold text-primary block">Adjust Loan Assumptions:</strong> Enter your expected loan term (e.g., 30 or 15 years) and the interest rate you anticipate. This is crucial for calculating your monthly payment.</div>
                             </li>
                              <li class="flex items-start">
-                               <span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold" aria-hidden="true">4</span>
+                               <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold" aria-hidden="true">4</span>
                                 <div><strong class="font-semibold text-primary block">Plan Your Savings Goal (Optional):</strong> In the 'Advanced Features' section, enter your target down payment percentage and how much you can save each month to see a projection of how long it will take to reach your goal.</div>
                             </li>
                              <li class="flex items-start">
-                               <span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold" aria-hidden="true">5</span>
+                               <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold" aria-hidden="true">5</span>
                                 <div><strong class="font-semibold text-primary block">Analyze Your Results:</strong> Review the output section to see your final down payment, loan amount, total monthly payment (including PMI, taxes, and insurance), and key metrics like the LTV ratio.</div>
                             </li>
                         </ul>
@@ -543,12 +544,12 @@
                     <!-- FAQ Section -->
                     <section class="py-4">
                         <!-- H2: FAQ grouping -->
-                        <h2 class="text-xl font-bold text-primary mb-3 text-center">Frequently Asked Questions</h2>
+                        <h2 class="text-lg font-bold text-primary mb-3 text-center">Frequently Asked Questions</h2>
                         <div class="max-w-3xl mx-auto border-t border-b border-gray-200 divide-y divide-gray-200" id="faq-accordion">
                            <div class="faq-item">
                                 <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-expanded="false">
                                     <!-- H3: FAQ Question -->
-                                    <h3 class="text-sm">How much should I put down on a house?</h3>
+                                    <h3 class="text-xs">How much should I put down on a house?</h3>
                                     <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
                                 </button>
                                 <div class="faq-answer">
@@ -560,7 +561,7 @@
                              <div class="faq-item">
                                 <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-expanded="false">
                                     <!-- H3: FAQ Question -->
-                                    <h3 class="text-sm">What is the minimum down payment for a mortgage?</h3>
+                                    <h3 class="text-xs">What is the minimum down payment for a mortgage?</h3>
                                      <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
                                 </button>
                                 <div class="faq-answer">
@@ -572,7 +573,7 @@
                              <div class="faq-item">
                                 <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-expanded="false">
                                     <!-- H3: FAQ Question -->
-                                    <h3 class="text-sm">Do I need 20% down to avoid PMI?</h3>
+                                    <h3 class="text-xs">Do I need 20% down to avoid PMI?</h3>
                                      <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
                                 </button>
                                 <div class="faq-answer">
@@ -584,7 +585,7 @@
                             <div class="faq-item">
                                 <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-expanded="false">
                                     <!-- H3: FAQ Question -->
-                                    <h3 class="text-sm">Does a higher down payment lower my monthly payment?</h3>
+                                    <h3 class="text-xs">Does a higher down payment lower my monthly payment?</h3>
                                      <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
                                 </button>
                                 <div class="faq-answer">
@@ -596,7 +597,7 @@
                             <div class="faq-item">
                                 <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-expanded="false">
                                     <!-- H3: FAQ Question -->
-                                    <h3 class="text-sm">What’s included in a mortgage payment besides principal and interest?</h3>
+                                    <h3 class="text-xs">What’s included in a mortgage payment besides principal and interest?</h3>
                                      <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
                                 </button>
                                 <div class="faq-answer">
