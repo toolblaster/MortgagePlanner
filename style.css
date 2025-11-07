@@ -541,3 +541,43 @@ input, select {
         top: 6rem; /* 96px, assumes 60px header + 24px margin + 12px padding */
     }
 }
+
+/* NEW: Styles for the Guided Planning Hub */
+
+/* Styles for the quick access top links */
+.quick-link-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border-width: 2px;
+    transition: all 0.2s ease-in-out;
+}
+
+.quick-link-tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+/* Styles for the main guided path steps */
+.path-details summary {
+    user-select: none; /* Prevent text selection on click */
+}
+.path-details summary:hover {
+    opacity: 0.95;
+}
+
+.path-details ol li {
+    padding-left: 0; /* Remove default list padding */
+    list-style: none;
+    margin-left: 0;
+}
+.path-details ol li > div {
+    border-left: 2px solid #e5e7eb; /* Light gray line for visual flow */
+    padding-left: 0.75rem;
+}
+.path-details ol li:last-child > div {
+    border-left: 2px solid transparent; /* Hide line for last item */
+}
