@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const homePath = rootPath;
     const quizPath = `${rootPath}Refinance-Readiness-Quiz.html`;
     const calcHubPath = `${rootPath}calculators/`;
+    // NEW: Added path for the Planning Hub
+    const planningHubPath = `${rootPath}calculators/planning-hub.html`;
     const legalPath = `${rootPath}contact-us-and-legal.html`;
     const blogPath = `${rootPath}blog/`;
     
@@ -63,21 +65,26 @@ document.addEventListener('DOMContentLoaded', function() {
             <nav class="container-global">
                 <div class="flex items-center justify-between h-14">
                     <a href="${homePath}" class="flex items-center space-x-2 text-primary hover:opacity-90 transition-opacity">
-                        <svg class="h-8 w-8" aria-hidden="true">
+                        <!-- UPDATED: Logo size decreased from h-8 w-8 to h-7 w-7 -->
+                        <svg class="h-7 w-7" aria-hidden="true">
                             <use href="${logoIconPath}"></use>
                         </svg>
-                        <span class="font-extrabold text-lg text-gray-800">
-                            <span class="border-b-4 border-sky-500 pb-0.5">Strategic</span>
-                            <span class="text-gray-600 font-bold">Mortgage Planner</span>
+                        <!-- UPDATED: Logo text size decreased from text-lg to text-base for better alignment -->
+                        <!-- UPDATED: Adjusted font weights and removed pb-0.5 for cleaner alignment -->
+                        <span class="font-bold text-base text-gray-800">
+                            <span class="border-b-4 border-sky-500">Strategic</span>
+                            <span class="text-gray-600 font-semibold">Mortgage Planner</span>
                         </span>
                     </a>
                     <!-- Desktop Menu -->
+                    <!-- UPDATED: Font size decreased from text-sm to text-xs -->
                     <div class="hidden md:flex items-center space-x-4">
-                        <a href="${homePath}" class="text-sm font-semibold text-primary hover:underline">#All-in-One Planner</a>
-                        <a href="${calcHubPath}" class="text-sm font-semibold text-primary hover:underline">Calculator Hub</a>
-                        <a href="${quizPath}" class="text-sm font-semibold text-primary hover:underline">Refinance Quiz</a>
-                        <a href="${blogPath}" class="text-sm font-semibold text-primary hover:underline">Blog</a>
-                        <a href="${legalPath}" class="text-sm font-semibold text-primary hover:underline">Contact & Legal</a>
+                        <a href="${homePath}" class="text-xs font-semibold text-primary hover:underline">Mortgage Planner</a>
+                        <a href="${planningHubPath}" class="text-xs font-semibold text-primary hover:underline">Planning Hub</a>
+                        <a href="${calcHubPath}" class="text-xs font-semibold text-primary hover:underline">Calculator's Hub</a>
+                        <a href="${quizPath}" class="text-xs font-semibold text-primary hover:underline">Refinance Quiz</a>
+                        <a href="${blogPath}" class="text-xs font-semibold text-primary hover:underline">Blog</a>
+                        <a href="${legalPath}" class="text-xs font-semibold text-primary hover:underline">Contact & Legal</a>
                     </div>
                     <!-- Mobile menu button -->
                     <div class="md:hidden flex items-center">
@@ -94,13 +101,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </nav>
             <!-- Mobile menu, show/hide based on menu state. -->
+            <!-- UPDATED: Font size decreased from text-sm to text-xs -->
             <div class="md:hidden hidden" id="mobile-menu">
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="${homePath}" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50">All-in-One Planner</a>
-                    <a href="${calcHubPath}" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Calculator Hub</a>
-                    <a href="${quizPath}" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Refinance Quiz</a>
-                    <a href="${blogPath}" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Blog</a>
-                    <a href="${legalPath}" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Contact & Legal</a>
+                    <a href="${homePath}" class="block px-3 py-2 rounded-md text-xs font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Mortgage Planner</a>
+                    <a href="${planningHubPath}" class="block px-3 py-2 rounded-md text-xs font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Planning Hub</a>
+                    <a href="${calcHubPath}" class="block px-3 py-2 rounded-md text-xs font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Calculator's Hub</a>
+                    <a href="${quizPath}" class="block px-3 py-2 rounded-md text-xs font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Refinance Quiz</a>
+                    <a href="${blogPath}" class="block px-3 py-2 rounded-md text-xs font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Blog</a>
+                    <a href="${legalPath}" class="block px-3 py-2 rounded-md text-xs font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Contact & Legal</a>
                 </div>
             </div>
         </header>
