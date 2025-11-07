@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <!-- UPDATED: Font size decreased from text-sm to text-xs -->
                     <div class="hidden md:flex items-center space-x-4">
                         <!-- UPDATED: Added Homepage link -->
-                        <a href="${homePath}" class="text-xs font-semibold text-primary hover:underline">Homepage</a>
+                        <a href="${homePath}" class="text-xs font-semibold text-primary hover:underline">Home</a>
                         <!-- UPDATED: Link to new planner.html -->
                         <a href="${plannerPath}" class="text-xs font-semibold text-primary hover:underline">Mortgage Planner</a>
                         <!-- UPDATED: Removed redundant Planning Hub link -->
