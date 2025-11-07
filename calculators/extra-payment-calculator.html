@@ -18,6 +18,8 @@
     <!-- Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     
     <!-- App Configuration -->
@@ -36,6 +38,30 @@
 
     <!-- Global & Page-Specific Styles -->
     <link rel="stylesheet" href="../style.css">
+     <style>
+        .faq-answer, .schedule-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        details[open] .faq-answer, details[open] .schedule-content {
+            max-height: 2000px; /* A large value to allow content to expand */
+        }
+        .term-tab {
+            transition: all 0.2s ease-in-out;
+        }
+        .term-tab.active {
+            background-color: #1C768F;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .details-chevron {
+            transition: transform 0.3s ease-in-out;
+        }
+        details[open] .details-chevron {
+            transform: rotate(90deg);
+        }
+    </style>
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -187,10 +213,10 @@
                 <!-- UPDATED: Reduced padding from p-3 sm:p-4 to p-3 -->
                 <div id="calculator-container" class="bg-white p-3 rounded-xl shadow-2xl">
                     <!-- Header -->
-                    <header class="text-center mb-4 pb-4 border-b">
+                    <header class="text-center mb-4 p-4 rounded-lg bg-gradient-to-r from-primary to-accent shadow-md">
                         <!-- H1: Main heading for the page -->
-                        <h1 class="text-xl font-extrabold text-primary">Advanced Extra Payment Calculator</h1>
-                        <p class="mt-1 text-xs text-gray-700">Find out how quickly you can pay off your mortgage and how much interest you'll save.</p>
+                        <h1 class="text-xl font-extrabold text-white">Advanced Extra Payment Calculator</h1>
+                        <p class="mt-1 text-xs text-gray-200">Find out how quickly you can pay off your mortgage and how much interest you'll save.</p>
                     </header>
     
                     <div id="error-messages" class="hidden p-3 mb-3 text-sm text-red-800 rounded-lg bg-red-50" role="alert"></div>
@@ -200,7 +226,7 @@
                         <!-- Input Column -->
                         <!-- UPDATED: Reduced space-y-3 to space-y-2 -->
                         <div class="lg:col-span-2 space-y-2">
-                            <details open class="bg-gray-50 border rounded-lg">
+                            <details open class="bg-gray-50 border-2 border-gray-300 rounded-lg">
                                  <!-- UPDATED: Reduced p-3 to p-2 -->
                                  <summary class="p-2 font-bold text-sm text-primary cursor-pointer list-none flex justify-between items-center">
                                     <!-- H2: Implicit grouping for inputs -->
@@ -273,7 +299,7 @@
                                 </div>
                             </details>
                             
-                            <details open class="bg-gray-50 border rounded-lg">
+                            <details open class="bg-gray-50 border-2 border-gray-300 rounded-lg">
                                 <!-- UPDATED: Reduced p-3 to p-2 -->
                                 <summary class="p-2 font-bold text-sm text-primary cursor-pointer list-none flex justify-between items-center">
                                     <!-- H2: Implicit grouping for inputs -->
@@ -329,19 +355,19 @@
                                    <div class="p-2 rounded-lg bg-accent/10 border-2 border-accent/50 shadow">
                                         <!-- H3: Result heading -->
                                         <h3 class="text-xs font-bold text-accent">Total Interest Saved</h3>
-                                        <p id="interestSaved" class="text-xl font-extrabold text-accent" data-value="0">$0</p>
+                                        <p id="interestSaved" class="text-lg font-extrabold text-accent" data-value="0">$0</p>
                                     </div>
                                     <!-- UPDATED: Reduced p-3 to p-2 -->
                                     <div class="p-2 rounded-lg bg-secondary/10 border-2 border-secondary/50 shadow">
                                         <!-- H3: Result heading -->
                                         <h3 class="text-xs font-bold text-secondary">Time Saved</h3>
-                                        <p id="timeSaved" class="text-xl font-extrabold text-secondary">-</p>
+                                        <p id="timeSaved" class="text-lg font-extrabold text-secondary">-</p>
                                     </div>
                                     <!-- UPDATED: Reduced p-3 to p-2 -->
                                     <div class="p-2 rounded-lg bg-primary/10 border-2 border-primary/50 shadow">
                                         <!-- H3: Result heading -->
                                         <h3 class="text-xs font-bold text-primary">New Payoff Date</h3>
-                                        <p id="newPayoffDate" class="text-xl font-extrabold text-primary">-</p>
+                                        <p id="newPayoffDate" class="text-lg font-extrabold text-primary">-</p>
                                     </div>
                                 </div>
     
@@ -349,8 +375,8 @@
                                 <div class="mt-2 bg-white border rounded-lg p-2">
                                     <!-- H3: Chart heading -->
                                     <h3 class="text-base font-bold text-primary text-center">Loan Balance Payoff: Standard vs. Accelerated</h3>
-                                    <!-- UPDATED: Reduced h-64 md:h-72 to h-56 md:h-64 -->
-                                    <div class="relative h-56 md:h-64 mt-2">
+                                    <!-- UPDATED: Reduced h-56 md:h-64 to h-48 md:h-56 -->
+                                    <div class="relative h-48 md:h-56 mt-2">
                                         <canvas id="payoffChart" role="img" aria-label="Line chart comparing standard vs. accelerated loan balance payoff"></canvas>
                                     </div>
                                 </div>
@@ -420,8 +446,8 @@
                                     <!-- H3: Chart heading -->
                                     <h3 class="text-base font-bold text-secondary text-center">Opportunity Cost: Pay Mortgage vs. Invest</h3>
                                      <p class="text-center text-xs text-gray-600 mb-2">Compares the extra equity gained vs. the potential growth of investing your extra payments.</p>
-                                    <!-- UPDATED: Reduced h-64 md:h-72 to h-56 md:h-64 -->
-                                    <div class="relative h-56 md:h-64 mt-2">
+                                    <!-- UPDATED: Reduced h-56 md:h-64 to h-48 md:h-56 -->
+                                    <div class="relative h-48 md:h-56 mt-2">
                                         <canvas id="opportunityCostChart" role="img" aria-label="Line chart comparing investment growth vs. extra equity from payments"></canvas>
                                     </div>
                                     <!-- UPDATED: Reduced mt-4 to mt-2, p-3 to p-2 -->
@@ -463,12 +489,12 @@
                     <!-- H3: Call to action heading -->
                     <h3 class="font-bold text-accent">Want a more detailed analysis?</h3>
                     <p class="text-xs text-gray-700 mt-1">Explore NPV, DTI, equity growth, and more with our main planner.</p>
-                     <a href="../#mortgage-tab" class="mt-2 inline-block text-sm font-semibold text-primary hover:underline">
+                     <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#mortgage-tab" class="mt-2 inline-block text-sm font-semibold text-primary hover:underline">
                         Go to the All-in-One Mortgage Planner &rarr;
                     </a>
                 </div>
                 
-                <div id="share-section-placeholder" class="mt-4"></div>
+                <!-- REMOVED Share Section Placeholder -->
     
                 <!-- SEO Content Section -->
                 <div class="bg-white p-4 sm:p-5 mt-4 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs">
@@ -530,48 +556,64 @@
                         </ul>
                     </section>
                     
-                    <!-- Country-Specific Section -->
+                    <!-- Country-Specific Section - IMPROVED -->
                     <section class="bg-gray-50/70 p-4 rounded-lg border">
                         <!-- H3: Content sub-heading -->
                         <h3 class="text-base font-bold text-gray-800 text-center">Country-Specific Considerations</h3>
                         <p class="mt-2 text-xs text-center">Mortgage rules and associated costs can vary significantly by country. Here are a few key points for international users:</p>
                         <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
                             <!-- UK Card -->
-                            <div class="bg-white p-4 rounded-lg border shadow-sm">
-                                <div class="flex items-center gap-3">
+                            <div class="bg-white p-4 rounded-lg border-2 border-primary/20 shadow-sm flex flex-col">
+                                <div class="flex items-center gap-3 mb-3 pb-2 border-b border-gray-100">
                                     <img src="https://flagcdn.com/gb.svg" width="30" alt="UK Flag">
                                     <!-- H4: Sub-section heading -->
                                     <h4 class="font-bold text-primary">United Kingdom</h4>
                                 </div>
-                                <ul class="text-xs mt-2 space-y-1 text-gray-600 list-disc list-inside">
-                                    <li><strong>Stamp Duty Land Tax (SDLT):</strong> A significant tax paid on property purchases, with rates depending on the property value and buyer status.</li>
-                                    <li><strong>Mortgage Terms:</strong> Fixed-rate periods are often shorter (2, 5, or 10 years) before reverting to a Standard Variable Rate (SVR).</li>
+                                 <ul class="text-xs space-y-2 text-gray-600 flex-grow">
+                                    <li class="flex items-start gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                                        <span><strong>Stamp Duty (SDLT):</strong> A significant tax paid on property purchases, tiered by value.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                                        <span><strong>Mortgage Terms:</strong> Fixed-rate periods are often shorter (2-5 years) before reverting to a Standard Variable Rate (SVR).</span>
+                                    </li>
                                 </ul>
                             </div>
                             <!-- Canada Card -->
-                            <div class="bg-white p-4 rounded-lg border shadow-sm">
-                                <div class="flex items-center gap-3">
+                            <div class="bg-white p-4 rounded-lg border-2 border-primary/20 shadow-sm flex flex-col">
+                                <div class="flex items-center gap-3 mb-3 pb-2 border-b border-gray-100">
                                     <img src="https://flagcdn.com/ca.svg" width="30" alt="Canada Flag">
                                     <!-- H4: Sub-section heading -->
                                     <h4 class="font-bold text-primary">Canada</h4>
                                 </div>
-                                 <ul class="text-xs mt-2 space-y-1 text-gray-600 list-disc list-inside">
-                                    <li><strong>Amortization vs. Term:</strong> Mortgages are amortized over a long period (e.g., 25 years), but the contract term is shorter (e.g., 5 years), after which you must renew.</li>
-                                    <li><strong>Payment Frequency:</strong> Accelerated bi-weekly payments are very common and are a great way to pay down your mortgage faster.</li>
-                                    <li><strong>Land Transfer Tax (LTT):</strong> A provincial or municipal tax paid on property purchases.</li>
+                                 <ul class="text-xs space-y-2 text-gray-600 flex-grow">
+                                    <li class="flex items-start gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 6v.01M12 18v-2m0-2v-2m0-2V7m0 0V6" /></svg>
+                                        <span><strong>Payment Frequency:</strong> Accelerated bi-weekly payments are very common and highly effective for faster payoff.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                        <span><strong>Amortization vs. Term:</strong> Mortgages amortize over 25+ years, but the contract term is shorter (e.g., 5 years), requiring renewal.</span>
+                                    </li>
                                 </ul>
                             </div>
                             <!-- Australia Card -->
-                            <div class="bg-white p-4 rounded-lg border shadow-sm">
-                                <div class="flex items-center gap-3">
+                            <div class="bg-white p-4 rounded-lg border-2 border-primary/20 shadow-sm flex flex-col">
+                                <div class="flex items-center gap-3 mb-3 pb-2 border-b border-gray-100">
                                      <img src="https://flagcdn.com/au.svg" width="30" alt="Australia Flag">
                                      <!-- H4: Sub-section heading -->
                                     <h4 class="font-bold text-primary">Australia</h4>
                                 </div>
-                                 <ul class="text-xs mt-2 space-y-1 text-gray-600 list-disc list-inside">
-                                    <li><strong>Stamp Duty:</strong> A state-based tax on property transactions, which can be a major upfront cost.</li>
-                                    <li><strong>Lenders Mortgage Insurance (LMI):</strong> Similar to PMI, LMI is typically required if you borrow more than 80% of the property's value.</li>
-                                    <li><strong>Offset Accounts:</strong> A popular feature where a savings account is linked to the mortgage, and the balance "offsets" the loan principal, reducing interest.</li>
+                                 <ul class="text-xs space-y-2 text-gray-600 flex-grow">
+                                    <li class="flex items-start gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
+                                        <span><strong>Offset Accounts:</strong> A very popular feature where a savings account balance "offsets" the loan principal, reducing interest.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                        <span><strong>Lenders Mortgage Insurance (LMI):</strong> Similar to PMI, LMI is typically required if your down payment is less than 20%.</span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -617,7 +659,7 @@
                     <section class="py-4">
                         <!-- H3: FAQ grouping -->
                         <h3 class="text-base font-bold text-primary mb-3 text-center">Frequently Asked Questions</h3>
-                        <div class="max-w-3xl mx-auto border-t border-b border-gray-200 divide-y divide-gray-200">
+                        <div class="max-w-3xl mx-auto border-t border-b border-gray-200 divide-y divide-gray-200" id="faq-accordion">
                            <div class="faq-item">
                                 <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition" aria-expanded="false">
                                     <!-- H4: FAQ Question -->
