@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     const headerHTML = `
-        <header class="bg-white/80 backdrop-blur-lg shadow-sm no-print sticky md:static top-0 z-40 rounded-b-lg md:rounded-b-xl border-glow-primary">
+        <header class="bg-white/80 backdrop-blur-lg shadow-sm no-print md:static top-0 z-40 rounded-b-lg md:rounded-b-xl border-glow-primary">
             <!-- UPDATED: Replaced Tailwind width/padding classes with .container-global -->
             <nav class="container-global">
                 <div class="flex items-center justify-between h-14">
@@ -106,8 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </nav>
             <!-- Mobile menu, show/hide based on menu state. -->
-            <!-- UPDATED: Font size decreased from text-sm to text-xs -->
-            <div class="md:hidden hidden" id="mobile-menu">
+            <!-- UPDATED: Replaced 'hidden' with animation classes: invisible, opacity-0, max-h-0 and transition properties -->
+            <div class="md:hidden invisible opacity-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out" id="mobile-menu">
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                     <!-- UPDATED: Added Homepage link -->
                     <a href="${homePath}" class="block px-3 py-2 rounded-md text-xs font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Homepage</a>
@@ -121,6 +121,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         </header>
+        <!-- NEW: Full-screen overlay for when mobile menu is open -->
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-25 z-30 hidden md:hidden backdrop-blur-sm"></div>
     `;
 
     const footerHTML = `
@@ -168,15 +170,38 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add Mobile Menu Toggle Logic
     const menuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay'); // Get the new overlay
     const hamburger = document.getElementById('hamburger-icon');
     const close = document.getElementById('close-icon');
 
     if (menuButton) {
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            hamburger.classList.toggle('hidden');
-            close.classList.toggle('hidden');
-        });
+        const toggleMenu = () => {
+            const isOpen = mobileMenu.classList.contains('invisible');
+
+            // Toggle Body Scroll
+            // We only want to lock scroll on mobile. md:overflow-auto ensures desktop is never locked.
+            document.body.classList.toggle('overflow-hidden', isOpen);
+            document.body.classList.toggle('md:overflow-auto', isOpen);
+
+            if (isOpen) {
+                // Open menu
+                mobileMenu.classList.remove('invisible', 'opacity-0', 'max-h-0');
+                mobileMenu.classList.add('visible', 'opacity-100', 'max-h-screen'); // Use max-h-screen as a proxy for auto-height
+                mobileMenuOverlay.classList.remove('hidden');
+                hamburger.classList.add('hidden');
+                close.classList.remove('hidden');
+            } else {
+                // Close menu
+                mobileMenu.classList.add('invisible', 'opacity-0', 'max-h-0');
+                mobileMenu.classList.remove('visible', 'opacity-100', 'max-h-screen');
+                mobileMenuOverlay.classList.add('hidden');
+                hamburger.classList.remove('hidden');
+                close.classList.add('hidden');
+            }
+        };
+
+        menuButton.addEventListener('click', toggleMenu);
+        mobileMenuOverlay.addEventListener('click', toggleMenu); // Close on overlay click
     }
 
     // --- NEW: Centralized Social Sharing ---
