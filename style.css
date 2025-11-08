@@ -29,10 +29,10 @@ details[open] summary ~ * { animation: sweep .3s ease-in-out; }
 .tooltip-text::after { content: ""; position: absolute; top: 100%; left: 50%; margin-left: -5px; border-width: 5px; border-style: solid; border-color: #1f2937 transparent transparent transparent; }
 .tooltip-container:hover .tooltip-text, .tooltip-container:focus-within .tooltip-text { visibility: visible; opacity: 1; }
 
-#chartContainer, #rent-vs-buy-chart-container, #affordability-chart-container, #refinance-chart-container { position: relative; height: 250px; width: 100%; }
+#chartContainer, #rent-vs-buy-chart-container, #affordability-chart-container, #refinance-chart-container { position: relative; height: 200px; width: 100%; } /* Reduced from 250px */
 @media (min-width: 640px) {
     #chartContainer, #rent-vs-buy-chart-container, #affordability-chart-container, #refinance-chart-container {
-        height: 320px;
+        height: 260px; /* Reduced from 320px */
     }
 }
 #amortizationTable th, #amortizationTable td { white-space: nowrap; }
@@ -66,10 +66,7 @@ details[open] summary ~ * { animation: sweep .3s ease-in-out; }
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
 }
-@keyframes rotation {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+@keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
 
 /* Mobile-first adjustments for the main calculator layout */
