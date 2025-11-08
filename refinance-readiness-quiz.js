@@ -152,12 +152,31 @@ document.addEventListener('DOMContentLoaded', function () {
             const chosenOption = q.options.find(opt => opt.text === userAnswerText);
             if (chosenOption) {
                 rawScore += chosenOption.score;
-                const scoreColor = chosenOption.score > 10 ? 'text-green-500' : chosenOption.score > 5 ? 'text-yellow-500' : 'text-red-500';
+                
+                let scoreIndicatorHtml = '';
+                // UPDATED: Added icons and score-based colors for breakdown
+                if (chosenOption.score >= 15) { // Excellent
+                    scoreIndicatorHtml = `<span class="flex-shrink-0 w-5 h-5 rounded-full bg-accent text-white flex items-center justify-center" title="Positive Factor">
+                                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                          </span>`;
+                } else if (chosenOption.score >= 5) { // Neutral
+                    scoreIndicatorHtml = `<span class="flex-shrink-0 w-5 h-5 rounded-full bg-yellow-500 text-white flex items-center justify-center" title="Neutral Factor">
+                                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M20 12H4"></path></svg>
+                                          </span>`;
+                } else { // Warning
+                    scoreIndicatorHtml = `<span class="flex-shrink-0 w-5 h-5 rounded-full bg-red-500 text-white flex items-center justify-center" title="Warning Factor">
+                                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                          </span>`;
+                }
+
                 breakdownHTML += `
-                    <div class="p-3 bg-gray-50 rounded-lg border flex items-start gap-3">
-                         <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center">${q.icon}</div>
+                    <div class="p-3 bg-gray-50 rounded-lg border-l-4 ${chosenOption.score >= 15 ? 'border-accent' : (chosenOption.score >= 5 ? 'border-yellow-500' : 'border-red-500')}">
+                         <div class="flex items-center justify-between mb-2">
+                             <h4 class="text-xs font-bold text-gray-700">${q.question}</h4>
+                             ${scoreIndicatorHtml}
+                         </div>
                          <div>
-                            <p class="font-semibold text-gray-800">${chosenOption.text}</p>
+                            <p class="font-semibold text-primary text-xs">${chosenOption.text}</p>
                             <p class="text-gray-600 mt-1 text-xs italic">${chosenOption.feedback}</p>
                         </div>
                     </div>
@@ -194,11 +213,11 @@ document.addEventListener('DOMContentLoaded', function () {
             resultMessage = "You appear to be in a strong position to refinance. With your high score, you're likely to qualify for the best rates, maximizing your potential savings.";
             scoreCircleProgress.className.baseVal = "text-accent";
             nextStepsHTML += `
-                <a href="./#refinance-tab" class="block p-3 bg-green-50 hover:bg-green-100 rounded-lg border border-green-200 transition">
+                <a href="./all-in-one-mortgage-planner.html#refinance-tab" class="block p-3 bg-green-50 hover:bg-green-100 rounded-lg border border-green-200 transition">
                     <p class="font-semibold text-green-800">1. Analyze Your Savings</p>
                     <p class="text-xs text-green-700">Use our detailed Refinance Calculator to see your exact break-even point and lifetime savings.</p>
                 </a>
-                <a href="#" class="block p-3 bg-gray-50 hover:bg-gray-100 rounded-lg border">
+                <a href="./blog/how-to-buy-your-first-home-guide.html" class="block p-3 bg-gray-50 hover:bg-gray-100 rounded-lg border">
                     <p class="font-semibold text-gray-800">2. Start Comparing Lenders</p>
                     <p class="text-xs text-gray-700">You're in a great position to shop around for the best possible rates and terms.</p>
                 </a>`;
@@ -208,11 +227,11 @@ document.addEventListener('DOMContentLoaded', function () {
             resultMessage = "Refinancing could be a great move for you. Your score indicates you're a good candidate, but it's important to run the numbers to confirm your savings will outweigh the costs.";
             scoreCircleProgress.className.baseVal = "text-primary";
             nextStepsHTML += `
-                <a href="index.html#refinance-tab" class="block p-3 bg-sky-50 hover:bg-sky-100 rounded-lg border border-sky-200 transition">
+                <a href="all-in-one-mortgage-planner.html#refinance-tab" class="block p-3 bg-sky-50 hover:bg-sky-100 rounded-lg border border-sky-200 transition">
                     <p class="font-semibold text-sky-800">1. Calculate Your Break-Even Point</p>
                     <p class="text-xs text-sky-700">Use our Refinance Calculator to ensure your monthly savings will cover the closing costs before you plan to move.</p>
                 </a>
-                <a href="#" class="block p-3 bg-gray-50 hover:bg-gray-100 rounded-lg border">
+                <a href="./blog/fixed-vs-variable-mortgage-guide.html" class="block p-3 bg-gray-50 hover:bg-gray-100 rounded-lg border">
                     <p class="font-semibold text-gray-800">2. Get Pre-Qualified Quotes</p>
                     <p class="text-xs text-gray-700">Contact a few lenders to see what actual rates you qualify for based on your profile.</p>
                 </a>`;
@@ -221,11 +240,11 @@ document.addEventListener('DOMContentLoaded', function () {
             resultMessage = "Refinancing might be possible, but may not be the most beneficial option right now. Focus on the areas for improvement mentioned in the breakdown before moving forward.";
             scoreCircleProgress.className.baseVal = "text-yellow-500";
              nextStepsHTML += `
-                <a href="#" class="block p-3 bg-yellow-50 hover:bg-yellow-100 rounded-lg border border-yellow-200 transition">
+                <a href="./blog/first-time-home-buyer-checklist.html" class="block p-3 bg-yellow-50 hover:bg-yellow-100 rounded-lg border border-yellow-200 transition">
                     <p class="font-semibold text-yellow-800">1. Focus on Improving Key Areas</p>
                     <p class="text-xs text-yellow-700">Work on boosting your credit score or paying down other debts to lower your DTI ratio.</p>
                 </a>
-                <a href="index.html#refinance-tab" class="block p-3 bg-gray-50 hover:bg-gray-100 rounded-lg border">
+                <a href="all-in-one-mortgage-planner.html#refinance-tab" class="block p-3 bg-gray-50 hover:bg-gray-100 rounded-lg border">
                     <p class="font-semibold text-gray-800">2. Model Scenarios</p>
                     <p class="text-xs text-gray-700">Use our calculator to see how much a better credit score or lower DTI could save you in the future.</p>
                 </a>`;
@@ -234,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function () {
             resultMessage = "Based on your answers, now is likely not the best time to refinance. It would be wise to focus on improving your financial situation, such as building more equity or raising your credit score.";
             scoreCircleProgress.className.baseVal = "text-red-500";
             nextStepsHTML += `
-                <a href="#" class="block p-3 bg-red-50 hover:bg-red-100 rounded-lg border border-red-200 transition">
+                <a href="./blog/how-to-pay-off-your-mortgage-early.html" class="block p-3 bg-red-50 hover:bg-red-100 rounded-lg border border-red-200 transition">
                     <p class="font-semibold text-red-800">1. Build a Stronger Financial Foundation</p>
                     <p class="text-xs text-red-700">Focus on increasing your income, paying down your mortgage to build equity, and improving your credit history.</p>
                 </a>
