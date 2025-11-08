@@ -30,8 +30,12 @@
 <body class="bg-gray-100">
     <!-- Main Content Area -->
     <main class="content-wrapper">
-        <div class="bg-white p-3 sm:p-4 md:p-6 rounded-xl shadow-2xl w-full max-w-3xl mx-auto my-3">
-            <h1 class="text-lg md:text-xl font-extrabold text-primary text-center">Contact & Legal</h1>
+        <div class="bg-white px-4 pt-4 pb-3 rounded-lg shadow-xl w-full max-w-5xl mx-auto my-4">
+            <!-- Updated Header with Gradient -->
+            <header class="text-center mb-4 p-4 rounded-lg bg-gradient-to-r from-primary to-accent shadow-md">
+                <h1 class="text-xl font-extrabold text-white">Contact & Legal</h1>
+                <p class="mt-1 text-xs text-gray-200">Contact information, disclaimers, and terms of use.</p>
+            </header>
             
             <div class="text-center bg-sky-50 p-3 rounded-lg my-4 border border-sky-200">
                 <h2 class="font-bold text-sm text-primary">Contact Us</h2>
@@ -48,8 +52,18 @@
                 </div>
             </div>
 
+            <!-- 
+              FUTURE AD SLOT (Responsive Banner) 
+              - 'min-h-[90px]' is set to prevent Cumulative Layout Shift (CLS) when the ad loads.
+              - Kept 'hidden' as requested.
+            -->
+            <div class="my-4 flex min-h-[90px] w-full items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 text-gray-400 hidden">
+                Future Ad Placeholder (e.g., 728x90)
+            </div>
+
             <!-- Redesigned Disclaimer and Privacy Sections -->
-            <div class="space-y-6 mt-6">
+            <!-- UPDATED: Converted to a 3-column grid layout on medium screens and up -->
+            <div class="space-y-6 mt-6 md:grid md:grid-cols-3 md:gap-6 md:space-y-0">
 
                 <!-- Disclaimer Section -->
                 <div class="bg-amber-50 border-l-4 border-amber-400 p-3 sm:p-4 rounded-lg shadow-sm">
