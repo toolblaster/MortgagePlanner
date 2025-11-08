@@ -216,28 +216,28 @@
 
                 <!-- NEW: Wrapper for Tools & Paths -->
                 <!-- UPDATED: Changed background to bg-gray-100, added border-4, and shadow-xl for prominence -->
-                <section class="mb-8 p-4 bg-gray-100 border-4 border-primary/30 rounded-xl shadow-xl">
+                <section class="mb-8 p-4 bg-gradient-to-r from-buy-path/5 via-white to-invest-path/5 border-4 border-primary/30 rounded-xl shadow-xl">
                     <!-- Quick Access / CTA Row -->
-                    <section class="pb-6" id="quick-tools-section">
-                        <h2 class="text-lg font-extrabold text-primary mb-4 text-center">Quick Tools for Immediate Answers</h2>
+                    <section class="pb-6 p-4 rounded-xl" id="quick-tools-section">
+                        <h2 class="text-lg font-extrabold text-primary mb-4 text-center border-b-2 border-primary/20 pb-4">Quick Tools for Immediate Answers</h2>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-4xl mx-auto">
                             <!-- UPDATED: Link to all-in-one-mortgage-planner.html -->
                             <!-- ACCESSIBILITY UPDATE: text-buy-path, hover:bg-buy-path/10, border-buy-path/30 classes now use the higher-contrast color defined in the script config -->
-                            <a href="all-in-one-mortgage-planner.html#affordability-tab" class="quick-link-tile bg-white hover:bg-buy-path/10 border-buy-path/30 text-buy-path">
+                            <a href="all-in-one-mortgage-planner.html#affordability-tab" class="quick-link-tile bg-white hover:bg-blue-50 border-buy-path/30 text-buy-path">
                                 <!-- Icon: Target (Affordability) -->
                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
                                 <span class="text-xs font-semibold mt-1">Affordability</span>
                             </a>
                             <!-- UPDATED: Link to calculators/ folder -->
                             <!-- ACCESSIBILITY UPDATE: text-optimize-path, hover:bg-optimize-path/10, border-optimize-path/30 classes now use the higher-contrast color -->
-                            <a href="calculators/extra-payment-calculator.html" class="quick-link-tile bg-white hover:bg-optimize-path/10 border-optimize-path/30 text-optimize-path">
+                            <a href="calculators/extra-payment-calculator.html" class="quick-link-tile bg-white hover:bg-green-50 border-optimize-path/30 text-optimize-path">
                                 <!-- Icon: Zap (Payoff Faster) -->
                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                                 <span class="text-xs font-semibold mt-1">Payoff Faster</span>
                             </a>
                             <!-- UPDATED: Link to calculators/ folder & New Icon -->
                             <!-- ACCESSIBILITY UPDATE: text-invest-path, hover:bg-invest-path/10, border-invest-path/30 classes now use the higher-contrast color -->
-                            <a href="calculators/home-equity-calculator.html" class="quick-link-tile bg-white hover:bg-invest-path/10 border-invest-path/30 text-invest-path">
+                            <a href="calculators/home-equity-calculator.html" class="quick-link-tile bg-white hover:bg-amber-50 border-invest-path/30 text-invest-path">
                                 <!-- Icon: CurrencyDollar (Home Equity) -->
                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                                 <span class="text-xs font-semibold mt-1">Home Equity</span>
@@ -466,7 +466,8 @@
 
                 <!-- NEW SECTION: All Calculators -->
                 <section class="mt-8 p-4 bg-primary/5 border-2 border-primary/20 rounded-xl">
-                    <header class="text-center mb-6 pb-4 border-b-2 border-primary/20 bg-gradient-to-r from-sky-50 via-white to-sky-50 p-4 rounded-lg">
+                    <!-- UPDATED HEADER STYLES -->
+                    <header class="text-center mb-6 pb-4 border-b-2 border-primary/30 bg-primary/10 p-4 rounded-lg">
                         <h2 class="text-xl font-extrabold text-primary">Explore Our Full Suite of Calculators</h2>
                         <p class="mt-1 text-sm text-gray-600">Need a specific answer? Dive into our standalone tools.</p>
                     </header>
@@ -549,9 +550,10 @@
 
                 <!-- NEW SECTION: Blog Articles -->
                 <section class="mt-8 p-4 bg-primary/5 border-2 border-primary/20 rounded-xl">
-                    <header class="text-center mb-6 pb-4 border-b-2 border-primary/20 bg-gradient-to-r from-sky-50 via-white to-sky-50 p-4 rounded-lg">
-                        <h2 class="text-xl font-extrabold text-primary">Latest Mortgage Insights & Guides</h2>
-                        <p class="mt-1 text-sm text-gray-600">Learn the concepts behind the calculations.</p>
+                    <!-- UPDATED HEADER STYLES -->
+                    <header class="text-center mb-6 pb-4 border-b-2 border-accent/30 bg-accent/10 p-4 rounded-lg">
+                        <h2 class="text-xl font-extrabold text-accent">Latest Mortgage Insights & Guides</h2>
+                        <p class="mt-1 text-sm text-green-800">Learn the concepts behind the calculations.</p>
                     </header>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         <a href="blog/how-to-buy-your-first-home-guide.html" class="hub-card flex items-start text-left">
