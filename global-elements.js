@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <!-- UPDATED: Logo text size decreased from text-lg to text-base for better alignment -->
                         <!-- UPDATED: Adjusted font weights and removed pb-0.5 for cleaner alignment -->
                         <span class="font-bold text-base text-gray-800">
-                            <span class="border-b-4 border-sky-500">Strategic</span>
+                            <span class="border-b-4 border-accent">Strategic</span>
                             <span class="text-gray-600 font-semibold">Mortgage Planner</span>
                         </span>
                     </a>
@@ -140,8 +140,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <svg width="0" height="0" class="absolute">
           <defs>
             <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#1C768F;stop-opacity:1" />
+              <stop offset="0%" style="stop-color:#1C768F;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#166534;stop-opacity:1" />
             </linearGradient>
           </defs>
           <symbol id="logo-icon" viewBox="0 0 100 100">
