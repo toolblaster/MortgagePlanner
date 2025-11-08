@@ -86,14 +86,23 @@
 </head>
 <body class="bg-gray-100 text-sm">
     <main class="content-wrapper">
-        <!-- UPDATED: Replaced max-w-4xl and padding/margin with .container-global -->
-        <div class="container-global my-4">
+        <!-- UPDATED: Replaced .container-global with max-w-4xl for 950px width request -->
+        <div class="w-full max-w-4xl mx-auto my-4 px-4">
             <div class="bg-white rounded-xl shadow-2xl p-4 sm:p-6">
                 <!-- Quiz Header -->
-                <header class="text-center border-b pb-4 mb-4">
-                    <h1 class="text-xl md:text-2xl font-extrabold text-primary">Refinance Readiness Quiz</h1>
-                    <p class="mt-1 text-xs text-gray-700">Answer a few quick questions to see if refinancing is a smart move for you right now.</p>
+                <header class="text-center mb-4 p-4 rounded-lg bg-gradient-to-r from-primary to-accent shadow-md">
+                    <h1 class="text-xl md:text-2xl font-extrabold text-white">Refinance Readiness Quiz</h1>
+                    <p class="mt-1 text-xs text-gray-200">Answer a few quick questions to see if refinancing is a smart move for you right now.</p>
                 </header>
+
+                <!-- 
+                  FUTURE AD SLOT (Responsive Banner) 
+                  - 'min-h-[90px]' is set to prevent Cumulative Layout Shift (CLS) when the ad loads.
+                  - Kept 'hidden' as requested.
+                -->
+                <div class="my-4 flex min-h-[90px] w-full items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 text-gray-400 hidden">
+                    Future Ad Placeholder (e.g., 728x90)
+                </div>
 
                 <!-- Quiz Container -->
                 <div id="quiz-container">
@@ -115,36 +124,52 @@
                 </div>
 
                 <!-- Results Container (Initially Hidden) -->
-                <div id="results-container" class="hidden text-center min-h-[400px]">
-                    <h2 class="text-lg font-bold text-primary mb-2">Your Refinance Readiness Score:</h2>
-                    <div id="score-circle" class="relative w-32 h-32 mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-full h-full transform -rotate-90">
-                            <circle class="text-gray-200" stroke-width="10" stroke="currentColor" fill="transparent" r="52" cx="64" cy="64"/>
-                            <circle id="score-circle-progress" class="text-primary" stroke-width="10" stroke-linecap="round" stroke="currentColor" fill="transparent" r="52" cx="64" cy="64" style="stroke-dasharray: 326; stroke-dashoffset: 326; transition: stroke-dashoffset 1s ease-out;"/>
-                        </svg>
-                        <span id="score-text" class="absolute text-3xl font-extrabold text-primary">0</span>
-                    </div>
-
-                    <h3 id="result-title" class="text-base font-bold text-gray-800"></h3>
-                    <p id="result-message" class="mt-2 text-xs text-gray-700 max-w-2xl mx-auto"></p>
+                <!-- UPDATED: Changed to a single-column flow, with grid sections inside -->
+                <div id="results-container" class="hidden min-h-[400px]">
                     
-                    <div class="mt-4 text-left border-t pt-4">
-                        <h3 class="font-bold text-sm text-gray-800 mb-2">Personalized Breakdown:</h3>
-                        <div id="breakdown-list" class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-                            <!-- Detailed breakdown will be injected here -->
+                    <!-- Hero Section: Score, Summary, Next Steps -->
+                    <!-- UPDATED: This grid now contains the main hero info + next steps -->
+                    <div class="lg:grid lg:grid-cols-5 lg:gap-8">
+                        <!-- Left side: Score + Summary -->
+                        <div class="lg:col-span-3 text-center lg:text-left">
+                            <h2 class="text-lg font-bold text-primary mb-2">Your Refinance Readiness Score:</h2>
+                            <div class="flex flex-col sm:flex-row items-center gap-4 lg:items-start">
+                                <div id="score-circle" class="relative w-32 h-32 mx-auto lg:mx-0 mb-4 sm:mb-0 flex-shrink-0 flex items-center justify-center">
+                                    <svg class="w-full h-full transform -rotate-90">
+                                        <circle class="text-gray-200" stroke-width="10" stroke="currentColor" fill="transparent" r="52" cx="64" cy="64"/>
+                                        <circle id="score-circle-progress" class="text-primary" stroke-width="10" stroke-linecap="round" stroke="currentColor" fill="transparent" r="52" cx="64" cy="64" style="stroke-dasharray: 326; stroke-dashoffset: 326; transition: stroke-dashoffset 1s ease-out;"/>
+                                    </svg>
+                                    <span id="score-text" class="absolute text-3xl font-extrabold text-primary">0</span>
+                                </div>
+                                <div class="text-center sm:text-left">
+                                    <h3 id="result-title" class="text-base font-bold text-gray-800"></h3>
+                                    <p id="result-message" class="mt-2 text-xs text-gray-700 max-w-2xl mx-auto"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right side: Next Steps + Restart -->
+                        <div class="lg:col-span-2 text-center lg:text-left">
+                            <div id="next-steps-section" class="mt-6 text-left border-t pt-4 lg:border-t-0 lg:pt-0 lg:mt-0">
+                                <!-- Next steps will be injected here -->
+                            </div>
+                            
+                            <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                                <button id="restart-btn" class="px-6 py-2 bg-gradient-to-r from-primary to-accent text-white font-semibold rounded-lg shadow-md hover:from-primary hover:to-green-700 transition duration-150 text-xs">Retake Quiz</button>
+                            </div>
                         </div>
                     </div>
 
-                    <div id="next-steps-section" class="mt-6 text-left border-t pt-4">
-                        <!-- Next steps will be injected here -->
-                    </div>
-                    
-                    <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-                        <button id="restart-btn" class="px-6 py-2 bg-gray-200 text-gray-800 font-semibold rounded-lg shadow-sm hover:bg-gray-300 transition duration-150 text-xs">Retake Quiz</button>
+                    <!-- Personalized Breakdown Section -->
+                    <!-- UPDATED: Moved breakdown to its own section below the hero, with a 3-column layout on desktop -->
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h3 class="font-bold text-lg text-gray-800 mb-4 text-center lg:text-left">Personalized Breakdown</h3>
+                        <div id="breakdown-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+                            <!-- Detailed breakdown will be injected here -->
+                        </div>
                     </div>
                 </div>
-                 <!-- Share Section Placeholder -->
-                <div id="share-section-placeholder" class="mt-6"></div>
+                 <!-- REMOVED: Share Section Placeholder -->
             </div>
         </div>
     </main>
