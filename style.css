@@ -330,7 +330,130 @@ input, select {
     }
 }
 
-/* Styles for Prose on Legal & Content Pages */
+/* NEW GLOBAL WIDTH CLASS */
+.container-global {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1150px;
+    padding-left: 1rem; /* Replicates px-4 */
+    padding-right: 1rem; /* Replicates px-4 */
+}
+
+@media (min-width: 640px) {
+    .container-global {
+        padding-left: 1.5rem; /* Replicates sm:px-6 */
+        padding-right: 1.5rem; /* Replicates sm:px-6 */
+    }
+}
+
+@media (min-width: 1024px) {
+    .container-global {
+        padding-left: 2rem; /* Replicates lg:px-8 */
+        padding-right: 2rem; /* Replicates lg:px-8 */
+    }
+}
+
+/* NEW: 75/25 Grid Layout for Blog Pages */
+.blog-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile-first: single column */
+    gap: 1.5rem; /* 24px gap */
+}
+
+/* Desktop and tablet layout */
+@media (min-width: 1024px) { /* lg: breakpoint */
+    .blog-layout-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4-column grid */
+    }
+
+    .blog-layout-grid > article {
+        grid-column: span 3 / span 3; /* Article takes 3 of 4 columns (75%) */
+        min-width: 0; /* Prevents overflow issues */
+    }
+
+    .blog-layout-grid > aside {
+        grid-column: span 1 / span 1; /* Sidebar takes 1 of 4 columns (25%) */
+        min-width: 0; /* Prevents overflow issues */
+    }
+}
+
+/* NEW: 80/20 Grid Layout for Standalone Calculator Pages */
+.calculator-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile-first: single column */
+    gap: 1.5rem; /* 24px gap */
+}
+
+/* Desktop and tablet layout */
+@media (min-width: 1024px) { /* lg: breakpoint */
+    .calculator-layout-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr)); /* 5-column grid for 80/20 split */
+    }
+
+    .calculator-layout-grid > main {
+        grid-column: span 4 / span 4; /* Main content takes 4 of 5 columns (80%) */
+        min-width: 0; /* Prevents overflow issues */
+    }
+
+    .calculator-layout-grid > aside {
+        grid-column: span 1 / span 1; /* Sidebar takes 1 of 5 columns (20%) */
+        min-width: 0; /* Prevents overflow issues */
+    }
+    
+    /* Sticky sidebar for calculator pages */
+    .calculator-layout-grid > aside > .sticky {
+        position: sticky;
+        top: 6rem; /* 96px, assumes 60px header + 24px margin + 12px padding */
+    }
+}
+
+/* NEW: Styles for the Guided Planning Hub */
+
+/* Styles for the quick access top links */
+.quick-link-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border-width: 2px;
+    transition: all 0.2s ease-in-out;
+}
+
+.quick-link-tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+/* Styles for the main guided path steps */
+.path-details summary {
+    user-select: none; /* Prevent text selection on click */
+}
+.path-details summary:hover {
+    opacity: 0.95;
+}
+
+.path-details ol li {
+    padding-left: 0; /* Remove default list padding */
+    list-style: none;
+    margin-left: 0;
+}
+.path-details ol li > div {
+    border-left: 2px solid #e5e7eb; /* Light gray line for visual flow */
+    padding-left: 0.75rem;
+}
+.path-details ol li:last-child > div {
+    border-left: 2px solid transparent; /* Hide line for last item */
+}
+
+/* NEW: Added border glow effect */
+.border-glow-primary {
+    box-shadow: 0 0 8px rgba(28, 118, 143, 0.3), 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* SEO Content Section Styles */
 .prose p, .prose ul, .content-section p, .content-section ul {
     margin-bottom: 1em;
     color: #374151;
@@ -459,127 +582,4 @@ input, select {
 .mobile-article-card .flex {
     margin-left: auto;
     margin-right: auto;
-}
-
-/* NEW GLOBAL WIDTH CLASS */
-.container-global {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1150px;
-    padding-left: 1rem; /* Replicates px-4 */
-    padding-right: 1rem; /* Replicates px-4 */
-}
-
-@media (min-width: 640px) {
-    .container-global {
-        padding-left: 1.5rem; /* Replicates sm:px-6 */
-        padding-right: 1.5rem; /* Replicates sm:px-6 */
-    }
-}
-
-@media (min-width: 1024px) {
-    .container-global {
-        padding-left: 2rem; /* Replicates lg:px-8 */
-        padding-right: 2rem; /* Replicates lg:px-8 */
-    }
-}
-
-/* NEW: 75/25 Grid Layout for Blog Pages */
-.blog-layout-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Mobile-first: single column */
-    gap: 1.5rem; /* 24px gap */
-}
-
-/* Desktop and tablet layout */
-@media (min-width: 1024px) { /* lg: breakpoint */
-    .blog-layout-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4-column grid */
-    }
-
-    .blog-layout-grid > article {
-        grid-column: span 3 / span 3; /* Article takes 3 of 4 columns (75%) */
-        min-width: 0; /* Prevents overflow issues */
-    }
-
-    .blog-layout-grid > aside {
-        grid-column: span 1 / span 1; /* Sidebar takes 1 of 4 columns (25%) */
-        min-width: 0; /* Prevents overflow issues */
-    }
-}
-
-/* NEW: 80/20 Grid Layout for Standalone Calculator Pages */
-.calculator-layout-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Mobile-first: single column */
-    gap: 1.5rem; /* 24px gap */
-}
-
-/* Desktop and tablet layout */
-@media (min-width: 1024px) { /* lg: breakpoint */
-    .calculator-layout-grid {
-        grid-template-columns: repeat(5, minmax(0, 1fr)); /* 5-column grid for 80/20 split */
-    }
-
-    .calculator-layout-grid > main {
-        grid-column: span 4 / span 4; /* Main content takes 4 of 5 columns (80%) */
-        min-width: 0; /* Prevents overflow issues */
-    }
-
-    .calculator-layout-grid > aside {
-        grid-column: span 1 / span 1; /* Sidebar takes 1 of 5 columns (20%) */
-        min-width: 0; /* Prevents overflow issues */
-    }
-    
-    /* Sticky sidebar for calculator pages */
-    .calculator-layout-grid > aside > .sticky {
-        position: sticky;
-        top: 6rem; /* 96px, assumes 60px header + 24px margin + 12px padding */
-    }
-}
-
-/* NEW: Styles for the Guided Planning Hub */
-
-/* Styles for the quick access top links */
-.quick-link-tile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    border-width: 2px;
-    transition: all 0.2s ease-in-out;
-}
-
-.quick-link-tile:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-}
-
-/* Styles for the main guided path steps */
-.path-details summary {
-    user-select: none; /* Prevent text selection on click */
-}
-.path-details summary:hover {
-    opacity: 0.95;
-}
-
-.path-details ol li {
-    padding-left: 0; /* Remove default list padding */
-    list-style: none;
-    margin-left: 0;
-}
-.path-details ol li > div {
-    border-left: 2px solid #e5e7eb; /* Light gray line for visual flow */
-    padding-left: 0.75rem;
-}
-.path-details ol li:last-child > div {
-    border-left: 2px solid transparent; /* Hide line for last item */
-}
-
-/* NEW: Added border glow effect */
-.border-glow-primary {
-    box-shadow: 0 0 8px rgba(28, 118, 143, 0.3), 0 2px 6px rgba(0,0,0,0.05);
 }
