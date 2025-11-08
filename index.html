@@ -108,7 +108,8 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 0.75rem;
+            /* UPDATED: Reduced padding */
+            padding: 0.5rem; /* p-2 */
             border-radius: 0.5rem;
             border-width: 2px;
             transition: all 0.2s ease-in-out;
@@ -123,7 +124,7 @@
         .hub-card {
             display: block;
             position: relative;
-            background-color: #f9fafb; /* gray-50 */
+            background-color: #ffffff; /* UPDATED: Changed to white */
             padding: 0.75rem; /* p-3 */
             border-radius: 0.5rem; /* rounded-lg */
             /* UPDATED: Changed border to be 2px and use a light primary color */
@@ -216,35 +217,48 @@
 
                 <!-- NEW: Wrapper for Tools & Paths -->
                 <!-- UPDATED: Changed background to bg-gray-100, added border-4, and shadow-xl for prominence -->
+                <!-- UPDATED: Added light gradient background -->
                 <section class="mb-8 p-4 bg-gradient-to-r from-buy-path/5 via-white to-invest-path/5 border-4 border-primary/30 rounded-xl shadow-xl">
                     <!-- Quick Access / CTA Row -->
-                    <section class="pb-6 p-4 rounded-xl" id="quick-tools-section">
-                        <h2 class="text-lg font-extrabold text-primary mb-4 text-center border-b-2 border-primary/20 pb-4">Quick Tools for Immediate Answers</h2>
+                    <section class="pb-6" id="quick-tools-section">
+                        <!-- UPDATED: Header made smaller and border added -->
+                        <h2 class="text-base font-extrabold text-primary mb-3 text-center border-b-2 border-primary/20 pb-2">Quick Tools for Immediate Answers</h2>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-4xl mx-auto">
                             <!-- UPDATED: Link to all-in-one-mortgage-planner.html -->
                             <!-- ACCESSIBILITY UPDATE: text-buy-path, hover:bg-buy-path/10, border-buy-path/30 classes now use the higher-contrast color defined in the script config -->
-                            <a href="all-in-one-mortgage-planner.html#affordability-tab" class="quick-link-tile bg-white hover:bg-blue-50 border-buy-path/30 text-buy-path">
+                            <!-- UPDATED: Changed background to bg-white -->
+                            <a href="all-in-one-mortgage-planner.html#affordability-tab" class="quick-link-tile bg-white hover:bg-buy-path/10 border-buy-path/30 text-buy-path">
                                 <!-- Icon: Target (Affordability) -->
-                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                                <!-- UPDATED: Reduced icon size -->
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                                <!-- UPDATED: Reduced margin-top -->
                                 <span class="text-xs font-semibold mt-1">Affordability</span>
                             </a>
                             <!-- UPDATED: Link to calculators/ folder -->
                             <!-- ACCESSIBILITY UPDATE: text-optimize-path, hover:bg-optimize-path/10, border-optimize-path/30 classes now use the higher-contrast color -->
-                            <a href="calculators/extra-payment-calculator.html" class="quick-link-tile bg-white hover:bg-green-50 border-optimize-path/30 text-optimize-path">
+                             <!-- UPDATED: Changed background to bg-white -->
+                            <a href="calculators/extra-payment-calculator.html" class="quick-link-tile bg-white hover:bg-optimize-path/10 border-optimize-path/30 text-optimize-path">
                                 <!-- Icon: Zap (Payoff Faster) -->
-                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                                <!-- UPDATED: Reduced icon size -->
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                                <!-- UPDATED: Reduced margin-top -->
                                 <span class="text-xs font-semibold mt-1">Payoff Faster</span>
                             </a>
                             <!-- UPDATED: Link to calculators/ folder & New Icon -->
                             <!-- ACCESSIBILITY UPDATE: text-invest-path, hover:bg-invest-path/10, border-invest-path/30 classes now use the higher-contrast color -->
-                            <a href="calculators/home-equity-calculator.html" class="quick-link-tile bg-white hover:bg-amber-50 border-invest-path/30 text-invest-path">
+                             <!-- UPDATED: Changed background to bg-white -->
+                            <a href="calculators/home-equity-calculator.html" class="quick-link-tile bg-white hover:bg-invest-path/10 border-invest-path/30 text-invest-path">
                                 <!-- Icon: CurrencyDollar (Home Equity) -->
-                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <!-- UPDATED: Reduced icon size -->
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <!-- UPDATED: Reduced margin-top -->
                                 <span class="text-xs font-semibold mt-1">Home Equity</span>
                             </a>
                         </div>
                     </section>
                     
+                    <!-- NEW: Header for Guided Paths -->
+                    <h2 class="text-lg font-extrabold text-primary mb-4 text-center border-b-2 border-primary/20 pb-2 mt-6">Or, Follow a Guided Path</h2>
                     <!-- Guided Paths Section: Updated to use 3-column grid -->
                     <section class="max-w-4xl mx-auto space-y-6 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-6" id="guided-paths-container">
                         
@@ -326,7 +340,8 @@
                             <summary class="p-4 rounded-xl cursor-pointer list-none group hover:bg-gray-50 transition-colors border-l-4 border-optimize-path">
                                 <div class="flex items-start space-x-3">
                                     <div class="w-8 h-8 rounded-full bg-optimize-path text-white flex-shrink-0 flex items-center justify-center font-bold text-lg mt-1">
-                                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.42-.858 1.65-.858 2.07 0l1.05 2.14c.2.4.58.7.97.77l2.36.34c.94.13 1.33 1.3.66 2.02l-1.7 1.66c-.36.35-.5.84-.4 1.33l.39 2.34c.15.93-.72 1.63-1.55 1.25l-2.1-.88c-.44-.18-.95-.18-1.39 0l-2.1.88c-.83.38-1.7-.32-1.55-1.25l.39-2.34c.1-.49-.04-.98-.4-1.33l-1.7-1.66c-.67-.72-.28-1.89.66-2.02l2.36-.34c.39-.07.77-.37.97-.77l1.05-2.14zM12 18V6"/></svg>
+                                        <!-- UPDATED ICON -->
+                                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg>
                                     </div>
                                     <div class="flex-grow">
                                         <h3 class="text-sm font-extrabold text-optimize-path flex items-center justify-between">
@@ -398,7 +413,8 @@
                             <summary class="p-4 rounded-xl cursor-pointer list-none group hover:bg-gray-50 transition-colors border-l-4 border-invest-path">
                                 <div class="flex items-start space-x-3">
                                     <div class="w-8 h-8 rounded-full bg-invest-path text-white flex-shrink-0 flex items-center justify-center font-bold text-lg mt-1">
-                                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 14.25l6-6m2.25 1.5l1.5-1.5m-3.75-1.5l-1.5 1.5M15 14.25l-6 6m2.25-1.5l1.5 1.5m-3.75 1.5l-1.5-1.5M12 21a9 9 0 100-18 9 9 0 000 18z" /></svg>
+                                        <!-- UPDATED ICON -->
+                                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h6M9 9.75h6M9 12.75h6M9 15.75h6M9 18.75h6" /></svg>
                                     </div>
                                     <div>
                                         <h3 class="text-sm font-extrabold text-invest-path flex items-center justify-between">
@@ -465,11 +481,13 @@
                 </div>
 
                 <!-- NEW SECTION: All Calculators -->
-                <section class="mt-8 p-4 bg-primary/5 border-2 border-primary/20 rounded-xl">
-                    <!-- UPDATED HEADER STYLES -->
-                    <header class="text-center mb-6 pb-4 border-b-2 border-primary/30 bg-primary/10 p-4 rounded-lg">
+                <!-- UPDATED: Background changed to primary/20 -->
+                <section class="mt-8 p-4 bg-primary/20 border-2 border-primary/20 rounded-xl">
+                    <!-- UPDATED: Header styling changed -->
+                    <header class="text-center mb-6 p-4 rounded-lg bg-primary/10 shadow-inner border-b-2 border-primary/20">
                         <h2 class="text-xl font-extrabold text-primary">Explore Our Full Suite of Calculators</h2>
-                        <p class="mt-1 text-sm text-gray-600">Need a specific answer? Dive into our standalone tools.</p>
+                        <!-- UPDATED: Increased text contrast -->
+                        <p class="mt-1 text-sm text-gray-900">Need a specific answer? Dive into our standalone tools.</p>
                     </header>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         <!-- UPDATED LINK -->
@@ -549,11 +567,13 @@
                 </div>
 
                 <!-- NEW SECTION: Blog Articles -->
-                <section class="mt-8 p-4 bg-primary/5 border-2 border-primary/20 rounded-xl">
-                    <!-- UPDATED HEADER STYLES -->
-                    <header class="text-center mb-6 pb-4 border-b-2 border-accent/30 bg-accent/10 p-4 rounded-lg">
+                <!-- UPDATED: Background changed to accent/20 -->
+                <section class="mt-8 p-4 bg-accent/20 border-2 border-accent/20 rounded-xl">
+                    <!-- UPDATED: Header styling changed -->
+                    <header class="text-center mb-6 p-4 rounded-lg bg-accent/10 shadow-inner border-b-2 border-accent/20">
                         <h2 class="text-xl font-extrabold text-accent">Latest Mortgage Insights & Guides</h2>
-                        <p class="mt-1 text-sm text-green-800">Learn the concepts behind the calculations.</p>
+                        <!-- UPDATED: Increased text contrast -->
+                        <p class="mt-1 text-sm text-gray-900">Learn the concepts behind the calculations.</p>
                     </header>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         <a href="blog/how-to-buy-your-first-home-guide.html" class="hub-card flex items-start text-left">
@@ -606,7 +626,7 @@
                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" /></svg>
                            </div>
                            <div>
-                               <h3 class="text-sm font-bold text-primary group-hover:underline">Guide to Hidden Homeownership Costs</h3>
+                               <h3 class="text-sm font-bold text-primary group-hover:underline">Hidden Homeownership Costs Guide</h3>
                                <p class="mt-1 text-xs text-gray-600">Discover every hidden cost, from closing fees to maintenance, before you buy.</p>
                            </div>
                         </a>
