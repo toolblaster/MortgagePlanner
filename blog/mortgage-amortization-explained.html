@@ -14,13 +14,13 @@
     <!-- Open Graph / Facebook Meta Tags -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://mortgageplanner.toolblaster.com/blog/mortgage-amortization-explained.html">
-    <meta property="og:title" content="Mortgage Amortization Explained — See How Your Payments Really Work">
+    <meta property="og:title" content="Mortgage Amortization Explained See How Your Payments Really Work">
     <meta property="og:description" content="Our guide explains amortization, principal vs. interest, and how to use our calculator to pay off your loan faster.">
     <meta property="og:site_name" content="Strategic Mortgage Planner">
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mortgage Amortization Explained — See How Your Payments Really Work">
+    <meta name="twitter:title" content="Mortgage Amortization Explained - See How Your Payments Really Work">
     <meta name="twitter:description" content="Our guide explains amortization, principal vs. interest, and how to use our calculator to pay off your loan faster.">
     
     <link rel="icon" href="data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='100' rx='20' fill='%231C768F'/%3E%3Cpath d='M50 25L25 45V75H41.6667V58.3333H58.3333V75H75V45L50 25Z' stroke='white' stroke-width='5' stroke-linejoin='round'/%3E%3Cpath d='M40 65L50 55L60 65' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M50 55V45' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
@@ -46,6 +46,24 @@
 
     <!-- Shared Stylesheet (relative path from blog folder) -->
     <link rel="stylesheet" href="../style.css">
+    
+    <!-- NEW: Styles for FAQ Accordion -->
+    <style>
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        .faq-chevron {
+            transition: transform 0.3s ease-in-out;
+        }
+        details[open] .faq-chevron {
+            transform: rotate(180deg);
+        }
+        details summary::-webkit-details-marker { 
+            display: none; 
+        }
+    </style>
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -65,7 +83,7 @@
             "name": "Vikas Rana"
           },
           "publisher": {
-            "@type": "Organization",
+            "@type: "Organization",
             "name": "Strategic Mortgage Planner",
             "logo": {
               "@type": "ImageObject",
@@ -117,7 +135,7 @@
               "name": "Do bi-weekly payments really make a difference?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, they can. By paying half your mortgage every two weeks, you end up making 26 half-payments, which equals 13 full monthly payments in a year instead of 12. That one extra payment goes directly to the principal and can shave several years off your loan."
+                "text": "Yes, an 'accelerated' bi-weekly plan can make a big difference. By paying half your mortgage every two weeks, you end up making 26 half-payments, which equals 13 full monthly payments in a year instead of 12. That one extra payment goes directly to the principal and can shave several years off your loan."
               }
             },
              {
@@ -126,6 +144,14 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Absolutely. A 15-year mortgage has higher monthly payments, but you build equity much faster because a larger portion of each payment goes to the principal from the very beginning. A 30-year loan has lower payments, but you'll pay significantly more interest over the life of the loan."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can my amortization schedule change?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. If you have an Adjustable-Rate Mortgage (ARM), your schedule will change when your interest rate adjusts. It will also change if you refinance your loan into a new one, which creates a brand new amortization schedule. Finally, making extra principal payments will alter your schedule, causing you to pay off the loan sooner."
               }
             }
           ]
@@ -145,12 +171,18 @@
                 <article class="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-2xl">
                     <!-- Article Header -->
                     <header class="text-center mb-8">
-                        <h1 class="font-extrabold text-primary">Mortgage Amortization Explained — See How Your Payments Really Work</h1>
+                        <h1 class="font-extrabold text-primary">Mortgage Amortization Explained (And Why It Matters)</h1>
                         <p class="mt-2 text-sm sm:text-base text-gray-800">Ever wondered where your mortgage payment really goes each month? Let's demystify the process.</p>
                         <div class="mt-4 text-xs text-gray-800">
                             <span>Published By <strong>Vikas Rana</strong></span>
                         </div>
                     </header>
+                    
+                    <!-- Ad Placeholder 1: Responsive Banner (e.g., 728x90) -->
+                    <div class="my-6 flex min-h-[90px] w-full items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 text-gray-400 hidden" aria-hidden="true">
+                        Future Ad Placeholder (Responsive Banner)
+                    </div>
+                    <!-- End Ad Placeholder 1 -->
                     
                     <div class="my-8 h-px w-full bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
 
@@ -230,6 +262,12 @@
                                 </a>
                             </div>
                         </section>
+                        
+                        <!-- Ad Placeholder 2: In-Article (e.g., 300x250 or fluid) -->
+                        <div class="my-8 flex min-h-[250px] w-full items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 text-gray-400 hidden" aria-hidden="true">
+                            Future Ad Placeholder (In-Article)
+                        </div>
+                        <!-- End Ad Placeholder 2 -->
 
                         <!-- How to Pay Off Early -->
                         <section class="mt-6 content-section">
@@ -269,43 +307,68 @@
 
                         <!-- FAQ SECTION -->
                         <section class="mt-6 content-section">
-                            <h2>Frequently Asked Questions (FAQ)</h2>
-                            <div class="space-y-4 mt-4">
-                                <div class="flex items-start">
-                                    <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 mr-3 rounded-full bg-primary text-white font-bold text-xs">1</span>
-                                    <div>
-                                        <h3 class="font-semibold text-gray-800">Why is so much of my payment going to interest at the beginning?</h3>
-                                        <p class="text-xs text-gray-700 mt-1">Mortgage loans are typically 'front-loaded' with interest. Because the principal balance is at its highest at the start of the loan, the amount of interest you owe per month is also at its peak. As you pay down the principal, the interest portion of your payment decreases, and the principal portion increases.</p>
+                            <h2 class="!mt-0">Frequently Asked Questions (FAQ)</h2>
+                            <div class="max-w-3xl mx-auto border-t border-b border-gray-200 divide-y divide-gray-200" id="faq-accordion">
+                                <!-- FAQ 1 -->
+                                <details class="faq-item group">
+                                    <summary class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 cursor-pointer hover:bg-gray-50 transition list-none">
+                                        <h3 class="text-xs">Why is so much of my payment going to interest at the beginning?</h3>
+                                        <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    </summary>
+                                    <div class="faq-answer">
+                                        <div class="p-4 pt-0 text-gray-600 text-xs">
+                                            <p>Mortgage loans are typically 'front-loaded' with interest. Because the principal balance is at its highest at the start of the loan, the amount of interest you owe per month is also at its peak. As you pay down the principal, the interest portion of your payment decreases, and the principal portion increases.</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 mr-3 rounded-full bg-primary text-white font-bold text-xs">2</span>
-                                    <div>
-                                        <h3 class="font-semibold text-gray-800">How do extra payments help me pay off my mortgage faster?</h3>
-                                        <p class="text-xs text-gray-700 mt-1">When you make an extra payment and specify that it should go toward the principal, you are directly reducing the loan balance. This means that in the following month, the interest is calculated on a smaller amount, leading to less interest paid over the life of the loan and a faster payoff date.</p>
+                                </details>
+                                <!-- FAQ 2 -->
+                                <details class="faq-item group">
+                                    <summary class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 cursor-pointer hover:bg-gray-50 transition list-none">
+                                        <h3 class="text-xs">How do extra payments help me pay off my mortgage faster?</h3>
+                                        <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    </summary>
+                                    <div class="faq-answer">
+                                        <div class="p-4 pt-0 text-gray-600 text-xs">
+                                            <p>When you make an extra payment and specify that it should go toward the principal, you are directly reducing the loan balance. This means that in the following month, the interest is calculated on a smaller amount, leading to less interest paid over the life of the loan and a faster payoff date.</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 mr-3 rounded-full bg-primary text-white font-bold text-xs">3</span>
-                                    <div>
-                                        <h3 class="font-semibold text-gray-800">Do bi-weekly payments really make a difference?</h3>
-                                        <p class="text-xs text-gray-700 mt-1">Yes, they can. By paying half your mortgage every two weeks, you end up making 26 half-payments, which equals 13 full monthly payments in a year instead of 12. That one extra payment goes directly to the principal and can shave several years off your loan.</p>
+                                </details>
+                                <!-- FAQ 3 -->
+                                <details class="faq-item group">
+                                    <summary class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 cursor-pointer hover:bg-gray-50 transition list-none">
+                                        <h3 class="text-xs">Do bi-weekly payments really make a difference?</h3>
+                                        <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    </summary>
+                                    <div class="faq-answer">
+                                        <div class="p-4 pt-0 text-gray-600 text-xs">
+                                            <p>Yes, an 'accelerated' bi-weekly plan can make a big difference. By paying half your mortgage every two weeks, you end up making 26 half-payments, which equals 13 full monthly payments in a year instead of 12. That one extra payment goes directly to the principal and can shave several years off your loan.</p>
+                                        </div>
                                     </div>
-                                </div>
-                                 <div class="flex items-start">
-                                    <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 mr-3 rounded-full bg-primary text-white font-bold text-xs">4</span>
-                                    <div>
-                                        <h3 class="font-semibold text-gray-800">Is the amortization schedule different for a 15-year vs. a 30-year mortgage?</h3>
-                                        <p class="text-xs text-gray-700 mt-1">Absolutely. A 15-year mortgage has higher monthly payments, but you build equity much faster because a larger portion of each payment goes to the principal from the very beginning. A 30-year loan has lower payments, but you'll pay significantly more interest over the life of the loan.</p>
+                                </details>
+                                 <!-- FAQ 4 -->
+                                <details class="faq-item group">
+                                    <summary class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 cursor-pointer hover:bg-gray-50 transition list-none">
+                                        <h3 class="text-xs">Is the amortization schedule different for a 15-year vs. a 30-year mortgage?</h3>
+                                        <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    </summary>
+                                    <div class="faq-answer">
+                                        <div class="p-4 pt-0 text-gray-600 text-xs">
+                                            <p>Absolutely. A 15-year mortgage has higher monthly payments, but you build equity much faster because a larger portion of each payment goes to the principal from the very beginning. A 30-year loan has lower payments, but you'll pay significantly more interest over the life of the loan.</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 mr-3 rounded-full bg-primary text-white font-bold text-xs">5</span>
-                                    <div>
-                                        <h3 class="font-semibold text-gray-800">Can my amortization schedule change?</h3>
-                                        <p class="text-xs text-gray-700 mt-1">Yes. If you have an Adjustable-Rate Mortgage (ARM), your schedule will change when your interest rate adjusts. It will also change if you refinance your loan into a new one, which creates a brand new amortization schedule.</p>
+                                </details>
+                                <!-- FAQ 5 -->
+                                <details class="faq-item group">
+                                    <summary class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 cursor-pointer hover:bg-gray-50 transition list-none">
+                                        <h3 class="text-xs">Can my amortization schedule change?</h3>
+                                        <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    </summary>
+                                    <div class="faq-answer">
+                                        <div class="p-4 pt-0 text-gray-600 text-xs">
+                                            <p>Yes. If you have an Adjustable-Rate Mortgage (ARM), your schedule will change when your interest rate adjusts. It will also change if you refinance your loan into a new one, which creates a brand new amortization schedule. Finally, making extra principal payments will alter your schedule, causing you to pay off the loan sooner.</p>
+                                        </div>
                                     </div>
-                                </div>
+                                </details>
                             </div>
                         </section>
 
@@ -353,6 +416,44 @@
                     },
                 });
             }
+            
+            // NEW: Accordion closing logic
+            const accordionItems = document.querySelectorAll('#faq-accordion .faq-item');
+            accordionItems.forEach((item) => {
+                const summary = item.querySelector('summary');
+                const answer = item.querySelector('.faq-answer');
+                
+                summary.addEventListener('click', (e) => {
+                    // Prevent default toggle to manage it manually
+                    e.preventDefault();
+                    
+                    const wasOpen = item.hasAttribute('open');
+
+                    // Close all other items
+                    accordionItems.forEach((otherItem) => {
+                        if (otherItem !== item && otherItem.hasAttribute('open')) {
+                            otherItem.removeAttribute('open');
+                            otherItem.querySelector('.faq-answer').style.maxHeight = '0px';
+                        }
+                    });
+
+                    // Toggle the clicked item
+                    if (!wasOpen) {
+                        item.setAttribute('open', '');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    } else {
+                        item.removeAttribute('open');
+                        answer.style.maxHeight = '0px';
+                    }
+                });
+
+                // Recalculate max-height on resize for open accordions
+                window.addEventListener('resize', () => {
+                    if (item.hasAttribute('open')) {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                });
+            });
         });
     </script>
 </body>
