@@ -49,7 +49,12 @@
             transform: rotate(180deg);
         }
         details summary::-webkit-details-marker { display: none; }
-        details[open] summary svg.transform { transform: rotate(180deg); }
+        
+        /* UPDATED: Plus/minus icon styles */
+        details summary .minus-icon { display: none; }
+        details summary .plus-icon { display: block; }
+        details[open] summary .minus-icon { display: block; }
+        details[open] summary .plus-icon { display: none; }
     </style>
     
     <!-- JSON-LD Structured Data -->
@@ -208,12 +213,16 @@
                         <!-- Input Column -->
                         <!-- UPDATED: Reduced space-y-3 to space-y-2 -->
                         <div class="lg:col-span-2 space-y-2">
-                            <details open class="bg-gray-50 border-2 border-gray-300 rounded-lg">
+                            <details open class="bg-gray-50 border-2 border-gray-400 rounded-lg">
                                 <!-- UPDATED: Reduced p-3 to p-2 -->
                                 <summary class="p-2 font-bold text-sm text-primary cursor-pointer list-none flex justify-between items-center">
                                     Purchase Details
                                     <!-- H2: Implicit grouping for inputs -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    <!-- UPDATED: Icon -->
+                                    <span class="plus-minus-icon text-primary">
+                                        <svg class="w-4 h-4 plus-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                                        <svg class="w-4 h-4 minus-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /></svg>
+                                    </span>
                                 </summary>
                                 <!-- UPDATED: Reduced p-3 to p-2 -->
                                 <div class="p-2 border-t">
@@ -256,12 +265,16 @@
                                 </div>
                             </details>
     
-                            <details open class="bg-gray-50 border-2 border-gray-300 rounded-lg">
+                            <details open class="bg-gray-50 border-2 border-gray-400 rounded-lg">
                                  <!-- UPDATED: Reduced p-3 to p-2 -->
                                  <summary class="p-2 font-bold text-sm text-primary cursor-pointer list-none flex justify-between items-center">
                                     Loan Assumptions
                                     <!-- H2: Implicit grouping for inputs -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    <!-- UPDATED: Icon -->
+                                    <span class="plus-minus-icon text-primary">
+                                        <svg class="w-4 h-4 plus-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                                        <svg class="w-4 h-4 minus-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /></svg>
+                                    </span>
                                 </summary>
                                 <!-- UPDATED: Reduced p-3 to p-2 -->
                                 <div class="p-2 border-t">
@@ -287,12 +300,16 @@
                                 </div>
                             </details>
     
-                            <details open class="bg-gray-50 border-2 border-gray-300 rounded-lg">
+                            <details open class="bg-gray-50 border-2 border-gray-400 rounded-lg">
                                 <!-- UPDATED: Reduced p-3 to p-2 -->
                                 <summary class="p-2 font-bold text-sm text-primary cursor-pointer list-none flex justify-between items-center">
                                     Advanced Features
                                     <!-- H2: Implicit grouping for inputs -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    <!-- UPDATED: Icon -->
+                                    <span class="plus-minus-icon text-primary">
+                                        <svg class="w-4 h-4 plus-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                                        <svg class="w-4 h-4 minus-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /></svg>
+                                    </span>
                                 </summary>
                                  <!-- UPDATED: Reduced p-3 to p-2 and space-y-3 to space-y-2 -->
                                  <div class="p-2 border-t space-y-2">
@@ -347,7 +364,7 @@
                                     <p id="downPaymentAmount" class="text-lg font-extrabold text-accent" data-value="0">$0</p>
                                 </div>
                                 <!-- UPDATED: Reduced p-3 to p-2 -->
-                                <div class="p-2 rounded-lg bg-gray-100 border shadow">
+                                <div class="p-2 rounded-lg bg-gray-100 border border-gray-400 shadow">
                                     <!-- H3: Result heading -->
                                     <h3 class="text-xs font-bold text-gray-800">Loan Amount</h3>
                                     <p id="loanAmount" class="text-lg font-extrabold text-gray-800" data-value="0">$0</p>
@@ -376,7 +393,7 @@
                             <!-- UPDATED: Reduced gap-3 to gap-2 -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                  <!-- UPDATED: Reduced p-3 to p-2 -->
-                                 <div class="p-2 bg-gray-50 rounded-lg shadow-inner border border-gray-200">
+                                 <div class="p-2 bg-gray-50 rounded-lg shadow-inner border border-gray-400">
                                     <!-- H2: Grouping for results -->
                                     <h2 class="font-bold text-primary text-center text-sm">Loan Breakdown</h2>
                                     <!-- UPDATED: Reduced h-48 md:h-56 to h-44 -->
@@ -385,7 +402,7 @@
                                     </div>
                                 </div>
                                  <!-- UPDATED: Reduced p-3 to p-2 -->
-                                 <div class="p-2 bg-gray-50 rounded-lg shadow-inner border border-gray-200">
+                                 <div class="p-2 bg-gray-50 rounded-lg shadow-inner border border-gray-400">
                                     <!-- H2: Grouping for results -->
                                     <h2 class="font-bold text-primary text-center text-sm">Payment & Ratio Details</h2>
                                     <!-- UPDATED: Reduced space-y-3 to space-y-2 and mt-4 to mt-2 -->
@@ -420,7 +437,7 @@
                             </div>
                             
                             <!-- UPDATED: Reduced p-3 to p-2 -->
-                            <div class="p-2 bg-gray-50 rounded-lg shadow-inner border border-gray-200">
+                            <div class="p-2 bg-gray-50 rounded-lg shadow-inner border border-gray-400">
                                 <!-- H2: Grouping for results -->
                                 <h2 class="font-bold text-primary text-center text-sm">Quick Loan Comparison</h2>
                                 <div class="text-center mt-2">
@@ -454,21 +471,21 @@
                 </div>
 
                 <!-- NEW: Formula Explanation Section -->
-                <div class="bg-white p-4 sm:p-5 mt-4 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs">
+                <div class="bg-white p-4 sm:p-5 mt-4 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs border-2 border-gray-400">
                     <h2 class="text-lg font-extrabold text-primary !mb-4">How This Calculator Works: The Formulas</h2>
                     <p class="text-xs text-gray-700">This calculator uses a combination of basic arithmetic and standard financial formulas to estimate your payments and savings. Here’s a transparent look at the logic.</p>
                     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <h3 class="text-base font-bold text-gray-800 flex items-center">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-xs">1</span>
                             <span>Core Loan & Payment Formulas</span>
                         </h3>
                         <p class="mt-2 text-xs">The calculator first determines your loan amount and then your monthly payment for Principal & Interest (P&I).</p>
                         <ul class="space-y-2 mt-2 text-xs list-none pl-2">
-                            <li class="p-2 bg-white rounded border border-gray-200">
+                            <li class="p-2 bg-white rounded border border-gray-400">
                                 <code class="block font-semibold text-primary">Loan Amount = Home Price - (Home Price * (Down Payment % / 100))</code>
                             </li>
-                            <li class="p-2 bg-white rounded border border-gray-200">
+                            <li class="p-2 bg-white rounded border border-gray-400">
                                 <strong class="font-semibold text-primary block">P&I Payment (M)</strong>
                                 <p class="mt-1 text-gray-600">Calculated using the standard PMT formula from `js/utils.js`:</p>
                                 <code class="block text-xs mt-1 text-center">M = P * [r(1+r)^n] / [(1+r)^n - 1]</code>
@@ -481,40 +498,40 @@
                         </ul>
                     </section>
     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <h3 class="text-base font-bold text-gray-800 flex items-center">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-xs">2</span>
                             <span>Total Monthly Payment & PMI Estimation</span>
                         </h3>
                         <p class="mt-2 text-xs">Your total payment includes more than just P&I. We also estimate your PMI (if applicable).</p>
                         <ul class="space-y-2 mt-2 text-xs list-none pl-2">
-                            <li class="p-2 bg-white rounded border border-gray-200">
+                            <li class="p-2 bg-white rounded border border-gray-400">
                                 <code class="block font-semibold text-primary">Loan-to-Value (LTV) % = (Loan Amount / Home Price) * 100</code>
                             </li>
-                            <li class="p-2 bg-white rounded border border-gray-200">
+                            <li class="p-2 bg-white rounded border border-gray-400">
                                 <strong class="font-semibold text-primary block">PMI Payment (Estimated)</strong>
                                 <p class="mt-1 text-gray-600">PMI is estimated if your LTV is over 80% and the loan is "Conventional".</p>
                                 <code class="block text-xs mt-1">PMI = (Loan Amount * 0.005) / 12</code>
                                 <p class="mt-1 text-gray-600">(This uses a common estimate of 0.5% of the loan amount per year).</p>
                             </li>
-                             <li class="p-2 bg-white rounded border border-gray-200">
+                             <li class="p-2 bg-white rounded border border-gray-400">
                                 <code class="block font-semibold text-primary">Total Monthly Payment = P&I Payment + (Annual Taxes / 12) + (Annual Insurance / 12) + PMI Payment</code>
                             </li>
                         </ul>
                     </section>
                     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <h3 class="text-base font-bold text-gray-800 flex items-center">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-xs">3</span>
                             <span>Advanced Feature Formulas</span>
                         </h3>
                         <ul class="space-y-2 mt-2 text-xs list-none pl-2">
-                            <li class="p-2 bg-white rounded border border-gray-200">
+                            <li class="p-2 bg-white rounded border border-gray-400">
                                 <strong class="font-semibold text-secondary block">Savings Goal</strong>
                                 <code class="block text-xs mt-1">Amount to Save = (Home Price * (Target DP % / 100)) - Current Down Payment</code>
                                 <code class="block text-xs mt-1">Months to Save = Amount to Save / Monthly Savings</code>
                             </li>
-                            <li class="p-2 bg-white rounded border border-gray-200">
+                            <li class="p-2 bg-white rounded border border-gray-400">
                                 <strong class="font-semibold text-primary block">15-Year Loan Comparison</strong>
                                 <p class="mt-1 text-gray-600">The calculator runs the PMT formula again with `n = 180` (15 years) to find the new payment. It then calculates the total interest for both loans to find your savings.</p>
                                 <code class="block text-xs mt-1">Interest Saved = Total Interest (30-Yr) - Total Interest (15-Yr)</code>
@@ -524,17 +541,17 @@
                 </div>
     
                 <!-- SEO Content Section -->
-                <div class="bg-white p-4 sm:p-5 mt-4 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs">
+                <div class="bg-white p-4 sm:p-5 mt-4 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs border-2 border-gray-400">
                     <!-- H2: Main SEO content heading -->
                     <h2 class="text-lg font-extrabold text-primary !mb-4">A Guide to Understanding Your Home Down Payment</h2>
                     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <!-- H3: Content sub-heading -->
                         <h3 class="text-base font-bold text-gray-800">What is a Down Payment?</h3>
                         <p class="mt-2 text-xs">A down payment is the initial, upfront portion of a home's purchase price that you pay out-of-pocket. It's not part of the mortgage loan. Think of it as your initial investment in your property. The size of your down payment directly impacts your loan amount, your monthly payment, and the terms your lender will offer you. Using a <strong>down payment calculator</strong> like this one is the first step in understanding these connections.</p>
                     </section>
     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <!-- H3: Content sub-heading -->
                         <h3 class="text-base font-bold text-gray-800">How Much Down Payment Do I Need?</h3>
                         <p class="mt-2 text-xs">This is the most common question for first-time buyers. While the "20% rule" is well-known, it's not always a strict requirement. Here's a breakdown of your options:</p>
@@ -553,7 +570,7 @@
                         <p class="mt-2 text-xs">Our <strong>home down payment estimator</strong> lets you toggle between percentage and dollar amounts to see what works for your savings.</p>
                     </section>
     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <!-- H3: Content sub-heading -->
                         <h3 class="text-base font-bold text-gray-800">Benefits of a Larger Down Payment</h3>
                         <p class="mt-2 text-xs">While saving can be tough, a larger down payment has significant long-term benefits:</p>
@@ -587,7 +604,7 @@
                     </section>
                     
                     <!-- NEW HOW-TO SECTION -->
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <!-- H3: Content sub-heading -->
                         <h3 class="text-base font-bold text-gray-800">How to Use the Advanced Down Payment Calculator</h3>
                         <p class="mt-2 text-xs">This tool is designed to be interactive and insightful. Follow these steps to get the most out of it:</p>
@@ -619,7 +636,7 @@
                     <section class="py-4">
                         <!-- H2: FAQ grouping -->
                         <h2 class="text-lg font-bold text-primary mb-3 text-center">Frequently Asked Questions</h2>
-                        <div class="max-w-3xl mx-auto border-t border-b border-gray-200 divide-y divide-gray-200" id="faq-accordion">
+                        <div class="max-w-3xl mx-auto border-t border-b border-gray-400 divide-y divide-gray-400" id="faq-accordion">
                            <div class="faq-item">
                                 <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-expanded="false">
                                     <!-- H3: FAQ Question -->
