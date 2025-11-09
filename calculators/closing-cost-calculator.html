@@ -133,7 +133,7 @@
                         <!-- UPDATED: Reduced space-y-3 to space-y-2 -->
                         <div class="lg:col-span-2 space-y-2">
                             <!-- UPDATED: Reduced p-3 to p-2 and added border -->
-                            <div class="bg-gray-50 border-2 border-gray-300 rounded-lg p-2">
+                            <div class="bg-gray-50 border-2 border-gray-400 rounded-lg p-2">
                                 <h2 class="text-sm font-bold text-primary mb-2">Transaction Details</h2>
                                 <!-- UPDATED: Reduced space-y-4 to space-y-3 -->
                                 <div class="space-y-3">
@@ -206,14 +206,14 @@
                         <!-- UPDATED: Reduced space-y-3 to space-y-2 and min-h-[400px] to min-h-0 -->
                         <div class="lg:col-span-3 space-y-2 min-h-0">
                             <!-- UPDATED: Reduced p-4 to p-3 -->
-                            <div class="p-3 rounded-lg bg-primary/10 border-2 border-primary/50 shadow text-center">
+                            <div class="p-3 rounded-lg bg-primary/10 border-2 border-primary/70 shadow text-center">
                                 <h2 class="text-sm font-bold text-primary">Total Estimated Closing Costs</h2>
                                 <p id="totalClosingCosts" class="text-2xl font-extrabold text-primary" data-value="0">$0</p>
                                 <p id="closingCostsPercent" class="text-xs font-semibold text-primary" data-value="0">~0.0% of Loan Amount</p>
                             </div>
                             
                             <!-- UPDATED: Reduced p-3 to p-2 -->
-                            <div class="p-2 bg-gray-50 rounded-lg shadow-inner border border-gray-200">
+                            <div class="p-2 bg-gray-50 rounded-lg shadow-inner border border-gray-400">
                                  <h2 class="font-bold text-primary text-center text-base mb-2">Estimated Cost Breakdown</h2>
                                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-center">
                                     <!-- UPDATED: Reduced h-40 md:h-48 to h-40 -->
@@ -239,41 +239,41 @@
                 </div>
     
                 <!-- NEW: Formula Explanation Section -->
-                <div class="bg-white p-4 sm:p-5 mt-4 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs">
+                <div class="bg-white p-4 sm:p-5 mt-4 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs border-2 border-gray-400">
                     <h2 class="text-lg font-extrabold text-primary !mb-4">How This Calculator Works: The Estimations</h2>
                     <p class="text-xs text-gray-700">Closing costs are complex and vary by lender and location. This calculator provides a reliable <strong class="font-semibold">estimate</strong> based on industry averages to help you budget. Your final costs will be listed on your lender's Loan Estimate document.</p>
                     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <h3 class="text-base font-bold text-gray-800 flex items-center">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-xs">1</span>
                             <span>Loan Amount Calculation</span>
                         </h3>
                         <p class="mt-2 text-xs">First, we determine your loan amount, which is the basis for many fees.</p>
                         <ul class="space-y-2 mt-2 text-xs list-none pl-2">
-                            <li class="p-2 bg-white rounded border border-gray-200">
+                            <li class="p-2 bg-white rounded border border-gray-400">
                                 <code class="block font-semibold text-primary">Loan Amount = Home Price - Down Payment Amount</code>
                             </li>
                         </ul>
                     </section>
     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <h3 class="text-base font-bold text-gray-800 flex items-center">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-xs">2</span>
                             <span>Estimated Fee Breakdown</span>
                         </h3>
                         <p class="mt-2 text-xs">The total cost is the sum of three categories, each estimated as follows:</p>
                         <ul class="space-y-2 mt-2 text-xs list-none pl-2">
-                            <li class="p-2 bg-white rounded border border-gray-200">
+                            <li class="p-2 bg-white rounded border border-gray-400">
                                 <strong class="font-semibold text-secondary block">Lender Fees (Estimate)</strong>
                                 <p class="mt-1 text-gray-600">These are fees charged by the bank to create the loan.</p>
                                 <code class="block text-xs mt-1">Lender Fees = (Loan Amount * 0.75%) + $400 (Application) + $600 (Underwriting)</code>
                             </li>
-                            <li class="p-2 bg-white rounded border border-gray-200">
+                            <li class="p-2 bg-white rounded border border-gray-400">
                                 <strong class="font-semibold text-accent block">Third-Party Fees (Estimate)</strong>
                                 <p class="mt-1 text-gray-600">Fees for services from other companies (appraisal, title, etc.). We also include state-based transfer tax estimates here.</p>
                                 <code class="block text-xs mt-1">Third-Party Fees = $500 (Appraisal) + $35 (Credit) + (Loan Amount * 0.5%) (Title) + $800 (Attorney) + [State Tax]...</code>
                             </li>
-                             <li class="p-2 bg-white rounded border border-gray-200">
+                             <li class="p-2 bg-white rounded border border-gray-400">
                                 <strong class="font-semibold text-primary block">Prepaids & Escrow (Estimate)</strong>
                                 <p class="mt-1 text-gray-600">This is money you pay upfront for future expenses, primarily property taxes and homeowner's insurance.</p>
                                 <code class="block text-xs mt-1">Prepaids = $1200 (1yr Insurance) + (Estimated Annual Property Tax / 12 * 4 Months)</code>
@@ -282,18 +282,18 @@
                     </section>
                     <p class="text-xs text-center text-gray-600 italic mt-4">These estimations are based on national averages and data from `calculators/closing-cost-calculator.js`. Your actual costs will vary.</p>
                 </div>
-
-                 <!-- SEO Content Section -->
+    
+                <!-- SEO Content Section -->
                 <!-- UPDATED: Reduced mt-4 to mt-2 -->
-                <div class="bg-white p-4 sm:p-5 mt-2 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs">
+                <div class="bg-white p-4 sm:p-5 mt-2 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs border-2 border-gray-400">
                     <h2 class="text-lg font-extrabold text-primary !mb-4">A Buyer's Guide to Understanding Closing Costs</h2>
                     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <h3 class="text-base font-bold text-gray-800">What Are Closing Costs?</h3>
                         <p class="mt-2 text-xs">Closing costs are a collection of fees you pay to finalize a real estate transaction. They are separate from your down payment and are typically paid at the closing meeting. These costs cover the services provided by your lender, real estate attorney, title company, and other third parties involved in the sale. As a general rule, you can expect closing costs to be between <strong class="font-semibold">2% and 5% of the loan amount</strong>. Our closing cost estimator helps you budget for this significant expense.</p>
                     </section>
     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <h3 class="text-base font-bold text-gray-800">How to Use This Closing Cost Calculator</h3>
                          <ul class="space-y-3 mt-3 text-xs">
                             <li class="flex items-start">
@@ -315,7 +315,7 @@
                         </ul>
                     </section>
                     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <h3 class="text-base font-bold text-gray-800">Common Closing Costs Explained</h3>
                         <p class="mt-2 text-xs">Closing costs can be grouped into three main categories. Our closing cost calculator provides an estimate for each of these.</p>
                          <ul class="space-y-3 mt-3 text-xs">
@@ -335,7 +335,7 @@
                     </section>
     
                     <!-- NEW SECTION -->
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <h3 class="text-base font-bold text-gray-800">Strategies to Lower Your Closing Costs</h3>
                         <p class="mt-2 text-xs">While many closing costs are fixed, there are several ways you can potentially reduce your out-of-pocket expenses. A little negotiation and smart shopping can go a long way.</p>
                          <ul class="space-y-3 mt-3 text-xs">
@@ -361,7 +361,7 @@
                     <!-- FAQ Section -->
                     <section class="py-4">
                         <h2 class="text-lg font-bold text-primary mb-3 text-center">Frequently Asked Questions</h2>
-                        <div class="max-w-3xl mx-auto border-t border-b border-gray-200 divide-y divide-gray-200">
+                        <div class="max-w-3xl mx-auto border-t border-b border-gray-400 divide-y divide-gray-400">
                            <div class="faq-item">
                                 <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition" aria-expanded="false">
                                     <span class="text-xs">What are closing costs?</span>
