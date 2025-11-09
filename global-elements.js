@@ -187,11 +187,51 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- NEW: Full-screen overlay for when mobile menu is open -->
         <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-25 z-30 hidden md:hidden backdrop-blur-sm"></div>
     `;
+    
+    // --- NEW: Global Share Bar HTML ---
+    // This will be inserted right before the footer on every page.
+    // --- MODIFIED: Removed this variable, as its content will be moved into footerHTML ---
+    // const globalShareBarHTML = `...`;
 
     const footerHTML = `
         <footer class="bg-gray-800 text-gray-400 text-sm no-print rounded-t-lg md:rounded-t-xl border-glow-primary">
-            <!-- UPDATED: Replaced Tailwind width/padding classes with .container-global and kept py-6 -->
-            <div class="container-global py-6">
+            <!-- UPDATED: Reduced py-6 to py-4 for a more compact footer -->
+            <div class="container-global py-4">
+                
+                <!-- NEW: Social Share Bar (Moved Inside Footer) -->
+                <!-- UPDATED: Reduced pb-6 mb-6 to pb-4 mb-4 for compactness -->
+                <section class="border-b border-gray-700 pb-4 mb-4">
+                    <!-- UPDATED: Reduced gap-4 to gap-3 for mobile -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
+                        <!-- UPDATED: Text color changed to text-gray-300 for dark bg -->
+                        <h3 class="text-sm font-semibold text-gray-300">Found this page helpful? Share it:</h3>
+                        <!-- UPDATED: Reduced gap-3 to gap-2.5 for icons -->
+                        <div class="flex items-center gap-2.5">
+                            <!-- UPDATED: Reduced padding to p-2 and icon size to w-3.5 h-3.5 -->
+                            <a id="global-share-x" href="#" target="_blank" rel="noopener noreferrer" title="Share on X" class="p-2 bg-black text-white rounded-full hover:bg-gray-700 transition-colors shadow-md">
+                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75z"/></svg>
+                            </a>
+                            <!-- RE-ADDED: Facebook Icon with compact styling -->
+                            <a id="global-share-fb" href="#" target="_blank" rel="noopener noreferrer" title="Share on Facebook" class="p-2 bg-[#1877F2] text-white rounded-full hover:bg-[#166fe5] transition-colors shadow-md">
+                                 <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"/></svg>
+                            </a>
+                            <!-- UPDATED: Reduced padding to p-2 and icon size to w-3.5 h-3.5. FIXED typo class_l to class -->
+                            <a id="global-share-li" href="#" target="_blank" rel="noopener noreferrer" title="Share on LinkedIn" class="p-2 bg-[#0077B5] text-white rounded-full hover:bg-[#006097] transition-colors shadow-md">
+                                 <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </a>
+                            <!-- UPDATED: Reduced padding to p-2 and icon size to w-3.5 h-3.5 -->
+                            <a id="global-share-wa" href="#" target="_blank" rel="noopener noreferrer" title="Share on WhatsApp" class="p-2 bg-[#25D366] text-white rounded-full hover:bg-[#1ebe59] transition-colors shadow-md">
+                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.31-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg>
+                            </a>
+                            <!-- UPDATED: Reduced padding to p-2 and icon size to w-3.5 h-3.5 -->
+                            <a id="global-share-em" href="#" title="Share via Email" class="p-2 bg-gray-600 text-white rounded-full hover:bg-gray-700 transition-colors shadow-md">
+                                 <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <!-- End Social Share Bar -->
+
                 <div class="text-center text-xs space-y-1">
                     <p>&copy; <span id="copyright-year"></span> Strategic Mortgage Planner. All Rights Reserved.</p>
                     <p>A proud part of the <a href="https://toolblaster.com" target="_blank" rel="noopener noreferrer" class="text-white hover:underline font-semibold">toolblaster.com</a> Network by <a href="https://x.com/vikasrana03" target="_blank" rel="noopener noreferrer" class="text-white hover:underline font-semibold">Vikas Rana</a></p>
@@ -220,6 +260,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.body.insertAdjacentHTML('afterbegin', svgIcon);
     document.body.insertAdjacentHTML('afterbegin', headerHTML);
+    // --- UPDATED: Remove the separate share bar insertion ---
+    // document.body.insertAdjacentHTML('beforeend', globalShareBarHTML);
     document.body.insertAdjacentHTML('beforeend', footerHTML);
 
     // *** CALL THE NEW FAVICON FUNCTION ***
@@ -268,47 +310,37 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // --- NEW: Centralized Social Sharing ---
-    function setupSocialSharing() {
-        const placeholder = document.getElementById('share-section-placeholder');
-        if (!placeholder) return;
-
-        const shareHTML = `
-            <div class="bg-gray-50 border-t border-gray-200 py-4 no-print">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
-                        <h3 class="text-xs font-semibold text-gray-800">Found this helpful? Share it:</h3>
-                        <div class="flex items-center gap-3">
-                            <a id="global-share-twitter" href="#" target="_blank" rel="noopener noreferrer" title="Share on X" class="p-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors shadow-md">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75z"/></svg>
-                            </a>
-                            <a id="global-share-facebook" href="#" target="_blank" rel="noopener noreferrer" title="Share on Facebook" class="p-2 bg-[#1877F2] text-white rounded-full hover:bg-[#166fe5] transition-colors shadow-md">
-                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"/></svg>
-                            </a>
-                            <a id="global-share-linkedin" href="#" target="_blank" rel="noopener noreferrer" title="Share on LinkedIn" class="p-2 bg-[#0077B5] text-white rounded-full hover:bg-[#006097] transition-colors shadow-md">
-                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                            </a>
-                            <a id="global-share-whatsapp" href="#" target="_blank" rel="noopener noreferrer" title="Share on WhatsApp" class="p-2 bg-[#25D366] text-white rounded-full hover:bg-[#1ebe59] transition-colors shadow-md">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.31-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg>
-                            </a>
-                            <a id="global-share-email" href="#" title="Share via Email" class="p-2 bg-gray-600 text-white rounded-full hover:bg-gray-700 transition-colors shadow-md">
-                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-        placeholder.innerHTML = shareHTML;
-        
+    // This function runs on every page load to set the correct URLs for the new global share bar.
+    function setupGlobalShareLinks() {
+        // Get the current page's URL and title
+        // Use window.location.href to get the full, absolute URL
         const pageUrl = encodeURIComponent(window.location.href);
         const pageTitle = encodeURIComponent(document.title);
-        const pageSource = "Strategic Mortgage Planner";
+        const pageSource = "Strategic Mortgage Planner"; // Optional, for LinkedIn
 
-        document.getElementById('global-share-twitter').href = `https://x.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
-        document.getElementById('global-share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
-        document.getElementById('global-share-linkedin').href = `https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}&title=${pageTitle}&source=${pageSource}`;
-        document.getElementById('global-share-whatsapp').href = `httpsa://api.whatsapp.com/send?text=${pageTitle}%20${pageUrl}`;
-        document.getElementById('global-share-email').href = `mailto:?subject=${pageTitle}&body=Check out this helpful tool: ${pageUrl}`;
+        // Find the links by their new IDs
+        const xLink = document.getElementById('global-share-x');
+        const fbLink = document.getElementById('global-share-fb');
+        const liLink = document.getElementById('global-share-li');
+        const waLink = document.getElementById('global-share-wa');
+        const emLink = document.getElementById('global-share-em');
+
+        // Dynamically set the href attribute for each link
+        if (xLink) {
+            xLink.href = `https://x.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+        }
+        if (fbLink) {
+            fbLink.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+        }
+        if (liLink) {
+            liLink.href = `https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}&title=${pageTitle}&source=${pageSource}`;
+        }
+        if (waLink) {
+            waLink.href = `https://api.whatsapp.com/send?text=${pageTitle}%20${pageUrl}`;
+        }
+        if (emLink) {
+            emLink.href = `mailto:?subject=${pageTitle}&body=Check out this helpful tool: ${pageUrl}`;
+        }
     }
 
     // --- UPDATED: Centralized Related Articles & Calculators ---
@@ -399,11 +431,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (desktopPlaceholder) {
             desktopPlaceholder.innerHTML = `
-                <!-- FUTURE AD SLOT (Sidebar / 300x250 or 300x600) -->
-                <div class="mb-4 flex min-h-[250px] w-full items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 text-gray-400 hidden">
-                    Future Ad Placeholder
-                </div>
-                <!-- END: Ad Slot Placeholder -->
+                <!-- REMOVED: Ad Slot Placeholder -->
                 <div class="sticky top-24">
                     <div class="sidebar-widget">
                          <h3 class="${sidebarTitle === "Other Calculators" ? "sidebar-title-gradient" : "sidebar-title"}">${sidebarTitle}</h3>
@@ -480,6 +508,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // --- Run on page load ---
-    setupSocialSharing();
+    // --- REMOVED old setupSocialSharing() call ---
     setupRelatedArticles();
+    // --- ADDED call to new global share link function ---
+    setupGlobalShareLinks();
 });
