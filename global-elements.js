@@ -125,7 +125,8 @@ document.addEventListener('DOMContentLoaded', function() {
             font-size: 0.875rem; /* text-sm */
           }
         </style>
-        <header class="bg-white/80 backdrop-blur-lg shadow-sm no-print md:static top-0 z-40 rounded-b-lg md:rounded-b-xl border-glow-primary">
+        <!-- UPDATED: Changed background from bg-white/80 to a light blue/green gradient -->
+        <header class="bg-gradient-to-r from-sky-50 to-green-50 backdrop-blur-lg shadow-sm no-print md:static top-0 z-40 rounded-b-lg md:rounded-b-xl border-glow-primary">
             <!-- UPDATED: Replaced Tailwind width/padding classes with .container-global -->
             <nav class="container-global">
                 <div class="flex items-center justify-between h-14">
@@ -147,7 +148,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="hidden md:flex items-center space-x-4">
                         <!-- UPDATED: Added Homepage link -->
                         <a href="${homePath}" class="text-sm menu-link-gradient">Home</a>
-                        <!-- UPDATED: Link to new planner.html -->
                         <a href="${plannerPath}" class="text-sm menu-link-gradient">Mortgage Planner</a>
                         <!-- UPDATED: Removed redundant Planning Hub link -->
                         <a href="${calcHubPath}" class="text-sm menu-link-gradient">Calculator's Hub</a>
@@ -174,8 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <!-- UPDATED: Changed text-gray-700 to text-primary and hover:text-primary to hover:text-accent -->
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                     <!-- UPDATED: Added Homepage link -->
-                    <a href="${homePath}" class="block px-3 py-2 rounded-md text-sm mobile-menu-link-gradient hover:bg-gray-50">Homepage</a>
-                    <!-- UPDATED: Link to new planner.html -->
+                    <a href="${homePath}" class="block px-3 py-2 rounded-md text-sm mobile-menu-link-gradient hover:bg-gray-50">Home</a>
                     <a href="${plannerPath}" class="block px-3 py-2 rounded-md text-sm mobile-menu-link-gradient hover:bg-gray-50">Mortgage Planner</a>
                     <!-- UPDATED: Removed redundant Planning Hub link -->
                     <a href="${calcHubPath}" class="block px-3 py-2 rounded-md text-sm mobile-menu-link-gradient hover:bg-gray-50">Calculator's Hub</a>
