@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mortgage Amortization Explained — See How Your Payments Really Work</title>
+    <title>Mortgage Amortization Explained (See Your Payoff Timeline)</title>
 
     <!-- Primary Meta Tags -->
     <meta name="description" content="Ever wondered where your mortgage payments really go? Our guide explains amortization, principal vs. interest, and how to use our calculator to pay off your loan faster.">
@@ -46,11 +46,6 @@
 
     <!-- Shared Stylesheet (relative path from blog folder) -->
     <link rel="stylesheet" href="../style.css">
-    <style>
-        .prose h1 { @apply text-xl sm:text-2xl font-extrabold text-primary; }
-        .prose h2 { @apply text-2xl font-bold text-primary; }
-        .prose h3 { @apply text-lg font-semibold text-gray-800; }
-    </style>
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -150,7 +145,7 @@
                 <article class="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-2xl">
                     <!-- Article Header -->
                     <header class="text-center mb-8">
-                        <h1 class="text-2xl sm:text-3xl font-extrabold text-primary">Mortgage Amortization Explained — See How Your Payments Really Work</h1>
+                        <h1 class="font-extrabold text-primary">Mortgage Amortization Explained — See How Your Payments Really Work</h1>
                         <p class="mt-2 text-sm sm:text-base text-gray-800">Ever wondered where your mortgage payment really goes each month? Let's demystify the process.</p>
                         <div class="mt-4 text-xs text-gray-800">
                             <span>Published By <strong>Vikas Rana</strong></span>
@@ -190,11 +185,11 @@
                                 </li>
                                 <li class="flex items-start">
                                     <span class="flex-shrink-0 w-6 h-6 mr-3 text-red-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 19L19 5M6.375 6.375a2.625 2.625 0 11-3.712 3.712A2.625 2.625 0 016.375 6.375zM17.625 17.625a2.625 2.625 0 11-3.712 3.712 2.625 2.625 0 013.712-3.712z" /></svg></span>
-                                    <div><strong class="font-semibold">Interest:</strong> The cost of borrowing money from the lender. This is where the bank makes its profit.</div>
+                                    <div><strong class="font-semibold">Interest:</strong> The fee you pay to the lender for the privilege of borrowing money. This is the lender's profit and does not reduce your loan balance.</div>
                                 </li>
                             </ul>
                             <div class="my-4 p-4 bg-white rounded-lg border shadow-sm">
-                                <div class="relative h-64 sm:h-80">
+                                <div class="relative h-56">
                                     <canvas id="amortizationConceptChart"></canvas>
                                 </div>
                             </div>
@@ -227,10 +222,10 @@
                         
                         <!-- Interactive Graph CTA -->
                         <section class="mt-6">
-                            <div class="bg-primary/10 p-6 rounded-lg text-center shadow-inner border border-primary/20">
-                                <h2 class="text-lg sm:text-xl font-bold">See Your Own Amortization Timeline</h2>
-                                <p class="mt-2 text-gray-900">The best way to understand this is to see it with your own numbers. Our calculator generates a full, interactive <strong class="font-bold">amortization schedule</strong> chart that visualizes your <strong class="font-bold">equity build-up</strong> and loan balance over time.</p>
-                                <a href="../#mortgage-tab" class="mt-4 inline-block bg-accent hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                            <div class="bg-primary/10 p-4 rounded-lg text-center shadow-inner border border-primary/20">
+                                <h2 class="text-lg font-bold">See Your Own Amortization Timeline</h2>
+                                <p class="mt-2 text-xs text-gray-900">The best way to understand this is to see it with your own numbers. Our calculator generates a full, interactive <strong class="font-bold">amortization schedule</strong> chart that visualizes your <strong class="font-bold">equity build-up</strong> and loan balance over time.</p>
+                                <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#mortgage-tab" class="mt-3 inline-block bg-accent hover:bg-green-700 text-white font-bold py-2 px-4 text-sm rounded-lg shadow-lg transition-transform transform hover:scale-105">
                                     View My Amortization Chart
                                 </a>
                             </div>
@@ -247,7 +242,7 @@
                                 </li>
                                 <li class="flex items-start">
                                    <span class="flex-shrink-0 w-6 h-6 mr-3 text-primary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></span>
-                                    <div><strong>How to Do It:</strong> Use the <strong class="font-bold"><a href="../#mortgage-tab" class="text-accent hover:underline">extra payment calculator</a></strong> feature on our main planner. Simply enter an extra monthly amount or a one-time lump sum to instantly see the impact on your <strong class="font-bold">loan payoff</strong> date and total interest saved.</div>
+                                    <div><strong>How to Do It:</strong> Use the <strong class="font-bold"><a href="https://mortgageplanner.toolblaster.com/calculators/extra-payment-calculator.html" class="text-accent hover:underline">extra payment calculator</a></strong> feature on our main planner. Simply enter an extra monthly amount or a one-time lump sum to instantly see the impact on your <strong class="font-bold">loan payoff</strong> date and total interest saved.</div>
                                 </li>
                             </ul>
                         </section>
@@ -314,8 +309,6 @@
                             </div>
                         </section>
 
-                        <!-- Share Section -->
-                        <div id="share-section-placeholder" class="mt-6 border-t pt-6"></div>
                     </div>
                 </article>
 
