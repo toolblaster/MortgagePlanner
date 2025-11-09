@@ -446,8 +446,57 @@
                     </div>
                 </div>
     
-                <!-- REMOVED Social Share Section -->
+                <!-- NEW: Formula Explanation Section -->
+                <div class="bg-white p-4 sm:p-5 mt-4 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs">
+                    <h2 class="text-lg font-extrabold text-primary !mb-4">How This Calculator Works: The Formulas</h2>
+                    
+                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                        <h3 class="text-base font-bold text-gray-800">1. Core Equity Formulas</h3>
+                        <p class="mt-2 text-xs">We first determine the equity in your home based on your inputs:</p>
+                        <ul class="space-y-2 mt-2 text-xs list-none pl-2">
+                            <li class="p-2 bg-white rounded border border-gray-200">
+                                <code class="block font-semibold text-primary">Total Equity = Current Home Value - Mortgage Balance</code>
+                                <p class="mt-1 text-gray-600">This is the portion of your home you own outright.</p>
+                            </li>
+                            <li class="p-2 bg-white rounded border border-gray-200">
+                                <code class="block font-semibold text-primary">Available Equity = (Home Value * (LTV Ratio / 100)) - Mortgage Balance</code>
+                                <p class="mt-1 text-gray-600">This is the maximum amount a lender will typically let you borrow. (LTV = Loan-to-Value)</p>
+                            </li>
+                        </ul>
+                    </section>
     
+                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                        <h3 class="text-base font-bold text-gray-800">2. Monthly Payment Formula (PMT)</h3>
+                        <p class="mt-2 text-xs">To estimate payments for both the HELOC and the Cash-Out Refinance, we use the standard periodic payment formula. This formula is provided by `js/utils.js` and used by all calculators on this site.</p>
+                        <div class="p-2 mt-2 bg-white rounded border border-gray-200">
+                            <code class="block font-semibold text-primary text-center">M = P * [r(1+r)^n] / [(1+r)^n - 1]</code>
+                            <ul class="space-y-1 mt-2 text-gray-600 text-xs">
+                                <li><strong>M</strong> = Your monthly payment</li>
+                                <li><strong>P</strong> = The principal loan amount (for a HELOC, this is the 'Available Equity'; for a Cash-Out, it's the 'New Loan Amount')</li>
+                                <li><strong>r</strong> = Your monthly interest rate (your annual rate divided by 12)</li>
+                                <li><strong>n</strong> = Your total number of payments (your loan term in years multiplied by 12)</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                        <h3 class="text-base font-bold text-gray-800">3. Scenario-Specific Calculations</h3>
+                        <ul class="space-y-2 mt-2 text-xs list-none pl-2">
+                            <li class="p-2 bg-white rounded border border-gray-200">
+                                <strong class="font-semibold text-primary block">HELOC Scenario:</strong>
+                                <p class="mt-1 text-gray-600">The PMT formula is applied using the 'Available Equity' as the principal (P) and the HELOC term/rate.</p>
+                            </li>
+                            <li class="p-2 bg-white rounded border border-gray-200">
+                                <strong class="font-semibold text-primary block">Cash-Out Refinance Scenario:</strong>
+                                <p class="mt-1 text-gray-600"><code class="text-xs">New Loan Amount = Mortgage Balance + Available Equity + Closing Costs</code></p>
+                                <p class="mt-1 text-gray-600">The PMT formula is applied using this 'New Loan Amount' as the principal (P) and the new loan term/rate.</p>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <p class="text-xs text-center text-gray-600 italic mt-4">These formulas are standard in the financial industry. For a more detailed breakdown of opportunity cost, please see the All-in-One Mortgage Planner.</p>
+                </div>
+
                 <!-- SEO Content Section -->
                 <div class="bg-white p-4 sm:p-5 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 mt-4 text-xs">
                     <h2 class="text-lg font-extrabold text-primary !mb-4">A Homeowner's Guide to Understanding and Using Home Equity</h2>
