@@ -36,6 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
         helocTotalInterest: document.getElementById('helocTotalInterest'),
         refiMonthlyPayment: document.getElementById('refiMonthlyPayment'),
         refiTotalInterest: document.getElementById('refiTotalInterest'),
+        
+        // New: Reference the main results container from the HTML structure
+        equityResults: document.getElementById('equityResults'),
     };
 
     let equityChart = null;
@@ -116,18 +119,32 @@ document.addEventListener('DOMContentLoaded', function() {
         // HELOC Calculation
         const helocRate = parseFloat(DOM.helocRateSlider.value);
         const helocTerm = parseFloat(DOM.helocTerm.value);
-        const helocPayment = window.mortgageUtils.calculatePayment(availableEquity, helocRate, 12, helocTerm * 12);
-        const helocTotalInterest = (helocPayment * helocTerm * 12) - availableEquity;
         
+        let helocPayment = 0;
+        let helocTotalInterest = 0;
+
+        if (availableEquity > 0) {
+            // Note: window.mortgageUtils.calculatePayment handles 0 rate/term, but inputs are constrained.
+            helocPayment = window.mortgageUtils.calculatePayment(availableEquity, helocRate, 12, helocTerm * 12);
+            helocTotalInterest = (helocPayment * helocTerm * 12) - availableEquity;
+        }
+
         // Cash-Out Refinance Calculation
         const mortgageBalance = parseFloat(DOM.mortgageBalance.value) || 0;
         const closingCosts = parseFloat(DOM.refiClosingCosts.value) || 0;
         const newLoanAmount = mortgageBalance + availableEquity + closingCosts;
         const refiRate = parseFloat(DOM.refiRateSlider.value);
         const refiTerm = parseFloat(DOM.refiTerm.value);
-        const refiPayment = window.mortgageUtils.calculatePayment(newLoanAmount, refiRate, 12, refiTerm * 12);
-        const refiTotalInterest = (refiPayment * refiTerm * 12) - newLoanAmount;
+        
+        let refiPayment = 0;
+        let refiTotalInterest = 0;
 
+        if (newLoanAmount > 0) {
+            // Note: window.mortgageUtils.calculatePayment handles 0 rate/term, but inputs are constrained.
+            refiPayment = window.mortgageUtils.calculatePayment(newLoanAmount, refiRate, 12, refiTerm * 12);
+            refiTotalInterest = (refiPayment * refiTerm * 12) - newLoanAmount;
+        }
+        
         return {
             totalEquity,
             availableEquity,
@@ -146,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateUI() {
         const results = calculateScenarios();
 
+        // 1. Animate Numerical Results
         animateValue(DOM.totalEquity, results.totalEquity);
         animateValue(DOM.availableEquity, results.availableEquity);
         animateValue(DOM.helocMonthlyPayment, results.heloc.monthlyPayment);
@@ -153,9 +171,17 @@ document.addEventListener('DOMContentLoaded', function() {
         animateValue(DOM.refiMonthlyPayment, results.refi.monthlyPayment);
         animateValue(DOM.refiTotalInterest, results.refi.totalInterest);
 
+        // 2. Render Charts
         renderEquityChart(results.totalEquity, parseFloat(DOM.mortgageBalance.value) || 0);
         renderComparisonChart(results);
         renderOpportunityCostChart(results);
+
+        // 3. Ensure Results Container is Visible
+        // The HTML uses opacity-0, so we remove that class to show the results.
+        if (DOM.equityResults) {
+            DOM.equityResults.classList.remove('opacity-0');
+            DOM.equityResults.classList.add('results-animate-in');
+        }
     }
 
     function renderEquityChart(equity, mortgage) {
@@ -380,11 +406,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Share links
         const pageUrl = encodeURIComponent(window.location.href);
         const pageTitle = encodeURIComponent(document.title);
-        document.getElementById('share-twitter-equity').href = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
-        document.getElementById('share-facebook-equity').href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
-        document.getElementById('share-linkedin-equity').href = `https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}&title=${pageTitle}`;
-        document.getElementById('share-whatsapp-equity').href = `https://api.whatsapp.com/send?text=${pageTitle}%20${pageUrl}`;
-        document.getElementById('share-email-equity').href = `mailto:?subject=${pageTitle}&body=Check out this helpful calculator: ${pageUrl}`;
+        // Note: Share button IDs are handled by global-elements.js in the main HTML
     }
 
     // --- Initialization ---
@@ -412,7 +434,9 @@ document.addEventListener('DOMContentLoaded', function() {
         setupEventListeners();
         updateCurrencySymbols();
         [DOM.homeValueSlider, DOM.mortgageBalanceSlider, DOM.helocRateSlider, DOM.refiRateSlider].forEach(updateSliderFill);
-        updateUI(); // Initial calculation
+        
+        // --- FIX: Run initial calculation on page load ---
+        updateUI(); 
     }
 
     init();
