@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Meta Title: 60 chars -->
+    <!-- Meta Title: 57 chars -->
     <title>Guide to Hidden Homeownership Costs (Free Calculators)</title>
 
     <!-- Primary Meta Tags -->
-    <!-- Meta Description: 156 chars -->
+    <!-- Meta Description: 158 chars -->
     <meta name="description" content="This guide walks you through every hidden homeownership expense, from closing costs to property taxes, and links to free tools to calculate your true budget.">
     <meta name="keywords" content="hidden homeownership costs, true cost of owning a home, PITI calculator, property tax calculator, closing cost calculator, home maintenance costs, budget for buying a house">
     <meta name="author" content="Vikas Rana">
@@ -35,6 +35,24 @@
 
     <!-- Shared Stylesheet (relative path from blog folder) -->
     <link rel="stylesheet" href="../style.css">
+    
+    <!-- NEW: Styles for FAQ Accordion -->
+    <style>
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        .faq-chevron {
+            transition: transform 0.3s ease-in-out;
+        }
+        details[open] .faq-chevron {
+            transform: rotate(180deg);
+        }
+        details summary::-webkit-details-marker { 
+            display: none; 
+        }
+    </style>
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -94,7 +112,7 @@
               "acceptedAnswer": { "@type": "Answer", "text": "Total homeownership cost includes your mortgage (principal and interest), property taxes, homeowners insurance, any HOA fees, closing costs, and ongoing maintenance and repairs." }
             },
             {
-              "@type": "Question",
+              "@type":I "Question",
               "name": "How much should I budget beyond my mortgage?",
               "acceptedAnswer": { "@type": "Answer", "text": "A good rule of thumb is to budget an additional 20-30% of your mortgage payment for other costs like taxes, insurance, and routine upkeep." }
             },
@@ -107,6 +125,11 @@
               "@type": "Question",
               "name": "What’s the most accurate way to estimate my full cost?",
               "acceptedAnswer": { "@type": "Answer", "text": "The most accurate method is to use dedicated calculators for each component: a mortgage calculator for your P&I, a property tax calculator for taxes based on local rates, and a closing cost calculator for upfront fees. Combining these results gives you a complete picture." }
+            },
+            {
+              "@type": "Question",
+              "name": "What is PITI and why is it important?",
+              "acceptedAnswer": { "@type": "Answer", "text": "PITI stands for Principal, Interest, Taxes, and Insurance. It represents your total monthly housing payment, not just the loan. Budgeting for PITI is essential to understand your true affordability and avoid being 'house poor'." }
             }
           ]
         }
@@ -128,30 +151,53 @@
                         </div>
                     </header>
                     
+                    <!-- Ad Placeholder 1: Responsive Banner (e.g., 728x90) -->
+                    <div class="my-6 flex min-h-[90px] w-full items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 text-gray-400 hidden" aria-hidden="true">
+                        Future Ad Placeholder (Responsive Banner)
+                    </div>
+                    <!-- End Ad Placeholder 1 -->
+                    
                     <div class="my-8 h-px w-full bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
                     
                     <div class="prose prose-xs max-w-none mx-auto">
-                        <p>Most people focus only on their mortgage when buying a home, but the true cost of homeownership includes many hidden fees like property taxes, insurance, and closing costs. This guide walks you through every expense and links to free tools so you can calculate everything before you buy.</p>
+                        <p>Most people focus on their mortgage payment when buying a home, but that's only part of the story. The <strong class="font-bold">true cost of homeownership</strong> includes many "hidden" fees like property taxes, insurance, and closing costs. This guide will walk you through every expense and link to free tools so you can calculate your budget with confidence *before* you buy.</p>
+                        
+                        <!-- NEW: Key Takeaways Section -->
+                        <div class="my-6 p-4 bg-sky-50 border-l-4 border-primary rounded-r-lg shadow-sm">
+                            <h2 class="text-lg font-bold text-primary flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                                </svg>
+                                Key Takeaways
+                            </h2>
+                            <ul class="space-y-2 mt-3 list-none pl-2 text-sm text-gray-800">
+                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Your "true" monthly payment is <strong>PITI</strong>: Principal, Interest, Taxes, and Insurance.</li>
+                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Budget for <strong>one-time costs</strong> like closing fees (2-5% of loan) and home inspections.</li>
+                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Plan for <strong>ongoing costs</strong> like property taxes, insurance, HOA fees, and maintenance.</li>
+                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>A good rule is to save 1-3% of your home's value each year for maintenance and repairs.</li>
+                            </ul>
+                        </div>
+                        
                         <div class="my-6 p-4 bg-accent/10 rounded-lg text-center shadow-inner border border-accent/20">
                              <a href="https://mortgageplanner.toolblaster.com/calculators/" class="font-bold text-accent hover:underline text-base">👉 Use our free homeownership calculators to plan your budget accurately.</a>
                         </div>
 
                         <!-- UPDATED: Added content-section class and fixed heading margin -->
                         <section class="mt-6 content-section">
-                            <h2 class="!mt-0">Understanding the True Cost of Owning a Home</h2>
+                            <h2 class="!mt-0">Understanding PITI: The True Cost of Owning a Home</h2>
                             <p>The first step to smart budgeting is understanding the concept of <strong>PITI</strong>: Principal, Interest, Taxes, and Insurance. While your mortgage payment (Principal & Interest) is the largest piece, the other two can add hundreds of dollars to your monthly bill. Let’s break down each element so you can plan wisely.</p>
                             <p>→ First, you need a baseline. You can <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#mortgage-tab" class="font-semibold text-accent hover:underline">estimate your base monthly payment here</a>.</p>
                         </section>
                         
                         <!-- UPDATED: Added content-section class and fixed heading margin -->
                         <section class="mt-6 content-section">
-                            <h2 class="!mt-0">1️⃣ Mortgage Payments: Your Starting Point</h2>
+                            <h2 class="!mt-0">1️⃣ Mortgage Payments (Principal & Interest)</h2>
                             <p>This is the most straightforward cost. It's the amount you pay back to the lender each month, and it's made up of two parts:</p>
                             <ul class="space-y-2 mt-3 list-none pl-2 text-sm text-gray-800">
                                  <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span><strong>Principal:</strong> The portion that pays down the actual amount you borrowed.</li>
-                                 <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span><strong>Interest:</strong> The cost of borrowing the money.</li>
+                                 <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span><strong>Interest:</strong> The cost of borrowing the money (the lender's profit).</li>
                             </ul>
-                            <p class="mt-2">For example, a $400,000 loan at 6.5% for 30 years results in a principal and interest payment of about $2,528 per month.</p>
+                            <p class="mt-2">For example, a $400,000 loan at 6.5% for 30 years results in a principal and interest (P&I) payment of about $2,528 per month.</p>
                              <div class="my-4 p-4 bg-primary/10 rounded-lg text-center shadow-inner border border-primary/20">
                                  <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#mortgage-tab" class="font-bold text-primary hover:underline">👉 Use our Mortgage Calculator</a>
                             </div>
@@ -159,33 +205,39 @@
 
                         <!-- UPDATED: Added content-section class and fixed heading margin -->
                         <section class="mt-6 content-section">
-                            <h2 class="!mt-0">2️⃣ Property Taxes: The Annual Expense Many Forget</h2>
+                            <h2 class="!mt-0">2️⃣ Property Taxes: The Annual Bill You Can't Forget</h2>
                             <p>Property taxes are collected by local governments to fund public services like schools, roads, and fire departments. They vary significantly by state and even by county.</p>
                              <ul class="space-y-2 mt-3 list-none pl-2 text-sm text-gray-800">
                                  <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>This cost is unavoidable and is typically paid monthly into an escrow account managed by your lender.</li>
                                  <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>For example, a 1.2% tax rate on a $400,000 home adds $4,800 per year, or $400 per month, to your housing costs.</li>
                             </ul>
                             <div class="my-4 p-4 bg-primary/10 rounded-lg text-center shadow-inner border border-primary/20">
-                                 <a href="https://mortgageplanner.toolblaster.com/calculators/property-tax-calculator.html" class="font-bold text-primary hover:underline">👉 Estimate your exact cost with our Property Tax Calculator</a>
+                                 <a href="https://mortgageplanner.toolblaster.com/calculators/property-tax-calculator.html" class="font-bold text-primary hover:underline">👉 Estimate your cost with our Property Tax Calculator</a>
                             </div>
                         </section>
                         
+                        <!-- Ad Placeholder 2: In-Article (e.g., 300x250 or fluid) -->
+                        <div class="my-8 flex min-h-[250px] w-full items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 text-gray-400 hidden" aria-hidden="true">
+                            Future Ad Placeholder (In-Article)
+                        </div>
+                        <!-- End Ad Placeholder 2 -->
+                        
                         <!-- UPDATED: Added content-section class and fixed heading margin -->
                         <section class="mt-6 content-section">
-                            <h2 class="!mt-0">3️⃣ Closing Costs: The Upfront Surprise</h2>
+                            <h2 class="!mt-0">3️⃣ Closing Costs: The Big Upfront Surprise</h2>
                             <p>These are the fees you pay to finalize your mortgage and are one of the biggest "hidden" expenses. They typically range from 2% to 5% of the loan amount.</p>
                             <ul class="space-y-2 mt-3 list-none pl-2 text-sm text-gray-800">
                                  <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Includes fees for loan origination, appraisal, title search, and more.</li>
                                  <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>On a $400,000 loan, you could expect to pay between $8,000 and $20,000 in closing costs.</li>
                             </ul>
                             <div class="my-4 p-4 bg-primary/10 rounded-lg text-center shadow-inner border border-primary/20">
-                                <a href="https://mortgageplanner.toolblaster.com/calculators/closing-cost-calculator.html" class="font-bold text-primary hover:underline">👉 Find out your total upfront costs using our Closing Cost Calculator</a>
+                                <a href="https://mortgageplanner.toolblaster.com/calculators/closing-cost-calculator.html" class="font-bold text-primary hover:underline">👉 Find your total upfront costs with our Closing Cost Calculator</a>
                             </div>
                         </section>
 
                         <!-- UPDATED: Added content-section class and fixed heading margin -->
                         <section class="mt-6 content-section">
-                            <h2 class="!mt-0">4️⃣ Other Costs Homebuyers Overlook</h2>
+                            <h2 class="!mt-0">4️⃣ Other Costs Homebuyers Often Overlook</h2>
                             <p>Beyond the big three, several other ongoing expenses are part of homeownership. Here’s a quick rundown:</p>
                             <div class="mt-4 overflow-x-auto">
                                 <table class="min-w-full divide-y-2 divide-gray-200 text-sm">
@@ -198,9 +250,9 @@
                                     <tbody class="divide-y divide-gray-200">
                                         <tr><td class="px-4 py-2 font-medium">Homeowners Insurance</td><td class="px-4 py-2">Protects your property from damage; lenders require it, and it's often escrowed.</td></tr>
                                         <tr><td class="px-4 py-2 font-medium">HOA Fees</td><td class="px-4 py-2">For community maintenance if you live in a condo or planned development.</td></tr>
-                                        <tr><td class="px-4 py-2 font-medium">Maintenance & Repairs</td><td class="px-4 py-2">Budget 1–2% of your home's value annually for upkeep and unexpected repairs.</td></tr>
+                                        <tr><td class="px-4 py-2 font-medium">Maintenance & Repairs</td><td class="px-4 py-2">Budget 1–3% of your home's value annually for upkeep and unexpected repairs.</td></tr>
                                         <tr><td class="px-4 py-2 font-medium">Utilities</td><td class="px-4 py-2">Heating, water, electricity, and internet bills can be higher in a larger home.</td></tr>
-                                        <tr><td class="px-4 py-2 font-medium">Moving & Setup</td><td class="px-4 py-2">The initial costs of relocating, buying new furniture, and setting up your home.</td></tr>
+                                        <tr><td class="px-4 py-2 font-medium">Moving & Setup</td><td class="px-4 py-2">The initial one-time costs of relocating, buying new furniture, and setting up your home.</td></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -225,7 +277,7 @@
                                 </li>
                                  <li class="flex items-start">
                                     <span class="mr-3 text-primary flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg></span>
-                                    <div><strong>Prioritize a Liquid Emergency Fund:</strong> Before making large extra mortgage payments, ensure you have 3-6 months of living expenses saved in cash. Home equity is not liquid, and an emergency fund is your first line of defense against unexpected job loss or medical bills.</div>
+                                    <div><strong>Prioritize a Liquid Emergency Fund:</strong> Before making large extra mortgage payments, ensure you have 3-6 months of living expenses saved in cash. Home equity is not liquid, and an emergency fund is your first line of defense.</div>
                                 </li>
                             </ul>
                         </section>
@@ -305,34 +357,78 @@
                             </ul>
                         </section>
 
-                        <!-- UPDATED: Added content-section class and fixed heading margin -->
+                        <!-- UPDATED: FAQ SECTION -->
                         <section class="mt-6 content-section">
-                            <h2 class="!mt-0">FAQs</h2>
-                             <ul class="space-y-4 mt-4">
-                                <li class="flex items-start">
-                                    <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 mr-3 rounded-full bg-primary text-white font-bold text-xs">1</span>
-                                    <div><h3 class="font-semibold text-gray-800">What’s included in total homeownership cost?</h3><p class="text-xs text-gray-700 mt-1">Total homeownership cost includes your mortgage (principal and interest), property taxes, homeowners insurance, any HOA fees, closing costs, and ongoing maintenance and repairs.</p></div>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 mr-3 rounded-full bg-primary text-white font-bold text-xs">2</span>
-                                    <div><h3 class="font-semibold text-gray-800">How much should I budget beyond my mortgage?</h3><p class="text-xs text-gray-700 mt-1">A good rule of thumb is to budget an additional 20–30% of your mortgage payment for other costs like taxes, insurance, and routine upkeep.</p></div>
-                                </li>
-                                 <li class="flex items-start">
-                                    <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 mr-3 rounded-full bg-primary text-white font-bold text-xs">3</span>
-                                    <div><h3 class="font-semibold text-gray-800">Can I reduce my closing costs or property taxes?</h3><p class="text-xs text-gray-700 mt-1">Yes — you can often reduce these costs. For closing costs, compare lenders and negotiate fees. For property taxes, you can appeal your home's assessed value and check for exemptions like a homestead exemption.</p></div>
-                                </li>
-                                 <li class="flex items-start">
-                                    <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 mr-3 rounded-full bg-primary text-white font-bold text-xs">4</span>
-                                    <div><h3 class="font-semibold text-gray-800">What’s the most accurate way to estimate my full cost?</h3><p class="text-xs text-gray-700 mt-1">The most accurate method is to use dedicated calculators for each component: a mortgage calculator for your P&I, a property tax calculator for taxes based on local rates, and a closing cost calculator for upfront fees. Combining these results gives you a complete picture.</p></div>
-                                </li>
-                            </ul>
+                            <h2 class="!mt-0">Frequently Asked Questions (FAQ)</h2>
+                             <div class="max-w-3xl mx-auto border-t border-b border-gray-200 divide-y divide-gray-200" id="faq-accordion">
+                                <!-- FAQ 1 -->
+                                <details class="faq-item group">
+                                    <summary class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 cursor-pointer hover:bg-gray-50 transition list-none">
+                                        <h3 class="text-xs">What’s included in total homeownership cost?</h3>
+                                        <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    </summary>
+                                    <div class="faq-answer">
+                                        <div class="p-4 pt-0 text-gray-600 text-xs">
+                                            <p>Total homeownership cost includes your mortgage (principal and interest), property taxes, homeowners insurance, any HOA fees, closing costs, and ongoing maintenance and repairs.</p>
+                                        </div>
+                                    </div>
+                                </details>
+                                <!-- FAQ 2 -->
+                                <details class="faq-item group">
+                                    <summary class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 cursor-pointer hover:bg-gray-50 transition list-none">
+                                        <h3 class="text-xs">How much should I budget beyond my mortgage?</h3>
+                                        <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    </summary>
+                                    <div class="faq-answer">
+                                        <div class="p-4 pt-0 text-gray-600 text-xs">
+                                            <p>A good rule of thumb is to budget an additional 20–30% of your mortgage payment for other costs like taxes, insurance, and routine upkeep.</p>
+                                        </div>
+                                    </div>
+                                </details>
+                                <!-- FAQ 3 -->
+                                <details class="faq-item group">
+                                    <summary class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 cursor-pointer hover:bg-gray-50 transition list-none">
+                                        <h3 class="text-xs">Can I reduce my closing costs or property taxes?</h3>
+                                        <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    </summary>
+                                    <div class="faq-answer">
+                                        <div class="p-4 pt-0 text-gray-600 text-xs">
+                                            <p>Yes — you can often reduce these costs. For closing costs, compare lenders and negotiate fees. For property taxes, you can appeal your home's assessed value and check for exemptions like a homestead exemption.</p>
+                                        </div>
+                                    </div>
+                                </details>
+                                <!-- FAQ 4 -->
+                                <details class="faq-item group">
+                                    <summary class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 cursor-pointer hover:bg-gray-50 transition list-none">
+                                        <h3 class="text-xs">What’s the most accurate way to estimate my full cost?</h3>
+                                        <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    </summary>
+                                    <div class="faq-answer">
+                                        <div class="p-4 pt-0 text-gray-600 text-xs">
+                                            <p>The most accurate method is to use dedicated calculators for each component: a mortgage calculator for your P&I, a property tax calculator for taxes based on local rates, and a closing cost calculator for upfront fees. Combining these results gives you a complete picture.</p>
+                                        </div>
+                                    </div>
+                                </details>
+                                <!-- FAQ 5 -->
+                                <details class="faq-item group">
+                                    <summary class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 cursor-pointer hover:bg-gray-50 transition list-none">
+                                        <h3 class="text-xs">What is PITI and why is it important?</h3>
+                                        <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    </summary>
+                                    <div class="faq-answer">
+                                        <div class="p-4 pt-0 text-gray-600 text-xs">
+                                            <p>PITI stands for Principal, Interest, Taxes, and Insurance. It represents your total monthly housing payment, not just the loan. Budgeting for PITI is essential to understand your true affordability and avoid being 'house poor'.</p>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
                         </section>
                         
                         <div class="mt-8 border-t pt-6">
                             <h2 class="text-xl font-bold text-primary">Conclusion</h2>
                             <p>Understanding your true homeownership cost can save you thousands and prevent financial stress. Use our free suite of mortgage tools to get complete clarity before buying your dream home.</p>
                              <div class="my-4 p-4 bg-accent/10 rounded-lg text-center shadow-inner border border-accent/20">
-                                 <p class="font-bold text-accent">🏠 Plan your budget now → Try our <a href="https://mortgageplanner.toolblaster.com/calculators/property-tax-calculator.html" class="hover:underline">Property Tax Calculator</a> and <a href="https://mortgageplanner.toolblaster.com/calculators/closing-cost-calculator.html" class="hover:underline">Closing Cost Calculator</a> today.</p>
+                                 <p class="font-bold text-gray-700">🏠 Plan your budget now → Try our <a href="https://mortgageplanner.toolblaster.com/calculators/property-tax-calculator.html" class="text-accent hover:underline">Property Tax Calculator</a> and <a href="https://mortgageplanner.toolblaster.com/calculators/closing-cost-calculator.html" class="text-accent hover:underline">Closing Cost Calculator</a> today.</p>
                             </div>
                         </div>
 
@@ -345,5 +441,47 @@
         <div id="mobile-sidebar-placeholder"></div>
     </main>
     <script src="../global-elements.js" defer></script>
+    
+    <!-- NEW: Script for Accordion -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionItems = document.querySelectorAll('#faq-accordion .faq-item');
+            accordionItems.forEach((item) => {
+                const summary = item.querySelector('summary');
+                const answer = item.querySelector('.faq-answer');
+                
+                summary.addEventListener('click', (e) => {
+                    // Prevent default toggle to manage it manually
+                    e.preventDefault();
+                    
+                    const wasOpen = item.hasAttribute('open');
+
+                    // Close all other items
+                    accordionItems.forEach((otherItem) => {
+                        if (otherItem !== item && otherItem.hasAttribute('open')) {
+                            otherItem.removeAttribute('open');
+                            otherItem.querySelector('.faq-answer').style.maxHeight = '0px';
+                        }
+                    });
+
+                    // Toggle the clicked item
+                    if (!wasOpen) {
+                        item.setAttribute('open', '');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    } else {
+                        item.removeAttribute('open');
+                        answer.style.maxHeight = '0px';
+                    }
+                });
+
+                // Recalculate max-height on resize for open accordions
+                window.addEventListener('resize', () => {
+                    if (item.hasAttribute('open')) {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
