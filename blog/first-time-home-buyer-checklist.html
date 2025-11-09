@@ -43,6 +43,24 @@
 
     <link rel="stylesheet" href="../style.css">
     
+    <!-- NEW: Styles for FAQ Accordion -->
+    <style>
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        .faq-chevron {
+            transition: transform 0.3s ease-in-out;
+        }
+        details[open] .faq-chevron {
+            transform: rotate(180deg);
+        }
+        details summary::-webkit-details-marker { 
+            display: none; 
+        }
+    </style>
+    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -90,33 +108,58 @@
         },
         {
           "@type": "HowTo",
-          "name": "How to Buy Your First Home",
-          "description": "A step-by-step guide for first-time home buyers.",
+          "name": "How to Buy Your First Home in 10 Steps",
+          "description": "A 10-step guide covering the entire home buying process for first-time buyers.",
           "step": [
             {
               "@type": "HowToStep",
-              "name": "Check Your Affordability",
-              "text": "Analyze your income, debt-to-income (DTI) ratio, and savings to determine a realistic home budget."
+              "name": "Step 1: Check Your Credit Score",
+              "text": "Review your credit report for errors. A score above 740 gets the best rates, while a score below 620 can make it difficult to qualify."
             },
             {
               "@type": "HowToStep",
-              "name": "Get Pre-Approved for a Mortgage",
-              "text": "Submit your financial documents to a lender to get a conditional commitment for a loan. This shows sellers you are a serious buyer."
+              "name": "Step 2: Calculate Your DTI Ratio",
+              "text": "Calculate your Debt-to-Income (DTI) ratio. Lenders want to see this under 43% (ideally under 36%) to ensure you can handle the payments."
             },
             {
               "@type": "HowToStep",
-              "name": "Estimate Your Monthly Costs",
-              "text": "Calculate the full cost of homeownership, including principal, interest, property taxes, insurance (PITI), and any potential HOA fees."
+              "name": "Step 3: Save for Your Down Payment & Closing Costs",
+              "text": "Start saving for two separate goals: your down payment (3-20% of the home price) and closing costs (2-5% of the loan amount)."
             },
             {
               "@type": "HowToStep",
-              "name": "Choose the Right Loan Type",
-              "text": "Compare different mortgage options like Fixed-rate vs. Variable-rate and FHA vs. Conventional to find the best fit for your financial situation."
+              "name": "Step 4: Get Pre-Approved for a Mortgage",
+              "text": "Submit your financial documents to a lender to get a formal pre-approval letter. This proves to sellers that you are a serious buyer with financing."
             },
             {
               "@type": "HowToStep",
-              "name": "Close the Deal",
-              "text": "Prepare for closing costs, inspection fees, and home insurance. Review all documents carefully before signing to officially become a homeowner."
+              "name": "Step 5: Find a Real Estate Agent",
+              "text": "Partner with a local real estate agent who will be your guide and advocate, helping you find homes and negotiate offers."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Step 6: Go House Hunting",
+              "text": "Start touring homes that fit your pre-approved budget. Focus on the 'bones' of the house (layout, foundation, location) over cosmetic details."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Step 7: Make an Offer",
+              "text": "Once you find 'the one,' your agent will help you write a competitive offer that includes your price and contingencies (like inspection and financing)."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Step 8: Get a Home Inspection and Appraisal",
+              "text": "Hire an inspector to find any hidden problems with the home (for you). Your lender will hire an appraiser to ensure the home is worth the price (for them)."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Step 9: Finalize Your Loan and Do a Final Walkthrough",
+              "text": "Your lender will give the 'clear to close' on your loan. Right before closing, you'll walk through the house one last time to ensure it's in the agreed-upon condition."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Step 10: Close the Deal",
+              "text": "You will sign the final loan documents, pay your down payment and closing costs, and officially receive the keys to your new home."
             }
           ]
         },
@@ -172,46 +215,39 @@
                     
                     <!-- Article Header -->
                     <header class="text-center mb-6">
-                        <!-- UPDATED: Removed Tailwind text size/color/weight classes -->
-                        <h1>A First-Time Home Buyer's Checklist: <strong>10 Steps to Success</strong></h1>
+                        <h1 class="font-extrabold text-primary">A First-Time Home Buyer's Checklist: <strong>10 Steps to Success</strong></h1>
                         <p class="mt-2 text-sm sm:text-base text-gray-800">Your essential roadmap from dreaming of a new home to holding the keys.</p>
                          <div class="mt-4 text-xs text-gray-700">
                             <span>Published By <strong>Vikas Rana</strong></span>
                         </div>
                     </header>
                     
-                    <!-- AD BLOCK 1 REPLACED WITH CTA: Responsive Top of Article Planner Banner -->
-                    <div class="my-6 flex w-full justify-center" style="min-height: 90px;" aria-hidden="true">
-                         <a href="../all-in-one-mortgage-planner.html" class="block w-full max-w-4xl bg-primary/80 hover:bg-primary transition-colors rounded-lg shadow-lg p-3 text-white text-center border-2 border-primary">
-                            <h3 class="text-lg font-extrabold flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                                STOP GUESSING: PLAN YOUR ENTIRE MORTGAGE IN ONE TOOL
-                            </h3>
-                            <p class="text-xs mt-1">See your full affordability, PITI payments, and loan comparisons instantly.</p>
-                         </a>
+                    <!-- NEW Ad Placeholder 1: Responsive Banner (e.g., 728x90) -->
+                    <div class="my-6 flex min-h-[90px] w-full items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 text-gray-400 hidden" aria-hidden="true">
+                        Future Ad Placeholder (Responsive Banner)
                     </div>
-                    <!-- END AD BLOCK 1 -->
+                    <!-- End Ad Placeholder 1 -->
 
                     <div class="my-6 h-px w-full bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
                     
                     <div class="prose prose-xs max-w-none">
                         <!-- Intro -->
                         <p>Welcome to one of the most exciting journeys of your life! Buying your first home is a huge accomplishment, but let's be honest, the <strong class="font-bold">home buying process</strong> can feel like a maze of confusing terms and hidden steps. Where do you even start?</p>
-                        <p>Don't worry. This simple, step-by-step <strong class="font-bold">first-time home buyer guide</strong> will walk you through everything you need to know, from figuring out your budget to finally getting those keys in your hand. Let's make this journey a smooth one.</p>
+                        <p>Don't worry. This simple, 10-step <strong class="font-bold">first-time home buyer checklist</strong> will walk you through everything you need to know, from figuring out your budget to finally getting those keys in your hand. Let's make this journey a smooth one.</p>
                         
-                        <!-- UPDATED: Made Key Takeaways more prominent and scannable -->
+                        <!-- UPDATED: Key Takeaways -->
                         <div class="my-6 p-4 bg-sky-50 border-l-4 border-primary rounded-r-lg shadow-sm">
-                            <h2 class="text-base font-bold text-primary flex items-center">
+                            <h2 class="text-lg font-bold text-primary flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                                 </svg>
                                 In This Article
                             </h2>
                             <ul class="space-y-1.5 mt-3 list-none pl-2 text-xs text-gray-800">
-                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Start by checking affordability and getting a mortgage pre-approval.</li>
-                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Understand your true monthly costs (PITI) and different loan types (Fixed vs. ARM).</li>
-                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Budget for hidden expenses like closing costs, inspections, and maintenance.</li>
-                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>The process involves making an offer, inspection, appraisal, and final closing day.</li>
+                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Start by checking your credit, calculating your DTI, and saving for your down payment.</li>
+                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Get a mortgage pre-approval before you start looking at homes.</li>
+                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Budget for closing costs (2-5% of the loan) in addition to your down payment.</li>
+                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>The inspection is for you (to find problems); the appraisal is for the bank (to confirm the home's value).</li>
                             </ul>
                         </div>
 
@@ -219,135 +255,174 @@
                         <!-- Step 1: Check Your Affordability -->
                         <!-- UPDATED: Adjusted padding and margins for better scanning -->
                         <section class="mt-6 content-section">
-                            <h2>Step 1: Check Your Affordability (The Fun First Step!)</h2>
-                            <p>Before you start browsing dream homes, you need a realistic budget. This is all about balancing three key things, which you can explore in our detailed guide on <a href="how-much-house-can-i-afford.html" class="font-semibold text-accent hover:underline">how much house you can afford</a>:</p>
-                             <ul class="space-y-3 mt-3">
-                                <li class="flex items-start">
-                                    <span class="flex-shrink-0 w-6 h-6 mr-3 text-primary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>
-                                    <div><strong class="font-semibold">Your Income:</strong> What you earn before taxes.</div>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="flex-shrink-0 w-6 h-6 mr-3 text-red-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" /></svg></span>
-                                    <div><strong class="font-semibold">Your Debts:</strong> Car loans, student loans, credit cards. This helps determine your Debt-to-Income (DTI) ratio, a critical number for lenders.</div>
-                                </li>
-                                <li class="flex items-start">
-                                     <span class="flex-shrink-0 w-6 h-6 mr-3 text-accent"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25-2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3" /></svg></span>
-                                    <div><strong class="font-semibold">Your Savings:</strong> How much you have for a down payment and closing costs.</div>
-                                </li>
+                            <h2 class="flex items-center"><span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-base">1</span> Check Your Credit Score</h2>
+                            <p>Before you talk to a lender, you need to know your financial report card. Your credit score is a 3-digit number that tells lenders how reliable you are with debt. A higher score means a lower interest rate, which can save you tens of thousands of dollars over the life of your loan.</p>
+                            <ul class="space-y-2 mt-3 text-xs">
+                                <li><strong>Target Score:</strong> Aim for <strong>740 or higher</strong> to get the best possible interest rates.</li>
+                                <li><strong>Minimum Score:</strong> You can often get a conventional loan with <strong>620</strong> or an FHA loan with <strong>580</strong>, but you'll pay a higher interest rate.</li>
                             </ul>
-                            <div class="text-center mt-3">
-                                <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#affordability-tab" class="font-bold text-accent hover:underline text-xs">Use our Affordability Calculator to find your number &rarr;</a>
-                            </div>
                         </section>
 
                         <!-- Step 2: Get Pre-Approved -->
                         <section class="mt-6 content-section">
-                            <h2>Step 2: Get Pre-Approved (Your Golden Ticket)</h2>
-                            <p>A <strong class="font-bold">mortgage pre-approval</strong> is a letter from a lender stating they are tentatively willing to lend you a specific loan amount. It shows sellers you're a serious buyer. Lenders will look at:</p>
-                            <ul class="space-y-3 mt-3">
-                                <li class="flex items-start"><span class="flex-shrink-0 w-6 h-6 mr-3 text-primary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></span><div>Your Credit Score</div></li>
-                                <li class="flex items-start"><span class="flex-shrink-0 w-6 h-6 mr-3 text-primary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg></span><div>Proof of Income (pay stubs, tax returns)</div></li>
-                                <li class="flex items-start"><span class="flex-shrink-0 w-6 h-6 mr-3 text-primary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg></span><div>Your Down Payment Savings</div></li>
+                            <h2 class="flex items-center"><span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-base">2</span> Calculate Your DTI Ratio</h2>
+                            <p>This is the metric lenders care about most. It's a percentage that shows how much of your monthly income goes to paying debts.</p>
+                            <ul class="space-y-2 mt-3 text-xs">
+                                <li><strong>How to Calculate:</strong> Add up ALL your monthly debt payments (car, student loan, credit cards). Divide that total by your gross (pre-tax) monthly income.</li>
+                                <li><strong>The 36% Rule:</strong> Ideally, your total DTI (including your future mortgage) should be <strong>36% or less</strong>. Lenders will sometimes go up to 43%, but a lower DTI gives you better loan options.</li>
                             </ul>
-                             <p class="mt-3 text-xs"><strong>Pro Tip:</strong> Pre-Approval is much stronger than Pre-Qualification. A pre-qualification is just a quick estimate, while a pre-approval means the lender has actually verified your financial documents.</p>
+                             <div class="text-center mt-3">
+                                <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#affordability-tab" class="font-bold text-accent hover:underline text-xs">Find your DTI with our Affordability Calculator &rarr;</a>
+                            </div>
                         </section>
                         
                         <!-- Step 3: Estimate Costs -->
                         <section class="mt-6 content-section">
-                            <h2>Step 3: Estimate Your Real Monthly Costs (PITI & More)</h2>
-                            <p>Your mortgage payment is more than just principal and interest. The true cost of homeownership is often called "PITI":</p>
+                            <h2><span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-base">3</span> Save for Two Separate Goals</h2>
+                            <p>This is a common trap for first-time buyers. You need to save for two separate buckets of cash.</p>
                              <ul class="space-y-3 mt-3">
-                                <li class="flex items-start"><span class="flex-shrink-0 w-6 h-6 mr-3 text-primary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h4.5m-4.5 0V3.545M2.25 10.75l5.005-5.005a1.125 1.125 0 011.59 0l5.006 5.005m-11.25 0h11.25" /></svg></span><div><strong>P</strong>rincipal & <strong>I</strong>nterest: Your loan payment.</div></li>
-                                <li class="flex items-start"><span class="flex-shrink-0 w-6 h-6 mr-3 text-primary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg></span><div><strong>T</strong>axes: Property taxes, paid to your local government.</div></li>
-                                <li class="flex items-start"><span class="flex-shrink-0 w-6 h-6 mr-3 text-primary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 1.75L3.75 5.75v6.5c0 6.625 8.25 10 8.25 10s8.25-3.375 8.25-10v-6.5L12 1.75z" /></svg></span><div><strong>I</strong>nsurance: Homeowner's insurance to protect your investment.</div></li>
+                                <li class="flex items-start">
+                                     <span class="flex-shrink-0 w-6 h-6 mr-3 text-accent"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25-2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3" /></svg></span>
+                                    <div><strong class="font-semibold">1. The Down Payment (3-20%):</strong> This is your stake in the home. While 20% helps you avoid PMI, first-time buyers can get <a href="how-much-should-you-put-down-on-a-house.html" class="font-semibold text-accent hover:underline">FHA loans with 3.5% down</a>.</div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 w-6 h-6 mr-3 text-red-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 14.25l6-6m-6 0l6 6m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></span>
+                                    <div><strong class="font-semibold">2. Closing Costs (2-5%):</strong> These are the *separate* fees for finalizing the loan. They cover the appraisal, title search, lender fees, and more.</div>
+                                </li>
                             </ul>
-                            <p class="mt-2 text-xs">Don't forget to add potential Homeowner's Association (HOA) fees!</p>
-                             <div class="text-center mt-3">
-                                <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#mortgage-tab" class="font-bold text-accent hover:underline text-xs">Use our Mortgage Planner to estimate your total monthly cost &rarr;</a>
-                            </div>
                         </section>
                         
+                        <!-- NEW Ad Placeholder 2: In-Article -->
+                        <div class="my-8 flex min-h-[250px] w-full items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 text-gray-400 hidden" aria-hidden="true">
+                            Future Ad Placeholder (In-Article)
+                        </div>
+                        <!-- End Ad Placeholder 2 -->
+
                          <!-- Step 4: Choose Loan Type -->
                         <section class="mt-6 content-section">
-                            <h2>Step 4: Choose the Right Loan Type</h2>
-                            <p>Not all mortgages are the same. The right <strong class="font-bold">first-time buyer mortgage</strong> depends on your financial situation:</p>
-                             <ul class="space-y-3 mt-3">
-                                <li><strong>Fixed vs. Variable:</strong> Do you want a predictable payment that never changes (fixed), or a lower initial rate that could change later (variable)? <a href="fixed-vs-variable-mortgage-guide.html" class="font-semibold text-accent hover:underline">Learn more here.</a></li>
-                                <li><strong>FHA vs. Conventional:</strong> FHA loans are government-backed and often have lower down payment requirements, making them great for buyers with less cash saved. Conventional loans typically require a higher credit score and down payment but may offer better rates.</li>
+                            <h2><span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-base">4</span> Get Pre-Approved (Your Golden Ticket)</h2>
+                            <p>A <strong class="font-bold">mortgage pre-approval</strong> is a formal letter from a lender stating they are conditionally willing to lend you a specific amount. It's far more powerful than a "pre-qualification."</p>
+                             <ul class="space-y-2 mt-3 text-xs">
+                                <li><strong>Why it's crucial:</strong> It proves to sellers you're a serious buyer. Many agents won't even show you a home without one.</li>
+                                <li><strong>What you'll need:</strong> Be prepared with pay stubs, bank statements, tax returns, and ID. The lender will verify everything and run a hard credit check.</li>
                              </ul>
                         </section>
 
                         <!-- Step 5: Closing -->
                         <section class="mt-6 content-section">
-                            <h2>Step 5: Close the Deal (And Know the Hidden Costs)</h2>
-                            <p>You've found the house, your offer was accepted, and your loan is approved. The final step is "closing." This is where you'll sign the final paperwork and pay <strong class="font-bold">closing costs</strong>, which are separate from your down payment. Budget for:</p>
-                             <ul class="space-y-3 mt-3">
-                                <li class="flex items-start"><span class="flex-shrink-0 w-6 h-6 mr-3 text-primary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931z" /></svg></span><div>Lender & Third-Party Fees (appraisal, credit report, etc.)</div></li>
-                                <li class="flex items-start"><span class="flex-shrink-0 w-6 h-6 mr-3 text-primary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg></span><div>Home Inspection Fees</div></li>
-                                <li class="flex items-start"><span class="flex-shrink-0 w-6 h-6 mr-3 text-primary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 1.75L3.75 5.75v6.5c0 6.625 8.25 10 8.25 10s8.25-3.375 8.25-10v-6.5L12 1.75z" /></svg></span><div>First Year of Homeowner's Insurance</div></li>
+                            <h2><span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-base">5</span> Find a Great Real Estate Agent</h2>
+                            <p>Don't just use the first agent you find. A good agent is your expert guide and fierce advocate. They will listen to your needs, find homes you won't see online, and (most importantly) negotiate on your behalf. As a buyer, you typically don't pay your agent their commission is paid by the home seller.</p>
+                        </section>
+                        
+                        <!-- Step 6 -->
+                        <section class="mt-6 content-section">
+                            <h2><span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-base">6</span> Go House Hunting (The Fun Part)</h2>
+                            <p>This is when it gets real! You'll start touring homes with your agent. Here are a few pro tips for your search:</p>
+                             <ul class="space-y-2 mt-3 text-xs">
+                                <li><strong>Look past the paint:</strong> Ignore ugly colors or bad furniture. Focus on the "bones" of the house: the layout, foundation, roof, and location.</li>
+                                <li><strong>Visit at different times:</strong> See what the neighborhood is like on a weeknight and a weekend. How's the traffic? Is it noisy?</li>
+                                <li><strong>Stick to your budget:</strong> Don't get tempted to look at homes above your pre-approval amount.</li>
                              </ul>
                         </section>
                         
-                        <!-- Mistakes to Avoid -->
+                        <!-- Step 7 -->
                         <section class="mt-6 content-section">
-                            <h2>Common First-Time Buyer Mistakes to Avoid</h2>
+                            <h2><span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-base">7</span> Make an Offer</h2>
+                            <p>Found "the one"? Your agent will spring into action. They'll help you write a competitive offer, which includes:</p>
+                             <ul class="space-y-2 mt-3 text-xs">
+                                <li><strong>The Price:</strong> What you're willing to pay.</li>
+                                <li><strong>Your Terms:</strong> Your loan type and down payment amount.</li>
+                                <li><strong>Contingencies:</strong> These are your "safety clauses." The most common are the <strong>inspection contingency</strong> (you can back out if the inspection is bad) and the <strong>financing contingency</strong> (you can back out if your loan falls through).</li>
+                             </ul>
+                        </section>
+                        
+                        <!-- Step 8 -->
+                        <section class="mt-6 content-section">
+                            <h2><span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-base">8</span> Get a Home Inspection & Appraisal</h2>
+                            <p>Your offer was accepted! You now enter a 30-45 day period called "escrow" where you finalize the deal. Two major things happen now:</p>
                              <ul class="space-y-3 mt-3">
-                                <li class="flex items-start">
-                                   <span class="flex-shrink-0 w-6 h-6 mr-3 text-red-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></span>
-                                    <div><strong class="font-semibold">Not budgeting for maintenance.</strong> Plan on saving 1-3% of your home's value each year for repairs.</div>
-                                </li>
-                                <li class="flex items-start">
-                                     <span class="flex-shrink-0 w-6 h-6 mr-3 text-red-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></span>
-                                    <div><strong class="font-semibold">Ignoring credit improvement.</strong> A few months of focused effort to raise your credit score can save you thousands.</div>
-                                </li>
-                                <li class="flex items-start">
-                                     <span class="flex-shrink-0 w-6 h-6 mr-3 text-red-600"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></span>
-                                    <div><strong class="font-semibold">Overestimating affordability.</strong> Don't become "house poor"! Leave room in your budget for savings, emergencies, and fun.</div>
-                                </li>
+                                <li class="flex items-start"><span class="flex-shrink-0 w-6 h-6 mr-3 text-primary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg></span><div><strong class="font-semibold">The Home Inspection (For You):</strong> You hire a professional inspector to do a deep dive and find any hidden problems (bad roof, faulty wiring, plumbing issues). This is your chance to negotiate repairs with the seller or back out.</div></li>
+                                <li class="flex items-start"><span class="flex-shrink-0 w-6 h-6 mr-3 text-accent"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.5h-8.01a1.5 1.5 0 01-1.5-1.5V7.5a1.5 1.5 0 011.5-1.5h8.01" /></svg></span><div><strong class="font-semibold">The Appraisal (For the Bank):</strong> Your *lender* hires an appraiser to make sure the home is worth the price you're paying. This is to protect their investment.</div></li>
                             </ul>
                         </section>
-
+                        
+                        <!-- Step 9 -->
+                        <section class="mt-6 content-section">
+                            <h2><span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-base">9</span> Do a Final Walkthrough</h2>
+                            <p>You're almost there! In the last 24-48 hours before closing, you'll do a "final walkthrough" of the house to make sure it's in the condition you agreed upon (e.g., any negotiated repairs are done, and no new holes are in the walls). At the same time, your lender will give the "clear to close" on your loan.</p>
+                        </section>
+                        
+                        <!-- Step 10 -->
+                        <section class="mt-6 content-section">
+                            <h2><span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-base">10</span> Close the Deal!</h2>
+                            <p>This is the day you've been waiting for. You'll go to a title company or attorney's office and sign a mountain of paperwork. At this meeting, you will:</p>
+                             <ul class="space-y-3 mt-3">
+                                <li class="flex items-start"><span class="flex-shrink-0 w-6 h-6 mr-3 text-accent"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931z" /></svg></span><div>Sign the final loan and title documents.</div></li>
+                                <li class="flex items-start"><span class="flex-shrink-0 w-6 h-6 mr-3 text-accent"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span><div>Pay your remaining down payment and <strong class="font-bold">closing costs</strong>.</div></li>
+                                <li class="flex items-start"><span class="flex-shrink-0 w-6 h-6 mr-3 text-accent"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" /></svg></span><div>Get the keys to your new home. Congratulations!</div></li>
+                             </ul>
+                        </section>
+                        
                         <!-- FAQ SECTION -->
                         <section class="mt-6 content-section">
-                            <h2>Frequently Asked Questions</h2>
-                            <div class="space-y-3 mt-3">
-                                <div class="flex items-start">
-                                    <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 mr-3 rounded-full bg-primary text-white font-bold text-xs">1</span>
-                                    <div>
-                                        <h3 class="font-semibold text-gray-800">What's a good credit score to buy a house?</h3>
-                                        <p class="text-xs text-gray-700 mt-1">While you can sometimes get a loan with a score as low as 580 (especially FHA loans), a score of 620 or higher is generally recommended for conventional loans. Aiming for a score above 740 will typically get you the best possible interest rates, saving you a lot of money.</p>
+                            <h2 class="!mt-0">Frequently Asked Questions</h2>
+                            <div class="max-w-3xl mx-auto border-t border-b border-gray-200 divide-y divide-gray-200" id="faq-accordion">
+                                <!-- FAQ 1 -->
+                                <details class="faq-item group">
+                                    <summary class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 cursor-pointer hover:bg-gray-50 transition list-none">
+                                        <h3 class="text-xs">What's a good credit score to buy a house?</h3>
+                                        <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    </summary>
+                                    <div class="faq-answer">
+                                        <div class="p-4 pt-0 text-gray-600 text-xs">
+                                            <p>While you can sometimes get a loan with a score as low as 580 (especially FHA loans), a score of 620 or higher is generally recommended for conventional loans. Aiming for a score above 740 will typically get you the best possible interest rates, saving you a lot of money.</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 mr-3 rounded-full bg-primary text-white font-bold text-xs">2</span>
-                                    <div>
-                                        <h3 class="font-semibold text-gray-800">How much do I really need for a down payment?</h3>
-                                        <p class="text-xs text-gray-700 mt-1">You don't always need 20%. FHA loans can be as low as 3.5% down, and some conventional loans for first-time buyers are 3% down. VA and USDA loans can even be 0% down if you qualify. However, a larger down payment reduces your monthly payment and helps you avoid Private Mortgage Insurance (PMI).</p>
+                                </details>
+                                <!-- FAQ 2 -->
+                                <details class="faq-item group">
+                                    <summary class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 cursor-pointer hover:bg-gray-50 transition list-none">
+                                        <h3 class="text-xs">How much do I really need for a down payment?</h3>
+                                        <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    </summary>
+                                    <div class="faq-answer">
+                                        <div class="p-4 pt-0 text-gray-600 text-xs">
+                                            <p>You don't always need 20%. FHA loans can be as low as 3.5% down, and some conventional loans for first-time buyers are 3% down. If you're eligible, VA and USDA loans can even be 0% down. However, putting down less than 20% usually means you'll have to pay Private Mortgage Insurance (PMI).</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 mr-3 rounded-full bg-primary text-white font-bold text-xs">3</span>
-                                    <div>
-                                        <h3 class="font-semibold text-gray-800">What's the difference between an inspection and an appraisal?</h3>
-                                        <p class="text-xs text-gray-700 mt-1">The inspection is for YOU. It's a detailed check of the home's condition to uncover any potential problems. The appraisal is for the LENDER. It's an assessment of the home's value to ensure the bank isn't lending more money than the property is worth.</p>
+                                </details>
+                                <!-- FAQ 3 -->
+                                <details class="faq-item group">
+                                    <summary class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 cursor-pointer hover:bg-gray-50 transition list-none">
+                                        <h3 class="text-xs">What's the difference between an inspection and an appraisal?</h3>
+                                        <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    </summary>
+                                    <div class="faq-answer">
+                                        <div class="p-4 pt-0 text-gray-600 text-xs">
+                                            <p>The inspection is for YOU. It's a detailed check of the home's condition to uncover any potential problems. The appraisal is for the LENDER. It's an assessment of the home's value to ensure the bank isn't lending more money than the property is worth.</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 mr-3 rounded-full bg-primary text-white font-bold text-xs">4</span>
-                                    <div>
-                                        <h3 class="font-semibold text-gray-800">Should I get a 15-year or 30-year mortgage?</h3>
-                                        <p class="text-xs text-gray-700 mt-1">A 15-year mortgage has higher monthly payments but saves you a massive amount of interest over the life of the loan. A 30-year mortgage has lower, more manageable payments, freeing up cash for other investments or expenses. It depends on your monthly budget and long-term financial goals.</p>
+                                </details>
+                                <!-- FAQ 4 -->
+                                <details class="faq-item group">
+                                    <summary class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 cursor-pointer hover:bg-gray-50 transition list-none">
+                                        <h3 class="text-xs">Should I get a 15-year or 30-year mortgage?</h3>
+                                        <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    </summary>
+                                    <div class="faq-answer">
+                                        <div class="p-4 pt-0 text-gray-600 text-xs">
+                                            <p>A 15-year mortgage has higher monthly payments but saves you a massive amount of interest over the life of the loan. A 30-year mortgage has lower, more manageable payments, freeing up cash for other investments or expenses. It depends on your monthly budget and long-term financial goals.</p>
+                                        </div>
                                     </div>
-                                </div>
+                                </details>
                             </div>
                         </section>
 
                         <!-- Final CTA -->
-                        <!-- UPDATED: Made CTA more compact -->
-                        <section class="mt-6">
+                        <section class="mt-8">
                             <div class="bg-primary/10 p-4 rounded-lg text-center shadow-inner border border-primary/20">
-                                <h2 class="text-lg font-bold text-primary">Ready to Buy Your First Home?</h2>
-                                <p class="mt-2 text-xs text-gray-700">The journey starts with a solid plan. Use our tools to build yours with confidence.</p>
+                                <h2 class="text-lg font-bold text-primary">Ready to Take the First Step?</h2>
+                                <p class="mt-2 text-xs text-gray-700">The journey starts with a solid plan. Use our tools to find out exactly what you can afford.</p>
                                  <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#affordability-tab" class="mt-3 inline-block bg-accent hover:bg-green-700 text-white font-bold py-1.5 px-3 text-xs rounded-lg shadow-lg transition-transform transform hover:scale-105">
                                     Start with our Affordability Calculator
                                 </a>
@@ -400,6 +475,44 @@
                     }
                 });
             }
+            
+            // NEW: Accordion closing logic
+            const accordionItems = document.querySelectorAll('#faq-accordion .faq-item');
+            accordionItems.forEach((item) => {
+                const summary = item.querySelector('summary');
+                const answer = item.querySelector('.faq-answer');
+                
+                summary.addEventListener('click', (e) => {
+                    // Prevent default toggle to manage it manually
+                    e.preventDefault();
+                    
+                    const wasOpen = item.hasAttribute('open');
+
+                    // Close all other items
+                    accordionItems.forEach((otherItem) => {
+                        if (otherItem !== item && otherItem.hasAttribute('open')) {
+                            otherItem.removeAttribute('open');
+                            otherItem.querySelector('.faq-answer').style.maxHeight = '0px';
+                        }
+                    });
+
+                    // Toggle the clicked item
+                    if (!wasOpen) {
+                        item.setAttribute('open', '');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    } else {
+                        item.removeAttribute('open');
+                        answer.style.maxHeight = '0px';
+                    }
+                });
+
+                // Recalculate max-height on resize for open accordions
+                window.addEventListener('resize', () => {
+                    if (item.hasAttribute('open')) {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                });
+            });
         });
     </script>
 </body>
