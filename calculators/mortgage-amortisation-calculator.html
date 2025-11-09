@@ -340,14 +340,17 @@
                         </div>
                     </div>
                 </div>
-
+    
                 <!-- NEW: Formula Explanation Section -->
                 <div class="bg-white p-4 sm:p-5 mt-4 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs">
                     <h2 class="text-lg font-extrabold text-primary !mb-4">How This Calculator Works: The Formulas</h2>
                     <p class="text-xs text-gray-700">This calculator builds a full month-by-month schedule for your loan to accurately project its payoff. It runs two simulations: one for your standard loan and one with your extra payments.</p>
                     
                     <section class="bg-gray-50/70 p-4 rounded-lg border">
-                        <h3 class="text-base font-bold text-gray-800">1. The Monthly Payment Formula (PMT)</h3>
+                        <h3 class="text-base font-bold text-gray-800 flex items-center">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-xs">1</span>
+                            <span>The Monthly Payment Formula (PMT)</span>
+                        </h3>
                         <p class="mt-2 text-xs">First, we calculate your base Principal & Interest (P&I) payment using the standard PMT formula. This formula is provided by `js/utils.js` and is the foundation for the schedule.</p>
                         <div class="p-2 mt-2 bg-white rounded border border-gray-200">
                             <code class="block font-semibold text-primary text-center">M = P * [r(1+r)^n] / [(1+r)^n - 1]</code>
@@ -361,7 +364,10 @@
                     </section>
     
                     <section class="bg-gray-50/70 p-4 rounded-lg border">
-                        <h3 class="text-base font-bold text-gray-800">2. The Amortization Loop (Month by Month)</h3>
+                        <h3 class="text-base font-bold text-gray-800 flex items-center">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-xs">2</span>
+                            <span>The Amortization Loop (Month by Month)</span>
+                        </h3>
                         <p class="mt-2 text-xs">The calculator then loops through each month until the loan is paid off, performing the following calculations:</p>
                         <ul class="space-y-2 mt-2 text-xs list-none pl-2">
                             <li class="p-2 bg-white rounded border border-gray-200">
@@ -380,7 +386,10 @@
                     </section>
                     
                     <section class="bg-gray-50/70 p-4 rounded-lg border">
-                        <h3 class="text-base font-bold text-gray-800">3. Opportunity Cost Formula</h3>
+                        <h3 class="text-base font-bold text-gray-800 flex items-center">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-xs">3</span>
+                            <span>Opportunity Cost Formula</span>
+                        </h3>
                         <p class="mt-2 text-xs">When you add extra payments, the "Opportunity Cost" chart simulates what would happen if you invested that extra money instead. It calculates the future value of your extra payments using a compound interest formula.</p>
                         <ul class="space-y-2 mt-2 text-xs list-none pl-2">
                             <li class="p-2 bg-white rounded border border-gray-200">
@@ -532,8 +541,45 @@
                         </ul>
                     </section>
     
-                    <!-- FAQ Section -->
+                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                        <!-- H3: Content sub-heading -->
+                        <h3 class="text-base font-bold text-gray-800 text-center">Is Paying Off Your Mortgage Early Always the Best Idea?</h3>
+                        <p class="mt-2 text-xs text-center">Being debt-free is a great goal, but sometimes your money can work harder elsewhere. Consider the "opportunity cost":</p>
+                        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Card 1: High-Interest Debt -->
+                            <div class="bg-white p-4 rounded-lg border border-red-200 shadow-sm">
+                                <div class="flex items-start gap-4">
+                                    <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-full bg-red-100 text-red-600" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /> </svg>
+                                    </div>
+                                    <div>
+                                        <!-- H4: Sub-section heading -->
+                                        <h4 class="font-bold text-red-800">Tackle High-Interest Debt First</h4>
+                                        <p class="text-xs mt-1 text-gray-600">If you have debts like credit cards with high interest rates (>10%), paying those off first will almost always provide a better 'return' on your money than paying down a low-interest mortgage.</p>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <!-- Card 2: Investment Opportunity -->
+                            <div class="bg-white p-4 rounded-lg border border-green-200 shadow-sm">
+                                <div class="flex items-start gap-4">
+                                    <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-full bg-green-100 text-green-600" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <!-- H4: Sub-section heading -->
+                                        <h4 class="font-bold text-green-800">Consider Investment Returns</h4>
+                                        <p class="text-xs mt-1 text-gray-600">If your mortgage rate is very low (e.g., 3-4%), you could potentially earn a higher long-term return by investing your extra cash in the stock market (which has historically averaged 7-10%) instead.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+    
                     <section class="py-4">
+                        <!-- H3: FAQ grouping -->
                         <h3 class="text-base font-bold text-primary mb-3 text-center">Frequently Asked Questions</h3>
                         <div class="max-w-3xl mx-auto border-t border-b border-gray-200 divide-y divide-gray-200" id="faq-accordion">
                             <div class="faq-item">
