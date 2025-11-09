@@ -380,12 +380,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // --- Generate Desktop Sidebar ---
         const generateDesktopLinksHTML = (links) => {
-            return links.map(link => {
+            return links.map((link, index) => { // <-- Added index
                 // For blog articles, the href needs to be prefixed with the blog path.
                 const linkHref = fullPath.includes('/blog/') ? `${rootPath}blog/${link.href}` : link.href;
                 return `
-                <li>
-                    <a href="${linkHref}" class="font-semibold text-primary hover:underline group">
+                <li class="flex items-start space-x-2">
+                    <!-- UPDATED: Made icon smaller (w-3.5 h-3.5), font smaller (text-[9px]), and margin top (mt-1) -->
+                    <span class="flex-shrink-0 w-3.5 h-3.5 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-[9px] mt-1" aria-hidden="true">
+                        ${index + 1}
+                    </span>
+                    <a href="${linkHref}" class="font-semibold text-primary hover:underline group flex-grow">
                         <span class="block text-xs">${link.title}</span>
                         <span class="block text-[11px] text-gray-500 group-hover:text-accent">${link.desc}</span>
                     </a>
