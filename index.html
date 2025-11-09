@@ -180,44 +180,31 @@
                 </header>
 
                 <!-- Main Hero CTA -->
-                <!-- UPDATED: Reorganized to a 60/40 grid on large screens -->
-                <!-- UPDATED: Hero section made more compact (py-4) and added blue-green gradient background -->
-                <section class="bg-gradient-to-br from-blue-50 to-green-50 py-4 px-4 rounded-xl shadow-lg border-2 border-gray-200 mb-6 lg:grid lg:grid-cols-5 lg:gap-4 lg:text-left text-center">
-                    <!-- Planner CTA (60% / 3 cols) -->
-                    <!-- UPDATED: Reduced padding from py-8 md:py-10 to py-4 md:py-6 -->
-                    <div class="lg:col-span-3 pb-4 lg:pb-0 border-b lg:border-b-0 lg:border-r border-gray-200">
+                <section class="bg-gradient-to-br from-blue-50 to-green-50 py-4 px-4 rounded-xl shadow-lg border-2 border-gray-200 mb-6 lg:grid lg:grid-cols-5 lg:gap-4 text-center">
+                    <!-- Planner CTA (Left Side) -->
+                    <!-- Added explicit text-center to lock alignment on all screens -->
+                    <div class="lg:col-span-3 pb-4 lg:pb-0 border-b lg:border-b-0 lg:border-r border-gray-200 text-center">
                         <h2 class="text-lg font-extrabold text-primary">Start with the All-in-One Planner</h2>
-                        <!-- UPDATED: Reduced mt-2 to mt-1 -->
                         <p class="text-xs text-gray-700 mt-1 max-w-2xl mx-auto lg:mx-0">
                             This is our most powerful tool. It combines affordability, payoff scenarios, equity growth, and refinance analysis all in one place.
                         </p>
-                        <!-- UPDATED: Reduced mt-4 to mt-3 -->
-                        <!-- UPDATED LINK -->
                         <a href="all-in-one-mortgage-planner.html" class="mt-3 inline-block bg-primary text-white font-bold py-1.5 px-5 rounded-lg shadow-lg text-xs transition-transform transform hover:scale-105">
                             Go to the All-in-One Planner &rarr;
                         </a>
                     </div>
 
-                    <!-- Refinance Quiz (40% / 2 cols) -->
-                    <div class="lg:col-span-2 pt-4 lg:pt-0 flex flex-col justify-center items-center lg:items-start lg:pl-4">
+                    <!-- Refinance Quiz (Right Side) -->
+                    <!-- Removed lg:items-start to ensure content remains centered on desktop -->
+                    <div class="lg:col-span-2 pt-4 lg:pt-0 flex flex-col justify-center items-center lg:pl-4">
                         <h3 class="text-sm font-bold text-accent mb-2">Refinancing?</h3>
                         <p class="text-xs text-gray-700">Find out if you are financially ready to refinance in 2 minutes.</p>
-                        <a href="Refinance-Readiness-Quiz.html" class="mt-2 inline-flex items-center justify-center bg-accent text-white font-semibold py-1.5 px-3 rounded-lg shadow-md hover:bg-green-800 transition text-xs">
+                        <!-- CONVERTED TO BUTTON and restored original green accent color -->
+                        <a href="Refinance-Readiness-Quiz.html" class="mt-2 inline-flex items-center justify-center bg-accent text-white font-semibold py-1.5 px-3 rounded-lg shadow-md hover:bg-accent/80 transition text-xs">
                             Take the Readiness Quiz
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                         </a>
                     </div>
                 </section>
-
-                <!-- 
-                  FUTURE AD SLOT (Responsive Banner) 
-                  - Placed after the main hero CTA and before the first content block.
-                  - 'min-h-[90px]' is set to prevent Cumulative Layout Shift (CLS) when the ad loads.
-                  - This space is ideal for a 728x90 or responsive horizontal banner.
-                -->
-                <div class="my-6 flex min-h-[90px] w-full items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 text-gray-400 hidden">
-                    Future Ad Placeholder (e.g., 728x90)
-                </div>
 
                 <!-- NEW: Wrapper for Tools & Paths -->
                 <!-- UPDATED: Changed background to bg-gray-100, added border-4, and shadow-xl for prominence -->
@@ -428,7 +415,7 @@
                                         <!-- UPDATED ICON -->
                                         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h6M9 9.75h6M9 12.75h6M9 15.75h6M9 18.75h6" /></svg>
                                     </div>
-                                    <div>
+                                    <div class="flex-grow">
                                         <h3 class="text-sm font-extrabold text-invest-path flex items-center justify-between">
                                             Path 3: Real Estate Investor
                                             <svg class="chevron-icon w-4 h-4 text-invest-path transform transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
@@ -486,19 +473,13 @@
                     </section>
                 </section>
 
-                <!-- 
-                  RESTORED: Ad Slot
-                -->
-                <div class="my-6 flex min-h-[250px] w-full items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 text-gray-400 hidden">
-                    Future Ad Placeholder (e.g., 300x250)
-                </div>
-
                 <!-- RESTORED: All Calculators Section -->
                 <section class="mt-8 p-4 bg-primary/20 border-2 border-primary/20 rounded-xl">
                     <header class="text-center mb-6 p-4 rounded-lg bg-primary shadow-md">
                         <!-- UPDATED: Changed text-xl (20px) to text-lg (18px) -->
                         <h2 class="text-lg font-extrabold text-white">Explore Our Full Suite of Calculators</h2>
-                        <p class="mt-1 text-sm text-gray-200">Need a specific answer? Dive into standalone tools.</p>
+                        <!-- UPDATED: Increased contrast from text-gray-200 to text-white -->
+                        <p class="mt-1 text-sm text-white">Need a specific answer? Dive into standalone tools.</p>
                     </header>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         <a href="all-in-one-mortgage-planner.html" class="hub-card flex items-start text-left">
@@ -530,7 +511,7 @@
                         </a>
                         <a href="calculators/property-tax-calculator.html" class="hub-card flex items-start text-left">
                             <div class="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-primary/20 text-primary mr-3 mt-1">
-                               <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                               <svg class="w-5 h-5" xmlns="http://www.w3.org/23000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                             </div>
                             <div>
                                 <h3 class="text-sm font-bold text-primary group-hover:underline">Property Tax Calculator</h3>
@@ -567,19 +548,13 @@
                     </div>
                 </section>
 
-                <!-- 
-                  RESTORED: Ad Slot
-                -->
-                <div class="my-6 flex min-h-[250px] w-full items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 text-gray-400 hidden">
-                    Future Ad Placeholder (e.g., 300x250)
-                </div>
-
                 <!-- RESTORED: Blog Articles Section -->
                 <section class="mt-8 p-4 bg-accent/20 border-2 border-accent/20 rounded-xl">
                     <header class="text-center mb-6 p-4 rounded-lg bg-accent shadow-md">
                         <!-- UPDATED: Changed text-xl (20px) to text-lg (18px) -->
                         <h2 class="text-lg font-extrabold text-white">Latest Mortgage Insights & Guides</h2>
-                        <p class="mt-1 text-sm text-gray-200">Learn the concepts behind the calculations.</p>
+                        <!-- UPDATED: Increased contrast from text-gray-200 to text-white -->
+                        <p class="mt-1 text-sm text-white">Learn the concepts behind the calculations.</p>
                     </header>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         <a href="blog/how-to-buy-your-first-home-guide.html" class="hub-card flex items-start text-left">
@@ -612,11 +587,11 @@
                         <a href="blog/mortgage-amortization-explained.html" class="hub-card flex items-start text-left">
                             <div class="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-primary/20 text-primary mr-3 mt-1">
                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
-                           </div>
-                           <div>
-                               <h3 class="text-sm font-bold text-primary group-hover:underline">Mortgage Amortisation Explained</h3>
-                               <p class="mt-1 text-xs text-gray-600">See where your payment really goes and how to build equity faster.</p>
-                           </div>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-bold text-primary group-hover:underline">Mortgage Amortisation Explained</h3>
+                                <p class="mt-1 text-xs text-gray-600">See where your payment really goes and how to build equity faster.</p>
+                            </div>
                         </a>
                         <a href="blog/fixed-vs-variable-mortgage-guide.html" class="hub-card flex items-start text-left">
                             <div class="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-primary/20 text-primary mr-3 mt-1">
