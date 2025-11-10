@@ -90,6 +90,11 @@
           border: 2px solid white;
           box-shadow: 0 0 5px rgba(0,0,0,0.2);
         }
+        /* ADDED: Plus/minus icon styles */
+        details summary .minus-icon { display: none; }
+        details summary .plus-icon { display: block; }
+        details[open] summary .minus-icon { display: block; }
+        details[open] summary .plus-icon { display: none; }
     </style>
 
     <!-- Schema Markup -->
@@ -246,8 +251,15 @@
                         <!-- UPDATED: Reduced space-y-3 to space-y-2 -->
                         <div class="lg:col-span-2 space-y-2">
                             <!-- UPDATED: Reduced p-3 to p-2 and added border -->
-                            <details open class="bg-gray-50 p-2 rounded-lg border-2 border-gray-300">
-                                <summary class="font-bold text-sm text-primary cursor-pointer">Your Home & Mortgage</summary>
+                            <details open class="bg-gray-50 p-2 rounded-lg border-2 border-gray-400">
+                                <summary class="font-bold text-sm text-primary cursor-pointer list-none flex justify-between items-center">
+                                    Your Home & Mortgage
+                                    <!-- UPDATED: Icon -->
+                                    <span class="plus-minus-icon text-primary">
+                                        <svg class="w-4 h-4 plus-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                                        <svg class="w-4 h-4 minus-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /></svg>
+                                    </span>
+                                </summary>
                                 <!-- UPDATED: Reduced space-y-4 mt-3 to space-y-3 mt-2 -->
                                 <div class="space-y-3 mt-2">
                                     <div>
@@ -284,8 +296,15 @@
                             </details>
     
                             <!-- UPDATED: Reduced p-3 to p-2 and added border -->
-                            <details open class="bg-gray-50 p-2 rounded-lg border-2 border-gray-300">
-                                <summary class="font-bold text-sm text-primary cursor-pointer">Option 1: HELOC Scenario</summary>
+                            <details open class="bg-gray-50 p-2 rounded-lg border-2 border-gray-400">
+                                <summary class="font-bold text-sm text-primary cursor-pointer list-none flex justify-between items-center">
+                                    Option 1: HELOC Scenario
+                                    <!-- UPDATED: Icon -->
+                                    <span class="plus-minus-icon text-primary">
+                                        <svg class="w-4 h-4 plus-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                                        <svg class="w-4 h-4 minus-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /></svg>
+                                    </span>
+                                </summary>
                                 <!-- UPDATED: Reduced gap-3 mt-3 to gap-2 mt-2 -->
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
                                     <div>
@@ -310,8 +329,15 @@
                             </details>
                             
                             <!-- UPDATED: Reduced p-3 to p-2 and added border -->
-                            <details open class="bg-gray-50 p-2 rounded-lg border-2 border-gray-300">
-                                <summary class="font-bold text-sm text-primary cursor-pointer">Option 2: Cash-Out Refinance</summary>
+                            <details open class="bg-gray-50 p-2 rounded-lg border-2 border-gray-400">
+                                <summary class="font-bold text-sm text-primary cursor-pointer list-none flex justify-between items-center">
+                                    Option 2: Cash-Out Refinance
+                                    <!-- UPDATED: Icon -->
+                                    <span class="plus-minus-icon text-primary">
+                                        <svg class="w-4 h-4 plus-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                                        <svg class="w-4 h-4 minus-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /></svg>
+                                    </span>
+                                </summary>
                                  <!-- UPDATED: Reduced gap-3 mt-3 to gap-2 mt-2 -->
                                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
                                      <div>
@@ -331,8 +357,15 @@
                             </details>
                             
                              <!-- UPDATED: Reduced p-3 to p-2 and added border -->
-                             <details open class="bg-gray-50 p-2 rounded-lg border-2 border-gray-300">
-                                <summary class="font-bold text-sm text-secondary cursor-pointer">Opportunity Cost Analysis</summary>
+                             <details open class="bg-gray-50 p-2 rounded-lg border-2 border-gray-400">
+                                <summary class="font-bold text-sm text-secondary cursor-pointer list-none flex justify-between items-center">
+                                    Opportunity Cost Analysis
+                                    <!-- UPDATED: Icon -->
+                                    <span class="plus-minus-icon text-secondary">
+                                        <svg class="w-4 h-4 plus-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                                        <svg class="w-4 h-4 minus-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /></svg>
+                                    </span>
+                                </summary>
                                 <!-- UPDATED: Reduced mt-3 gap-3 to mt-2 gap-2 -->
                                 <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
                                     <div>
@@ -366,12 +399,12 @@
                             <!-- UPDATED: Reduced gap-3 to gap-2 -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-center">
                                 <!-- UPDATED: Reduced p-3 to p-2 -->
-                                <div class="p-2 rounded-lg bg-accent/10 border-2 border-accent/50 shadow">
+                                <div class="p-2 rounded-lg bg-accent/10 border-2 border-accent/70 shadow">
                                     <h2 class="text-xs font-bold text-accent">Total Cash Available</h2>
                                     <p id="availableEquity" class="text-xl font-extrabold text-accent" data-value="0">$0</p>
                                 </div>
                                  <!-- UPDATED: Reduced p-3 to p-2 -->
-                                 <div class="p-2 rounded-lg bg-gray-100 border shadow">
+                                 <div class="p-2 rounded-lg bg-gray-100 border border-gray-400 shadow">
                                     <h2 class="text-xs font-bold text-gray-800">Your Total Equity</h2>
                                     <p id="totalEquity" class="text-xl font-extrabold text-gray-800" data-value="0">$0</p>
                                  </div>
@@ -382,7 +415,7 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                 <!-- HELOC Results -->
                                 <!-- UPDATED: Reduced p-3 to p-2 and space-y-2 to space-y-1 -->
-                                <div class="p-2 bg-gray-50 rounded-lg shadow-inner border border-gray-200 space-y-1">
+                                <div class="p-2 bg-gray-50 rounded-lg shadow-inner border border-gray-400 space-y-1">
                                     <h3 class="font-bold text-primary text-center text-sm">HELOC Results</h3>
                                     <div class="text-center">
                                         <p class="text-xs font-medium text-gray-600">Estimated Monthly Pmt.</p>
@@ -395,7 +428,7 @@
                                 </div>
                                 <!-- Cash-Out Refi Results -->
                                 <!-- UPDATED: Reduced p-3 to p-2 and space-y-2 to space-y-1 -->
-                                <div class="p-2 bg-gray-50 rounded-lg shadow-inner border border-gray-200 space-y-1">
+                                <div class="p-2 bg-gray-50 rounded-lg shadow-inner border border-gray-400 space-y-1">
                                     <h3 class="font-bold text-primary text-center text-sm">Cash-Out Refi Results</h3>
                                      <div class="text-center">
                                         <p class="text-xs font-medium text-gray-600">New Mortgage Pmt. (P&I)</p>
@@ -410,7 +443,7 @@
                             
                             <!-- Comparison Chart -->
                             <!-- UPDATED: Wrapped in border box, removed mt-2 pt-2 border-t -->
-                            <div class="bg-gray-50 rounded-lg shadow-inner border border-gray-200 p-2">
+                            <div class="bg-gray-50 rounded-lg shadow-inner border border-gray-400 p-2">
                                 <h3 class="text-sm font-bold text-primary text-center">Comparison Summary</h3>
                                 <!-- UPDATED: Reduced h-44 md:h-56 to h-40 md:h-48, removed mt-2 -->
                                 <div class="relative h-40 md:h-48">
@@ -420,7 +453,7 @@
     
                             <!-- Equity Breakdown Chart -->
                             <!-- UPDATED: Wrapped in border box, removed mt-2 pt-2 border-t -->
-                            <div class="bg-gray-50 rounded-lg shadow-inner border border-gray-200 p-2">
+                            <div class="bg-gray-50 rounded-lg shadow-inner border border-gray-400 p-2">
                                  <h3 class="text-sm font-bold text-primary text-center">Your Home Equity Breakdown</h3>
                                  <!-- UPDATED: Reduced h-44 md:h-56 max-w-xs to h-40 max-w-[14rem], removed mt-2 -->
                                  <div class="relative h-40 max-w-[14rem] mx-auto">
@@ -430,7 +463,7 @@
                             
                             <!-- Opportunity Cost Section -->
                             <!-- UPDATED: Wrapped in border box, removed mt-2 pt-2 border-t -->
-                            <div id="opportunity-cost-section" class="hidden bg-gray-50 rounded-lg shadow-inner border border-gray-200 p-2">
+                            <div id="opportunity-cost-section" class="hidden bg-gray-50 rounded-lg shadow-inner border border-gray-400 p-2">
                                 <h3 class="text-sm font-bold text-secondary text-center">Opportunity Cost: Invest vs. Leave Equity</h3>
                                 <!-- UPDATED: Reduced h-44 sm:h-56 to h-40 md:h-48, removed mt-2 -->
                                 <div class="relative h-40 md:h-48">
@@ -447,34 +480,34 @@
                 </div>
     
                 <!-- NEW: Formula Explanation Section -->
-                <div class="bg-white p-4 sm:p-5 mt-4 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs">
+                <div class="bg-white p-4 sm:p-5 mt-4 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs border-2 border-gray-400">
                     <h2 class="text-lg font-extrabold text-primary !mb-4">How This Calculator Works: The Formulas</h2>
                     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <h3 class="text-base font-bold text-gray-800 flex items-center">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-xs">1</span>
                             <span>Core Equity Formulas</span>
                         </h3>
                         <p class="mt-2 text-xs">We first determine the equity in your home based on your inputs:</p>
                         <ul class="space-y-2 mt-2 text-xs list-none pl-2">
-                            <li class="p-2 bg-white rounded border border-gray-200">
+                            <li class="p-2 bg-white rounded border border-gray-400">
                                 <code class="block font-semibold text-primary">Total Equity = Current Home Value - Mortgage Balance</code>
                                 <p class="mt-1 text-gray-600">This is the portion of your home you own outright.</p>
                             </li>
-                            <li class="p-2 bg-white rounded border border-gray-200">
+                            <li class="p-2 bg-white rounded border border-gray-400">
                                 <code class="block font-semibold text-primary">Available Equity = (Home Value * (LTV Ratio / 100)) - Mortgage Balance</code>
                                 <p class="mt-1 text-gray-600">This is the maximum amount a lender will typically let you borrow. (LTV = Loan-to-Value)</p>
                             </li>
                         </ul>
                     </section>
     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <h3 class="text-base font-bold text-gray-800 flex items-center">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-xs">2</span>
                             <span>Monthly Payment Formula (PMT)</span>
                         </h3>
                         <p class="mt-2 text-xs">To estimate payments for both the HELOC and the Cash-Out Refinance, we use the standard periodic payment formula. This formula is provided by `js/utils.js` and used by all calculators on this site.</p>
-                        <div class="p-2 mt-2 bg-white rounded border border-gray-200">
+                        <div class="p-2 mt-2 bg-white rounded border border-gray-400">
                             <code class="block font-semibold text-primary text-center">M = P * [r(1+r)^n] / [(1+r)^n - 1]</code>
                             <ul class="space-y-1 mt-2 text-gray-600 text-xs">
                                 <li><strong>M</strong> = Your monthly payment</li>
@@ -485,17 +518,17 @@
                         </div>
                     </section>
 
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <h3 class="text-base font-bold text-gray-800 flex items-center">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-xs">3</span>
                             <span>Scenario-Specific Calculations</span>
                         </h3>
                         <ul class="space-y-2 mt-2 text-xs list-none pl-2">
-                            <li class="p-2 bg-white rounded border border-gray-200">
+                            <li class="p-2 bg-white rounded border border-gray-400">
                                 <strong class="font-semibold text-primary block">HELOC Scenario:</strong>
                                 <p class="mt-1 text-gray-600">The PMT formula is applied using the 'Available Equity' as the principal (P) and the HELOC term/rate.</p>
                             </li>
-                            <li class="p-2 bg-white rounded border border-gray-200">
+                            <li class="p-2 bg-white rounded border border-gray-400">
                                 <strong class="font-semibold text-primary block">Cash-Out Refinance Scenario:</strong>
                                 <p class="mt-1 text-gray-600"><code class="text-xs">New Loan Amount = Mortgage Balance + Available Equity + Closing Costs</code></p>
                                 <p class="mt-1 text-gray-600">The PMT formula is applied using this 'New Loan Amount' as the principal (P) and the new loan term/rate.</p>
@@ -507,10 +540,10 @@
                 </div>
 
                 <!-- SEO Content Section -->
-                <div class="bg-white p-4 sm:p-5 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 mt-4 text-xs">
+                <div class="bg-white p-4 sm:p-5 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 mt-4 text-xs border-2 border-gray-400">
                     <h2 class="text-lg font-extrabold text-primary !mb-4">A Homeowner's Guide to Understanding and Using Home Equity</h2>
                     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <h3 class="text-base font-bold text-gray-800">What is Home Equity?</h3>
                         <p class="mt-2 text-xs">In simple terms, home equity is the portion of your home that you own outright. It's the difference between your home's current market value and the amount you still owe on your mortgage. Think of it as your financial stake in your property.</p>
                         <ul class="space-y-2 mt-2 text-xs">
@@ -525,7 +558,7 @@
                         </ul>
                     </section>
     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <h3 class="text-base font-bold text-gray-800">How to Tap Home Equity: Your Two Main Options</h3>
                         <p class="mt-2 text-xs">Once you've built up a significant amount of equity, you can borrow against it. This guide helps you understand <strong>how to tap home equity</strong> by comparing two primary methods:</p>
                         <ul class="space-y-2 mt-2 text-xs">
@@ -540,7 +573,7 @@
                         </ul>
                     </section>
                     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <h3 class="text-base font-bold text-gray-800">When to Use a HELOC vs. a Cash-Out Refinance</h3>
                         <p class="mt-2 text-xs">Deciding between a <strong>refinance or equity loan</strong> depends entirely on your financial goals. Here’s a quick guide on <strong>when to use a HELOC</strong> versus a cash-out refinance.</p>
                         <div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
@@ -584,7 +617,7 @@
                     <!-- FAQ Section (Redesigned) -->
                     <section class="py-4">
                         <h3 class="text-base font-bold text-primary mb-3 text-center">Frequently Asked Questions</h3>
-                        <div class="max-w-3xl mx-auto border-t border-b border-gray-200 divide-y divide-gray-200" id="faq-accordion">
+                        <div class="max-w-3xl mx-auto border-t border-b border-gray-400 divide-y divide-gray-400" id="faq-accordion">
                            <div class="faq-item">
                                 <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
                                     <span class="text-xs">Is it better to refinance or get a home equity loan?</span>
