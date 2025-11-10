@@ -18,8 +18,9 @@ This file handles UI, event listeners, and state management.
         annualIncome: document.getElementById('annualIncome'), nonMortgageDebt: document.getElementById('nonMortgageDebt'), propertyTax: document.getElementById('propertyTax'),
         insurance: document.getElementById('insurance'), hoa: document.getElementById('hoa'), pitiEscalationRate: document.getElementById('pitiEscalationRate'),
         pmiRate: document.getElementById('pmiRate'), extraPayment: document.getElementById('extraPayment'), lumpSumPayment: document.getElementById('lumpSumPayment'),
-        lumpSumPeriod: document.getElementById('lumpSumPeriod'), refiPeriod: document.getElementById('refiPeriod'), refiRate: document.getElementById('refiRate'),
-        refiTerm: document.getElementById('refiTerm'), refiClosingCosts: document.getElementById('refiClosingCosts'), shockRateIncrease: document.getElementById('shockRateIncrease'),
+        lumpSumPeriod: document.getElementById('lumpSumPeriod'), 
+        // REMOVED: refiPeriod, refiRate, refiTerm, refiClosingCosts
+        shockRateIncrease: document.getElementById('shockRateIncrease'),
         repaymentFrequency: document.getElementById('repaymentFrequency'), currency: document.getElementById('currency'), annualMaintenance: document.getElementById('annualMaintenance'),
         monthlyUtilities: document.getElementById('monthlyUtilities'), monthlyRent: document.getElementById('monthlyRent'), rentIncrease: document.getElementById('rentIncrease'),
         investmentReturn: document.getElementById('investmentReturn'), closingCosts: document.getElementById('closingCosts'), sellingCosts: document.getElementById('sellingCosts'),
@@ -70,6 +71,10 @@ This file handles UI, event listeners, and state management.
         chartOptions: document.getElementById('chart-options'),
         togglePrincipalPaid: document.getElementById('togglePrincipalPaid'),
         toggleInterestPaid: document.getElementById('toggleInterestPaid'),
+        
+        // NEW: Donut Chart Canvases
+        pitiChart: document.getElementById('pitiChart'),
+        dtiChart: document.getElementById('dtiChart'),
     };
     
     const allInputIds = Object.keys(DOM).filter(key => 
@@ -77,6 +82,8 @@ This file handles UI, event listeners, and state management.
     );
 
     let mortgageChart = null, rentVsBuyChart = null, affordabilityChart = null, refinanceChart = null, investmentChart = null;
+    // NEW: Add chart instances
+    let pitiChart = null, dtiChart = null;
     let currentResults = null, currentTab = 'mortgage';
     let tabs = {};
     let state = {};
@@ -159,14 +166,136 @@ This file handles UI, event listeners, and state management.
             return { text: 'High Risk (>43%)', color: 'dti-critical' };
         };
         const applyStatus = (element, statusElement, status) => {
-            element.className = `text-base font-extrabold text-${status.color}`;
+            element.className = `text-sm font-extrabold text-${status.color}`;
             statusElement.textContent = status.text;
-            statusElement.className = `text-xs font-semibold mt-1 text-${status.color}`;
+            statusElement.className = `text-[11px] font-semibold mt-1 text-${status.color}`;
         };
         DOM.frontEndDTI.textContent = formatPercent(frontEndDTI*100);
         applyStatus(DOM.frontEndDTI, DOM.frontEndDTIStatus, getStatus(frontEndDTI));
         DOM.backEndDTI.textContent = formatPercent(backEndDTI*100);
         applyStatus(DOM.backEndDTI, DOM.backEndDTIStatus, getStatus(backEndDTI));
+    }
+
+    // NEW: PITI Chart Rendering
+    function renderPITIChart(p, i, t, ins, hoa, pmi) {
+        if (!DOM.pitiChart) return;
+        const ctx = DOM.pitiChart.getContext('2d');
+        if (pitiChart) pitiChart.destroy();
+        
+        const data = [p, i, t, ins, hoa, pmi];
+        const labels = ['Principal', 'Interest', 'Taxes', 'Insurance', 'HOA', 'PMI'];
+        
+        pitiChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: data,
+                    backgroundColor: [
+                        '#166534', // Principal (accent)
+                        '#1C768F', // Interest (primary)
+                        '#9A3412', // Taxes (npv)
+                        '#b45309', // Insurance (dti-high)
+                        '#6b7280', // HOA (gray-500)
+                        '#ef4444'  // PMI (dti-critical)
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: {
+                            font: { size: 10 },
+                            padding: 10,
+                            // Filter out labels with 0 value
+                            filter: (legendItem, chartData) => {
+                                const dataset = chartData.datasets[0];
+                                const value = dataset.data[legendItem.dataIndex];
+                                return value > 0;
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: (context) => {
+                                const label = context.label || '';
+                                const value = context.raw || 0;
+                                return `${label}: ${window.mortgageUtils.formatCurrency(value, state.currency, 2)}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // NEW: DTI Chart Rendering
+    function renderDTIChart(frontEnd, backEnd) {
+        if (!DOM.dtiChart) return;
+        const ctx = DOM.dtiChart.getContext('2d');
+        if (dtiChart) dtiChart.destroy();
+
+        const frontEndPercent = frontEnd * 100;
+        const backEndPercent = backEnd * 100;
+        const otherDebtPercent = backEndPercent - frontEndPercent;
+        const remainingIncomePercent = 100 - backEndPercent;
+
+        const getStatusColor = (dti) => {
+            if (dti <= 36) return '#065f46'; // dti-safe
+            if (dti <= 43) return '#b45309'; // dti-high
+            return '#ef4444'; // dti-critical
+        };
+
+        dtiChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Housing (PITI)', 'Other Debts', 'Remaining Income'],
+                datasets: [{
+                    data: [frontEndPercent, otherDebtPercent, remainingIncomePercent],
+                    backgroundColor: [
+                        getStatusColor(frontEndPercent), // Housing
+                        '#6b7280', // Other Debts (gray-500)
+                        '#d1d5db'  // Remaining Income (gray-300)
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: {
+                            font: { size: 10 },
+                            padding: 10,
+                            filter: (legendItem, chartData) => {
+                                const dataset = chartData.datasets[0];
+                                const value = dataset.data[legendItem.dataIndex];
+                                return value > 0.1; // Filter out tiny slices
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: (context) => {
+                                const label = context.label || '';
+                                const value = context.raw || 0;
+                                return `${label}: ${value.toFixed(2)}%`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
     }
 
     function renderChart(acceleratedResults) {
@@ -220,7 +349,7 @@ This file handles UI, event listeners, and state management.
         const labels = rentingTimeline.map(d => `Year ${d.year}`);
         rentVsBuyChart = new Chart(ctx, {
             type: 'line', data: { labels: labels, datasets: [ { label: 'Buying Net Worth', data: buyingTimeline.map(d => d.netWorth), borderColor: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)', fill: true, tension: 0.3 }, { label: 'Renting Net Worth', data: rentingTimeline.map(d => d.netWorth), borderColor: '#3b82f6', backgroundColor: 'rgba(59, 130, 246, 0.1)', fill: true, tension: 0.3 } ] },
-            options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, ticks: { callback: value => window.mortgageUtils.formatCurrency(value, state.currency) } } }, plugins: { title: { display: true, text: 'Long-Term Net Worth: Renting vs. Buying', font: { size: 16 } }, tooltip: { mode: 'index', intersect: false, callbacks: { label: c => `${c.dataset.label}: ${window.mortgageUtils.formatCurrency(c.parsed.y, state.currency)}` } } } }
+            options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, ticks: { callback: value => window.mortgageUtils.formatCurrency(value, state.currency) } } }, plugins: { title: { display: true, text: 'Long-Term Net Worth: Renting vs. Buying', font: { size: 14, weight: '600' } }, tooltip: { mode: 'index', intersect: false, callbacks: { label: c => `${c.dataset.label}: ${window.mortgageUtils.formatCurrency(c.parsed.y, state.currency)}` } } } }
         });
     }
 
@@ -246,7 +375,7 @@ This file handles UI, event listeners, and state management.
             options: {
                 responsive: true, maintainAspectRatio: false,
                 plugins: {
-                    title: { display: true, text: 'Refinance Cumulative Savings Over Time' },
+                    title: { display: true, text: 'Refinance Cumulative Savings Over Time', font: { size: 14, weight: '600' } },
                     tooltip: { callbacks: { label: c => `Month ${c.label}: ${window.mortgageUtils.formatCurrency(c.raw, state.currency)} in savings` } },
                     annotation: {
                         annotations: {
@@ -353,7 +482,7 @@ This file handles UI, event listeners, and state management.
         const results = window.plannerCore.calculateRentVsBuy(state);
         DOM.buyingNetWorth.textContent = window.mortgageUtils.formatCurrency(results.buyingNetWorth, state.currency);
         DOM.rentingNetWorth.textContent = window.mortgageUtils.formatCurrency(results.rentingNetWorth, state.currency);
-        DOM.rentVsBuyConclusion.innerHTML = results.buyingNetWorth > results.rentingNetWorth ? `<p class="text-lg font-bold text-green-700">Buying appears to be the better financial decision.</p>` : `<p class="text-lg font-bold text-blue-700">Renting and investing appears to be the better financial decision.</p>`;
+        DOM.rentVsBuyConclusion.innerHTML = results.buyingNetWorth > results.rentingNetWorth ? `<p class="text-sm font-bold text-green-700">Buying appears to be the better financial decision.</p>` : `<p class="text-sm font-bold text-blue-700">Renting and investing appears to be the better financial decision.</p>`;
         renderRentVsBuyChart(results.rentingTimeline, results.buyingTimeline);
         DOM.rentVsBuyResults.classList.remove('opacity-0');
         DOM.rentVsBuyResults.classList.add('results-animate-in');
@@ -379,7 +508,7 @@ This file handles UI, event listeners, and state management.
         animateValue(DOM.affordablePITI, results.piti);
         if (!affordabilityChart) {
             const ctx = document.getElementById('affordabilityChart').getContext('2d');
-            affordabilityChart = new Chart(ctx, { type: 'doughnut', options: { responsive: true, maintainAspectRatio: false, plugins: { title: { display: true, text: 'Estimated Monthly Payment Breakdown' }, legend: { position: 'bottom', }, tooltip: { callbacks: { label: c => `${c.label}: ${window.mortgageUtils.formatCurrency(c.raw, state.currency)}` } } } } });
+            affordabilityChart = new Chart(ctx, { type: 'doughnut', options: { responsive: true, maintainAspectRatio: false, plugins: { title: { display: true, text: 'Estimated Monthly Payment Breakdown', font: { size: 14, weight: '600' } }, legend: { position: 'bottom', }, tooltip: { callbacks: { label: c => `${c.label}: ${window.mortgageUtils.formatCurrency(c.raw, state.currency)}` } } } } });
         }
         affordabilityChart.data = { labels: ['Principal & Interest', 'Property Tax', 'Home Insurance'], datasets: [{ label: 'Monthly Payment Breakdown', data: [results.pi, results.tax, results.insurance], backgroundColor: ['#1C768F', '#b45309', '#065f46'], borderColor: '#ffffff', borderWidth: 2 }] };
         affordabilityChart.update();
@@ -394,7 +523,7 @@ This file handles UI, event listeners, and state management.
         animateValue(DOM.cashOnCashROI, results.cashOnCashROI, 500, false, true);
         if (!investmentChart) {
             const ctx = document.getElementById('investmentChart').getContext('2d');
-            investmentChart = new Chart(ctx, { type: 'bar', options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false }, title: { display: true, text: 'Monthly Income vs. Expenses' }, tooltip: { callbacks: { label: c => window.mortgageUtils.formatCurrency(c.raw, state.currency) } } }, scales: { x: { beginAtZero: true, ticks: { callback: value => window.mortgageUtils.formatCurrency(value, state.currency) } } } } });
+            investmentChart = new Chart(ctx, { type: 'bar', options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false }, title: { display: true, text: 'Monthly Income vs. Expenses', font: { size: 14, weight: '600' } }, tooltip: { callbacks: { label: c => window.mortgageUtils.formatCurrency(c.raw, state.currency) } } }, scales: { x: { beginAtZero: true, ticks: { callback: value => window.mortgageUtils.formatCurrency(value, state.currency) } } } } });
         }
         const cashFlowColor = results.monthlyCashFlow >= 0 ? 'rgba(22, 163, 74, 0.8)' : 'rgba(239, 68, 68, 0.8)';
         investmentChart.data = { labels: ['Gross Income', 'Expenses', 'Cash Flow'], datasets: [{ label: 'Monthly Financials', data: [results.income, results.p_i + results.taxes_ins + results.other_exp, results.monthlyCashFlow], backgroundColor: ['rgba(5, 150, 105, 0.8)', 'rgba(219, 39, 119, 0.8)', cashFlowColor] }] };
@@ -405,8 +534,13 @@ This file handles UI, event listeners, and state management.
 
     function calculateMortgage(isShockTest = false) {
         const periodsPerYear = state.repaymentFrequency;
-        const originalParams = { principal: state.loanAmount, annualRate: state.interestRate / 100, periodsPerYear, totalPeriods: state.loanTerm * periodsPerYear, extraPaymentPerPeriod: 0, lumpSumAmount: 0, lumpSumPeriod: 0, initialLTV: state.initialLTV, pmiRate: 0, refiPeriod: 0, refiRate: 0, refiTerm: 0, refiClosingCosts: 0, pitiEscalationRate: 0, discountRate: state.discountRate / 100, appreciationRate: 0, propertyTax: state.propertyTax, insurance: state.insurance, hoa: state.hoa };
-        const acceleratedParams = { ...originalParams, extraPaymentPerPeriod: state.extraPayment, lumpSumAmount: state.lumpSumPayment, lumpSumPeriod: state.lumpSumPeriod, pmiRate: state.pmiRate / 100, refiPeriod: state.refiPeriod, refiRate: state.refiRate, refiTerm: state.refiTerm, refiClosingCosts: state.refiClosingCosts, pitiEscalationRate: state.pitiEscalationRate / 100, appreciationRate: state.appreciationRate / 100 };
+        const originalParams = { principal: state.loanAmount, annualRate: state.interestRate / 100, periodsPerYear, totalPeriods: state.loanTerm * periodsPerYear, extraPaymentPerPeriod: 0, lumpSumAmount: 0, lumpSumPeriod: 0, initialLTV: state.initialLTV, pmiRate: 0, 
+            // REMOVED: refiPeriod, refiRate, refiTerm, refiClosingCosts,
+            refiPeriod: 0, refiRate: 0, refiTerm: 0, refiClosingCosts: 0, // Set to 0 to disable this feature in the core logic
+            pitiEscalationRate: 0, discountRate: state.discountRate / 100, appreciationRate: 0, propertyTax: state.propertyTax, insurance: state.insurance, hoa: state.hoa };
+        const acceleratedParams = { ...originalParams, extraPaymentPerPeriod: state.extraPayment, lumpSumAmount: state.lumpSumPayment, lumpSumPeriod: state.lumpSumPeriod, pmiRate: state.pmiRate / 100, 
+            // REMOVED: refiPeriod, refiRate, refiTerm, refiClosingCosts,
+            pitiEscalationRate: state.pitiEscalationRate / 100, appreciationRate: state.appreciationRate / 100 };
         
         DOM.scheduleWrapper.style.opacity = 1; DOM.shockResults.style.display = 'none';
         const original = window.plannerCore.generateAmortization(originalParams);
@@ -430,7 +564,30 @@ This file handles UI, event listeners, and state management.
         const initialPropertyValue = (state.initialLTV > 0 && state.initialLTV <= 100) ? state.loanAmount / (state.initialLTV / 100) : state.loanAmount;
         const monthlyMaintenance = (initialPropertyValue * (state.annualMaintenance / 100)) / 12;
         const totalMonthlyOwnershipCost = totalPITI + monthlyMaintenance + state.monthlyUtilities;
-        renderDTI(calculateDTI(totalMonthlyOwnershipCost).frontEnd, calculateDTI(totalMonthlyOwnershipCost).backEnd);
+        
+        // DTI Calculation
+        const dtiRatios = calculateDTI(totalMonthlyOwnershipCost);
+        renderDTI(dtiRatios.frontEnd, dtiRatios.backEnd);
+        renderDTIChart(dtiRatios.frontEnd, dtiRatios.backEnd);
+        
+        // PITI Breakdown Calculation
+        const firstSched = accelerated.schedule[0];
+        if (firstSched) {
+            const p = firstSched.pniPrincipal * (12 / periodsPerYear);
+            const i = firstSched.interest * (12 / periodsPerYear);
+            const t = state.propertyTax / 12;
+            const ins = state.insurance / 12;
+            const pmi = firstSched.pmi * (12 / periodsPerYear);
+            // Note: state.hoa is monthly. We need to adjust P, I, PMI if periodsPerYear isn't 12.
+            
+             // Re-calculate P&I for a monthly view for the chart
+            const monthlyP = firstSched.pniPrincipal * (periodsPerYear / 12);
+            const monthlyI = firstSched.interest * (periodsPerYear / 12);
+            const monthlyPMI = firstSched.pmi * (periodsPerYear / 12);
+
+            renderPITIChart(monthlyP, monthlyI, t, ins, state.hoa, monthlyPMI);
+        }
+
         animateValue(DOM.finalEquity, accelerated.finalEquity);
         animateValue(DOM.finalPropertyValue, accelerated.finalPropertyValue);
         DOM.totalMonthlyPaymentPITI.textContent = window.mortgageUtils.formatCurrency(totalPITI, state.currency);
@@ -477,7 +634,7 @@ This file handles UI, event listeners, and state management.
     }
 
     function generateAmortizationTable(originalResults, acceleratedResults) {
-        DOM.amortizationTable.innerHTML = `<thead class="text-xs text-gray-700 bg-gray-50 uppercase tracking-wider"><tr><th rowspan="2" class="py-2 px-1 border-b-2 border-gray-300 border-r">#</th><th colspan="4" class="py-2 px-1 border-b-2 border-gray-300 text-center bg-red-50/70 border-r border-red-300">Original Loan</th><th colspan="10" class="py-2 px-1 border-b-2 border-gray-300 text-center bg-sky-50/70">Accelerated Scenario</th></tr><tr class="font-medium"><th class="py-2 px-1 border-b border-gray-300 text-right bg-red-50/70">Nom. Interest</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-red-50/70 text-npv">PV Interest</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-red-50/70">P&I Pmt</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-red-50/70 border-r border-red-300">Balance</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/70 text-accent">Home Equity</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/50 text-accent">Property Val</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/70">P&I Pmt</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/70">Tax/Ins/HOA</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/70">Nom. Interest</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/70 text-npv">PV Interest</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/70">PMI</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/70">Extra</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/70">Total Pmt</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/70">Balance</th></tr></thead><tbody></tbody>`;
+        DOM.amortizationTable.innerHTML = `<thead class="text-xs text-gray-700 bg-gray-50 uppercase tracking-wider"><tr><th rowspan="2" class="py-2 px-1 border-b-2 border-gray-300 border-r">#</th><th colspan="4" class="py-2 px-1 border-b-2 border-gray-300 text-center bg-red-50/70 border-r border-red-300">Original Loan</th><th colspan="10" class="py-2 px-1 border-b-2 border-gray-300 text-center bg-sky-50/70">Accelerated Scenario</th></tr><tr class="font-medium"><th class="py-2 px-1 border-b border-gray-300 text-right bg-red-50/70">Nom. Interest</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-red-50/70 text-npv">PV Interest</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-red-50/70">P&I Pmt</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-red-50/70 border-r border-red-300">Balance</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/70 text-accent">Home Equity</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/50 text-accent">Property Val</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/70">P&I Pmt</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/70">Tax/Ins/HOA</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/70">Nom. Interest</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/7II0 text-npv">PV Interest</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/70">PMI</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/70">Extra</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/70">Total Pmt</th><th class="py-2 px-1 border-b border-gray-300 text-right bg-sky-50/70">Balance</th></tr></thead><tbody></tbody>`;
         const body = DOM.amortizationTable.querySelector('tbody');
         const maxPeriods = Math.max(originalResults.payoffPeriod, acceleratedResults.payoffPeriod);
         let rowsHtml = '';
@@ -486,13 +643,15 @@ This file handles UI, event listeners, and state management.
             if (!o.balance && !a.balance && i >= originalResults.payoffPeriod && i >= acceleratedResults.payoffPeriod) break;
             const newPNIPayment = (a.pniPrincipal || 0) + (a.interest || 0); const totalNewPayment = newPNIPayment + (a.periodicPITI || 0) + (a.extraPayment || 0);
             const taxInsHOA = (a.periodicPITI || 0) - (a.pmi || 0);
-            rowsHtml += `<tr class="text-xs hover:bg-gray-50 border-b border-gray-200"><td class="p-2 border-r border-gray-300 font-semibold text-center">${i+1}</td><td class="p-2 text-right bg-red-50/50">${o.interest?window.mortgageUtils.formatCurrency(o.interest, state.currency):'-'}</td><td class="p-2 text-right bg-red-50/50 text-npv">${o.pvInterest?window.mortgageUtils.formatCurrency(o.pvInterest, state.currency):'-'}</td><td class="p-2 text-right bg-red-50/50">${o.principalPaid?window.mortgageUtils.formatCurrency(o.interest+o.principalPaid, state.currency):'-'}</td><td class="p-2 text-right bg-red-50/50 font-bold border-r border-red-300">${o.balance?window.mortgageUtils.formatCurrency(o.balance, state.currency):'PAID'}</td><td class="p-2 text-right bg-sky-50/50 font-bold text-accent">${a.totalEquity?window.mortgageUtils.formatCurrency(a.totalEquity, state.currency):'FULL'}</td><td class="p-2 text-right bg-sky-50/50 text-accent">${a.propertyValue?window.mortgageUtils.formatCurrency(a.propertyValue, state.currency):'FINAL'}</td><td class="p-2 text-right bg-sky-50/50">${a.interest?window.mortgageUtils.formatCurrency(newPNIPayment, state.currency):'-'}</td><td class="p-2 text-right bg-sky-50/50">${a.interest?window.mortgageUtils.formatCurrency(taxInsHOA, state.currency):'-'}</td><td class="p-2 text-right bg-sky-50/50">${a.interest?window.mortgageUtils.formatCurrency(a.interest, state.currency):'-'}</td><td class="p-2 text-right bg-sky-50/50 text-npv">${a.pvInterest?window.mortgageUtils.formatCurrency(a.pvInterest, state.currency):'-'}</td><td class="p-2 text-right bg-sky-50/50">${a.pmi>0.01?window.mortgageUtils.formatCurrency(a.pmi, state.currency):'-'}</td><td class="p-2 text-right bg-sky-50/50">${a.extraPayment>0.01?window.mortgageUtils.formatCurrency(a.extraPayment, state.currency):'-'}</td><td class="p-2 text-right bg-sky-50/50 font-bold text-primary">${a.interest?window.mortgageUtils.formatCurrency(totalNewPayment, state.currency):'-'}</td><td class="p-2 text-right bg-sky-50/50 font-bold">${a.balance?window.mortgageUtils.formatCurrency(a.balance, state.currency):'PAID'}</td></tr>`;
+            rowsHtml += `<tr class="text-xs hover:bg-gray-50 border-b border-gray-200"><td class="p-2 border-r border-gray-300 font-semibold text-center">${i+1}</td><td class="p-2 text-right bg-red-50/50">${o.interest?window.mortgageUtils.formatCurrency(o.interest, state.currency):'-'}</td><td class="p-2 text-right bg-red-50/50 text-npv">${o.pvInterest?window.mortgageUtils.formatCurrency(o.pvInterest, state.currency):'-'}</td><td class="p-2 text-right bg-red-50/50">${o.principalPaid?window.mortgageUtils.formatCurrency(o.interest+o.principalPaid, state.currency):'-'}</td><td class="p-2 text-right bg-red-50/50 font-bold border-r border-red-300">${o.balance?window.mortgageUtils.formatCurrency(o.balance, state.currency):'PAID'}</td><td class="p-2 text-right bg-sky-50/50 font-bold text-accent">${a.totalEquity?window.mortgageUtils.formatCurrency(a.totalEquity, state.currency):'FULL'}</td><td class="p-2 text-right bg-sky-50/50 text-accent">${a.propertyValue?window.mortgageUtils.formatCurrency(a.propertyValue, state.currency):'FINAL'}</td><td class="p-2 text-right bg-sky-50/50">${a.interest?window.mortgageUtils.formatCurrency(newPNIPayment, state.currency):'-'}</td><td class="p-2 text-right bg-sky-50/50">${a.interest?window.mortgageUtils.formatCurrency(taxInsHOA, state.currency):'-'}</td><td class.="p-2 text-right bg-sky-50/50">${a.interest?window.mortgageUtils.formatCurrency(a.interest, state.currency):'-'}</td><td class="p-2 text-right bg-sky-50/50 text-npv">${a.pvInterest?window.mortgageUtils.formatCurrency(a.pvInterest, state.currency):'-'}</td><td class="p-2 text-right bg-sky-50/50">${a.pmi>0.01?window.mortgageUtils.formatCurrency(a.pmi, state.currency):'-'}</td><td class="p-2 text-right bg-sky-50/50">${a.extraPayment>0.01?window.mortgageUtils.formatCurrency(a.extraPayment, state.currency):'-'}</td><td class="p-2 text-right bg-sky-50/50 font-bold text-primary">${a.interest?window.mortgageUtils.formatCurrency(totalNewPayment, state.currency):'-'}</td><td class="p-2 text-right bg-sky-50/50 font-bold">${a.balance?window.mortgageUtils.formatCurrency(a.balance, state.currency):'PAID'}</td></tr>`;
         }
         body.innerHTML = rowsHtml;
     }
 
     function resetForm() {
-        const defaults = { loanAmount: "300000", interestRate: "6.5", loanTerm: "30", initialLTV: "90", discountRate: "3.0", appreciationRate: "3.5", annualIncome: "120000", nonMortgageDebt: "800", propertyTax: "3600", insurance: "1200", hoa: "0", pitiEscalationRate: "2.0", pmiRate: "0.5", extraPayment: "100", lumpSumPayment: "5000", lumpSumPeriod: "1", refiPeriod: "60", refiRate: "5.0", refiTerm: "15", refiClosingCosts: "5000", shockRateIncrease: "1.0", annualMaintenance: "1.0", monthlyUtilities: "300", monthlyRent: "2000", rentIncrease: "3.0", investmentReturn: "7.0", closingCosts: "8000", sellingCosts: "6.0", downPaymentAmount: "60000", desiredFrontEndDTI: "28", desiredBackEndDTI: "36", originalLoanAmount: "300000", currentInterestRate: "6.5", newInterestRate: "5.0", newLoanTerm: "30", newClosingCosts: "5000", purchasePrice: "250000", investmentDownPayment: "20", investmentInterestRate: "7.5", investmentLoanTerm: "30", investmentClosingCosts: "4000", monthlyRentalIncome: "2200", vacancyRate: "5", propertyTaxes: "3000", propertyInsurance: "1000", maintenanceCosts: "8", managementFee: "10" };
+        const defaults = { loanAmount: "300000", interestRate: "6.5", loanTerm: "30", initialLTV: "90", discountRate: "3.0", appreciationRate: "3.5", annualIncome: "120000", nonMortgageDebt: "800", propertyTax: "3600", insurance: "1200", hoa: "0", pitiEscalationRate: "2.0", pmiRate: "0.5", extraPayment: "100", lumpSumPayment: "5000", lumpSumPeriod: "1", 
+            // REMOVED: refiPeriod, refiRate, refiTerm, refiClosingCosts
+            shockRateIncrease: "1.0", annualMaintenance: "1.0", monthlyUtilities: "300", monthlyRent: "2000", rentIncrease: "3.0", investmentReturn: "7.0", closingCosts: "8000", sellingCosts: "6.0", downPaymentAmount: "60000", desiredFrontEndDTI: "28", desiredBackEndDTI: "36", originalLoanAmount: "300000", currentInterestRate: "6.5", newInterestRate: "5.0", newLoanTerm: "30", newClosingCosts: "5000", purchasePrice: "250000", investmentDownPayment: "20", investmentInterestRate: "7.5", investmentLoanTerm: "30", investmentClosingCosts: "4000", monthlyRentalIncome: "2200", vacancyRate: "5", propertyTaxes: "3000", propertyInsurance: "1000", maintenanceCosts: "8", managementFee: "10" };
         localStorage.removeItem('mortgageCalculatorState');
         for (const id in defaults) { const el = DOM[id]; if (el) el.value = defaults[id]; }
         if(DOM.loanStartMonth) DOM.loanStartMonth.value = "01";
@@ -641,6 +800,20 @@ This file handles UI, event listeners, and state management.
         }
         if(history.replaceState) {
             history.replaceState(null, null, `#${tab}-tab`);
+        }
+        
+        // NEW: Auto-populate Refinance tab from Mortgage tab
+        if (tab === 'refinance') {
+            // Ensure state is updated with values from Tab 1 before copying
+            updateStateFromDOM(); 
+            if (DOM.loanAmount && DOM.originalLoanAmount) {
+                DOM.originalLoanAmount.value = state.loanAmount;
+            }
+            if (DOM.interestRate && DOM.currentInterestRate) {
+                DOM.currentInterestRate.value = state.interestRate;
+            }
+            // Note: The 'Original Loan Term' is implicitly shared from Tab 1's 'loanTerm' input (state.loanTerm).
+            // The 'Loan Start Date' is unique to the Refi tab and is not copied.
         }
         
         handleCalculation();
