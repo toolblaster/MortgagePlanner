@@ -158,7 +158,7 @@
                         <!-- UPDATED: Reduced space-y-3 to space-y-2 -->
                         <div class="lg:col-span-2 space-y-2">
                             <!-- UPDATED: Reduced p-3 to p-2 and added border -->
-                            <div class="bg-gray-50 border-2 border-gray-300 rounded-lg p-2">
+                            <div class="bg-gray-50 border-2 border-gray-400 rounded-lg p-2">
                                 <!-- H2: Grouping for inputs -->
                                 <h2 class="text-sm font-bold text-primary mb-2">Property Details</h2>
                                 <!-- UPDATED: Reduced space-y-4 to space-y-3 -->
@@ -186,7 +186,7 @@
                             </div>
     
                             <!-- UPDATED: Reduced p-3 to p-2 and added border -->
-                            <div class="bg-gray-50 border-2 border-gray-300 rounded-lg p-2">
+                            <div class="bg-gray-50 border-2 border-gray-400 rounded-lg p-2">
                                 <!-- H2: Grouping for inputs -->
                                 <h2 class="text-sm font-bold text-primary mb-2">Tax Rate Information</h2>
                                  <!-- UPDATED: Reduced space-y-4 to space-y-3 -->
@@ -227,13 +227,13 @@
                             <!-- UPDATED: Reduced gap-3 to gap-2 -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-center">
                                 <!-- UPDATED: Reduced p-3 to p-2 -->
-                                <div class="p-2 rounded-lg bg-primary/10 border-2 border-primary/50 shadow">
+                                <div class="p-2 rounded-lg bg-primary/10 border-2 border-primary/70 shadow">
                                     <!-- H3: Result heading -->
                                     <h3 class="text-xs font-bold text-primary">Estimated Annual Tax</h3>
                                     <p id="annualTax" class="text-xl font-extrabold text-primary" data-value="0">$0</p>
                                 </div>
                                 <!-- UPDATED: Reduced p-3 to p-2 -->
-                                <div class="p-2 rounded-lg bg-gray-100 border shadow">
+                                <div class="p-2 rounded-lg bg-gray-100 border border-gray-400 shadow">
                                     <!-- H3: Result heading -->
                                     <h3 class="text-xs font-bold text-gray-800">Estimated Monthly Tax</h3>
                                     <p id="monthlyTax" class="text-xl font-extrabold text-gray-800" data-value="0">$0</p>
@@ -241,7 +241,7 @@
                             </div>
     
                             <!-- UPDATED: Reduced p-3 to p-2 -->
-                            <div class="p-2 bg-gray-50 rounded-lg shadow-inner border border-gray-200">
+                            <div class="p-2 bg-gray-50 rounded-lg shadow-inner border border-gray-400">
                                 <!-- H2: Grouping for results -->
                                 <h2 class="font-bold text-primary text-center text-base mb-2">Tax Breakdown</h2>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-center">
@@ -270,52 +270,52 @@
                 </div>
     
                 <!-- NEW: Formula Explanation Section -->
-                <div class="bg-white p-4 sm:p-5 mt-4 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs">
+                <div class="bg-white p-4 sm:p-5 mt-4 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs border-2 border-gray-400">
                     <h2 class="text-lg font-extrabold text-primary !mb-4">How This Calculator Works: The Formulas</h2>
                     <p class="text-xs text-gray-700">Property tax calculation is straightforward, but it relies on finding the correct tax rate. This tool gives you two ways to do that.</p>
                     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <h3 class="text-base font-bold text-gray-800 flex items-center">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-xs">1</span>
                             <span>The Core Tax Formula</span>
                         </h3>
                         <p class="mt-2 text-xs">The calculator uses a simple percentage formula to find your annual tax bill:</p>
                         <ul class="space-y-2 mt-2 text-xs list-none pl-2">
-                            <li class="p-2 bg-white rounded border border-gray-200">
+                            <li class="p-2 bg-white rounded border border-gray-400">
                                 <code class="block font-semibold text-primary">Annual Tax = Property Value * (Effective Tax Rate / 100)</code>
                             </li>
-                            <li class="p-2 bg-white rounded border border-gray-200">
+                            <li class="p-2 bg-white rounded border border-gray-400">
                                 <code class="block font-semibold text-primary">Monthly Tax = Annual Tax / 12</code>
                             </li>
                         </ul>
                     </section>
     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <h3 class="text-base font-bold text-gray-800 flex items-center">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-xs">2</span>
                             <span>Finding Your Tax Rate</span>
                         </h3>
                         <p class="mt-2 text-xs">The "Effective Tax Rate" is determined in one of two ways:</p>
                         <ul class="space-y-2 mt-2 text-xs list-none pl-2">
-                            <li class="p-2 bg-white rounded border border-gray-200">
+                            <li class="p-2 bg-white rounded border border-gray-400">
                                 <strong class="font-semibold text-primary block">By State (Estimate):</strong>
                                 <p class="mt-1 text-gray-600">If you select a US state from the dropdown, the calculator uses a built-in average effective tax rate for that state (e.g., "NJ" = 2.49%). This is a good estimate for budgeting but may not be exact for your specific city or county.</p>
                             </li>
-                            <li class="p-2 bg-white rounded border border-gray-200">
+                            <li class="p-2 bg-white rounded border border-gray-400">
                                 <strong class="font-semibold text-primary block">By Manual Rate (Precise):</strong>
                                 <p class="mt-1 text-gray-600">If you enter a number in the "Manual Tax Rate" field, that number will always be used, overriding the state selection. This allows you to use the precise rate from your local assessor's office.</p>
                             </li>
                         </ul>
                     </section>
                     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <h3 class="text-base font-bold text-gray-800 flex items-center">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-xs">3</span>
                             <span>A Note on Mill Rates</span>
                         </h3>
                         <p class="mt-2 text-xs">Some municipalities use a "mill rate" (or "millage rate") instead of a percentage. A mill is 1/1000th of a dollar, or $1 in tax for every $1,000 of assessed value.</p>
                          <ul class="space-y-2 mt-2 text-xs list-none pl-2">
-                            <li class="p-2 bg-white rounded border border-gray-200">
+                            <li class="p-2 bg-white rounded border border-gray-400">
                                 <strong class="font-semibold text-secondary block">Conversion:</strong> To use a mill rate in this calculator, simply divide it by 10.
                                 <p class="mt-1 text-gray-600"><strong>Example:</strong> A mill rate of 25 mills = 2.5%. You would enter <strong>2.5</strong> into the "Manual Tax Rate" field.</p>
                             </li>
@@ -325,11 +325,11 @@
     
                 <!-- SEO Content Section -->
                 <!-- UPDATED: Reduced mt-4 to mt-2 -->
-                <div class="bg-white p-4 sm:p-5 mt-2 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs">
+                <div class="bg-white p-4 sm:p-5 mt-2 rounded-xl shadow-2xl max-w-none text-gray-800 space-y-4 text-xs border-2 border-gray-400">
                     <!-- H2: Main SEO content heading -->
                     <h2 class="text-lg font-extrabold text-primary !mb-4">A Homeowner's Guide to Property Taxes</h2>
                     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <!-- H3: Content sub-heading -->
                         <h3 class="text-base font-bold text-gray-800">What is Property Tax?</h3>
                         <p class="mt-2 text-xs">Property tax is a tax paid on property owned by an individual or other legal entity, such as a corporation. It is a primary source of revenue for local governments, funding essential public services that benefit the community.</p>
@@ -347,7 +347,7 @@
                         </ul>
                     </section>
                     
-                     <section class="bg-gray-50/70 p-4 rounded-lg border">
+                     <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <!-- H3: Content sub-heading -->
                         <h3 class="text-base font-bold text-gray-800">How to Use This Property Tax Calculator</h3>
                         <p class="mt-2 text-xs">This tool is designed to give you a reliable estimate, whether you know your exact local rate or not.</p>
@@ -367,7 +367,7 @@
                         </ul>
                     </section>
     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <!-- H3: Content sub-heading -->
                         <h3 class="text-base font-bold text-gray-800">Key Terms to Understand</h3>
                          <ul class="space-y-3 mt-3 text-xs">
@@ -389,7 +389,7 @@
                         </ul>
                     </section>
     
-                    <section class="bg-gray-50/70 p-4 rounded-lg border">
+                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
                         <!-- H3: Content sub-heading -->
                         <h3 class="text-base font-bold text-gray-800">Average Property Tax Rates by State (2025 Update)</h3>
                         <p class="mt-2 text-xs">Property tax rates can vary significantly across the United States. Below is a snapshot of the average effective tax rates for a selection of states to give you an idea of this range. For the most accurate calculation, always find your specific local rate.</p>
@@ -404,7 +404,7 @@
                                 <tbody class="bg-white divide-y divide-gray-200">
                                     <tr><td class="px-4 py-2 font-medium text-gray-900">New Jersey</td><td class="px-4 py-2 text-right text-gray-700">2.49%</td></tr>
                                     <tr><td class="px-4 py-2 font-medium text-gray-900">Illinois</td><td class="px-4 py-2 text-right text-gray-700">2.27%</td></tr>
-                                    <tr><td class="px-4 py-2 font-medium text-gray-900">New Hampshire</td><td class="px-4 py-2 text-right text-gray-700">2.18%</td></tr>
+                                    <tr><td classs="px-4 py-2 font-medium text-gray-900">New Hampshire</td><td class="px-4 py-2 text-right text-gray-700">2.18%</td></tr>
                                     <tr><td class="px-4 py-2 font-medium text-gray-900">Texas</td><td class="px-4 py-2 text-right text-gray-700">1.80%</td></tr>
                                     <tr><td class="px-4 py-2 font-medium text-gray-900">Pennsylvania</td><td class="px-4 py-2 text-right text-gray-700">1.58%</td></tr>
                                     <tr><td class="px-4 py-2 font-medium text-gray-900">Florida</td><td class="px-4 py-2 text-right text-gray-700">0.89%</td></tr>
@@ -420,7 +420,7 @@
                     <section class="py-4">
                         <!-- H2: FAQ grouping -->
                         <h2 class="text-lg font-bold text-primary mb-3 text-center">Frequently Asked Questions</h2>
-                        <div class="max-w-3xl mx-auto border-t border-b border-gray-200 divide-y divide-gray-200">
+                        <div class="max-w-3xl mx-auto border-t border-b border-gray-400 divide-y divide-gray-400">
                            <div class="faq-item">
                                 <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition" aria-expanded="false">
                                     <!-- H3: FAQ Question -->
