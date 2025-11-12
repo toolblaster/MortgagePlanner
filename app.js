@@ -950,6 +950,13 @@ This file handles UI, event listeners, and state management.
         
         if (tabs[tabKeyFromHash]) {
             switchTab(tabKeyFromHash);
+            // NEW: Smooth scroll to the calculator section if a tab hash is present
+            setTimeout(() => {
+                const calculatorSection = document.getElementById('calculator');
+                if (calculatorSection) {
+                    calculatorSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100); // Small delay to ensure tab content is visible before scrolling
         } else {
             switchTab('mortgage');
         }
