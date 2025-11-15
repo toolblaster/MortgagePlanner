@@ -30,6 +30,8 @@
 
     <!-- Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ADDED: Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- App Configuration -->
@@ -195,12 +197,14 @@
             <!-- UPDATED: Replaced relative max-w-4xl mx-auto with blog-layout-grid -->
             <div class="blog-layout-grid">
                 <!-- Main Article Content -->
+                <!-- ADDED: shadow-2xl for smooth shadow -->
                 <article class="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-2xl">
                     <!-- Article Header -->
-                    <header class="text-center mb-8">
-                        <h1 class="font-extrabold text-primary">Hidden Costs of Buying a Home (What Most Buyers Forget)</h1>
-                        <p class="mt-2 text-sm sm:text-base text-gray-800">Buying your dream home? The sticker price isn’t the full story. Let's uncover the expenses you need to plan for.</p>
-                        <div class="mt-4 text-xs text-gray-800">
+                    <!-- ADDED: Gradient background and shadow-lg -->
+                    <header class="text-center mb-8 p-4 rounded-lg bg-gradient-to-r from-primary to-accent shadow-lg">
+                        <h1 class="font-extrabold text-white">Hidden Costs of Buying a Home (What Most Buyers Forget)</h1>
+                        <p class="mt-2 text-sm sm:text-base text-gray-200">Buying your dream home? The sticker price isn’t the full story. Let's uncover the expenses you need to plan for.</p>
+                        <div class="mt-4 text-xs text-gray-100">
                             <span>Published By <strong>Vikas Rana</strong></span>
                         </div>
                     </header>
@@ -218,7 +222,8 @@
                         <p>You’ve saved for a down payment, gotten pre-approved, and found the perfect house. You’re ready to go, right? Not so fast. The purchase price is just the beginning. Many first-time buyers are shocked to learn about the <strong class="font-bold">hidden costs of buying a home</strong>, all the fees and expenses that pop up before, during, and long after you get the keys. But don't worry. Planning for them is the key to a stress-free purchase, and a core part of any good <a href="how-to-buy-your-first-home-guide.html" class="font-semibold text-accent hover:underline">first-time home buyer's guide</a>.</p>
 
                         <!-- Key Takeaways Section -->
-                        <div class="my-6 p-4 bg-sky-50 border-l-4 border-primary rounded-r-lg shadow-sm">
+                        <!-- ADDED: Gradient background and shadow-lg -->
+                        <div class="my-6 p-4 bg-gradient-to-r from-sky-50 to-green-50 border-l-4 border-primary rounded-r-lg shadow-lg">
                             <h2 class="text-lg font-bold text-primary flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
@@ -232,6 +237,17 @@
                                 <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Hidden costs vary by region. For example, some states have high property taxes, while others (like the UK) have a large "Stamp Duty" tax.</li>
                             </ul>
                         </div>
+                        
+                        <!-- ADDED: New Chart Section -->
+                        <section class="my-6 p-4 bg-white rounded-lg border border-gray-200 shadow-xl">
+                            <h3 class="text-base font-bold text-primary text-center">Visualizing Total Buying Costs (Example)</h3>
+                            <p class="text-xs text-gray-600 text-center mb-3">On a $400,000 home, the sticker price is just the beginning.</p>
+                            <div class="relative h-48 max-w-xs mx-auto">
+                                <canvas id="hiddenCostsChart"></canvas>
+                            </div>
+                        </section>
+                        <!-- END: New Chart Section -->
+
 
                         <!-- Section 1: One-Time Costs -->
                         <section class="mt-6 content-section">
@@ -286,7 +302,10 @@
                                 </li>
                             </ul>
                             <div class="text-center mt-4">
-                                <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#mortgage-tab" class="font-bold text-accent hover:underline">Our Mortgage Planner helps you calculate these total ownership costs &rarr;</a>
+                                <!-- ADDED: Gradient background and shadow-lg to CTA -->
+                                <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#mortgage-tab" class="inline-block bg-gradient-to-r from-accent to-green-700 text-white font-bold py-2 px-4 text-sm rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                                    Calculate Your Total Ownership Cost &rarr;
+                                </a>
                             </div>
                         </section>
 
@@ -416,10 +435,11 @@
 
                         <!-- Conclusion -->
                         <section class="mt-8">
-                            <div class="bg-primary/10 p-4 rounded-lg text-center shadow-inner border border-primary/20">
-                                <h2 class="text-lg font-bold text-primary">Plan Wisely, Buy Confidently</h2>
-                                <p class="mt-2 text-xs text-gray-700">Hidden costs don't have to be a scary surprise. By understanding and budgeting for them, you can move forward with your home purchase with total confidence.</p>
-                                <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#mortgage-tab" class="mt-3 inline-block bg-accent hover:bg-green-700 text-white font-bold py-1.5 px-3 text-xs rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                            <!-- ADDED: not-prose class and !important modifiers to text -->
+                            <div class="not-prose bg-gradient-to-r from-primary/80 to-accent/80 p-4 rounded-lg text-center shadow-lg">
+                                <h2 class="text-lg font-bold !text-white">Plan Wisely, Buy Confidently</h2>
+                                <p class="mt-2 text-xs !text-gray-100">Hidden costs don't have to be a scary surprise. By understanding and budgeting for them, you can move forward with your home purchase with total confidence.</p>
+                                <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#mortgage-tab" class="mt-3 inline-block bg-white text-accent font-bold py-1.5 px-3 text-xs rounded-lg shadow-lg transition-transform transform hover:scale-105">
                                     Calculate Your True Monthly Cost Now
                                 </a>
                             </div>
@@ -435,9 +455,54 @@
     </main>
     <script src="../global-elements.js" defer></script>
     
-    <!-- NEW: Script for Accordion -->
+    <!-- ADDED: New Script for Chart and Accordion -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // --- New Chart Rendering ---
+            const ctx = document.getElementById('hiddenCostsChart');
+            if (ctx) {
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Purchase Price ($400k)', 'One-Time Costs (~$14k)', '1st Year Ongoing Costs (~$8k)'],
+                        datasets: [{
+                            data: [400000, 14000, 8000], // Example data
+                            backgroundColor: [
+                                '#1C768F', // primary
+                                '#b45309', // secondary
+                                '#166534'  // accent
+                            ],
+                            borderColor: '#ffffff',
+                            borderWidth: 2,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false // Keep it compact
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed !== null) {
+                                            label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(context.parsed);
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // --- Accordion closing logic ---
             const accordionItems = document.querySelectorAll('#faq-accordion .faq-item');
             accordionItems.forEach((item) => {
                 const summary = item.querySelector('summary');
