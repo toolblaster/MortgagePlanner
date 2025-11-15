@@ -192,7 +192,7 @@
                         <!-- UPDATED: Removed em-dash -->
                         <p>When you make your mortgage payment each month, it can feel like you're just sending money into a black hole. For the first few years, it barely seems like your loan balance goes down. This isn't a trick; it's by design, and the concept behind it is called <strong class="font-bold">mortgage amortization</strong>. Understanding this one simple idea is the most powerful tool you have for saving thousands of dollars and paying off your home faster.</p>
 
-                        <!-- NEW: Key Takeaways Section -->
+                        <!-- UPDATED: Key Takeaways Section -->
                         <!-- ADDED: bg-gradient-to-r and shadow-lg -->
                         <div class="my-6 p-4 bg-gradient-to-r from-sky-50 to-green-50 border-l-4 border-primary rounded-r-lg shadow-lg">
                             <h2 class="text-lg font-bold text-primary flex items-center">
@@ -213,7 +213,7 @@
 
                         <!-- What is Amortization Section -->
                         <section class="mt-6 content-section">
-                            <h2>What Is Mortgage Amortization?</h2>
+                            <h2 class="!mt-0">What Is Mortgage Amortization?</h2>
                             <p><strong class="font-bold">Amortization</strong> is simply the process of paying off a loan with fixed, regular payments over a set period of time. The word itself comes from the Latin *admortire*, which means "to kill" (as in, "kill the debt").</p>
                             <p>Every single payment you make is divided into two parts:</p>
                             <ul class="space-y-2 mt-3 list-none pl-2 text-sm text-gray-800">
@@ -234,7 +234,7 @@
                         
                         <!-- How it Works Section -->
                         <section class="mt-6 content-section">
-                            <h2>How Amortization Works: An Example</h2>
+                            <h2 class="!mt-0">How Amortization Works: An Example</h2>
                             <p>This is the part that surprises most homeowners. Your loan is <strong class="font-bold">front-loaded with interest</strong>. Why? Because the interest is calculated based on your remaining balance. In the beginning, your balance is huge, so the interest is too.</p>
                             <p>Let's use a <strong class="font-bold">$350,000 loan</strong> at a <strong class="font-bold">6.5% interest rate</strong> for 30 years. Your fixed monthly payment for principal and interest (P&I) would be <strong class="font-bold">$2,212</strong>.</p>
                             
@@ -268,7 +268,7 @@
 
                         <!-- Chart Section -->
                         <section class="mt-6 content-section">
-                            <h2>Visualizing Your 30-Year Loan Journey</h2>
+                            <h2 class="!mt-0">Visualizing Your 30-Year Loan Journey</h2>
                             <p>Looking at the entire 30-year <strong class="font-bold">amortization schedule</strong> shows the full picture. The chart below tracks your total principal, total interest, and remaining balance over the 360 payments of your loan. You can see how slowly the balance (blue line) goes down for the first decade.</p>
                              <!-- UPDATED: Added shadow-xl -->
                              <div class="my-4 p-4 bg-white rounded-lg border shadow-xl">
@@ -280,7 +280,7 @@
 
                         <!-- The Tipping Point -->
                         <section class="mt-6 content-section">
-                            <h2>The "Tipping Point": When Principal Overtakes Interest</h2>
+                            <h2 class="!mt-0">The "Tipping Point": When Principal Overtakes Interest</h2>
                             <p>For every loan, there is a magic moment called the "tipping point." This is the month when the principal portion of your payment finally becomes larger than the interest portion. For our $350,000 example loan, this doesn't happen until <strong class="font-bold">year 18, payment #211!</strong></p>
                             <p>The chart below shows this perfectly. You can see the interest (red line) starting high and slowly declining, while the principal (green line) starts low and grows. The "X" where they cross is your tipping point.</p>
                             
@@ -296,9 +296,9 @@
                         
                         <!-- Interactive Section -->
                         <section class="mt-6">
-                            <!-- ADDED: not-prose class -->
+                            <!-- ADDED: not-prose class and enhanced styling -->
                             <div class="not-prose bg-primary/10 p-4 rounded-lg text-center shadow-inner border border-primary/20">
-                                <h2 class="text-lg font-bold">See Your *Own* Amortization Schedule</h2>
+                                <h2 class="text-lg font-bold text-primary">See Your *Own* Amortization Schedule</h2>
                                 <p class="mt-2 text-xs text-gray-900">Want to see the exact breakdown for your loan? Our <strong class="font-bold">mortgage amortization calculator</strong> generates a full, detailed schedule so you can find your own tipping point.</p>
                                 <a href="https://mortgageplanner.toolblaster.com/calculators/mortgage-amortisation-calculator.html" class="mt-3 inline-block bg-accent hover:bg-green-700 text-white font-bold py-2 px-4 text-sm rounded-lg shadow-lg transition-transform transform hover:scale-105">
                                     View Your Amortization Schedule
@@ -308,18 +308,22 @@
 
                         <!-- How to Use This Section -->
                         <section class="mt-6 content-section">
-                            <h2>How to Use This to Your Advantage</h2>
+                            <h2 class="!mt-0">How to Use This to Your Advantage</h2>
                             <!-- UPDATED: Removed strong tags -->
                             <p>So, how do you beat this system? You make extra principal payments. Any dollar you pay *in addition* to your regular payment goes 100% to your principal. This not only reduces your balance but also reduces the amount of interest you'll be charged next month, and every month after. This is the key to paying off your mortgage early.</p>
                             <ul class="space-y-3 mt-3 list-none pl-2 text-sm text-gray-800">
-                                 <!-- UPDATED: Removed strong tags -->
-                                 <li class="flex items-start"><span class="mr-2 text-accent font-bold">→</span><strong>Example:</strong> If you add just $200 extra per month to our $350k loan, you would:
-                                    <ul class="list-disc pl-5 mt-2">
-                                        <!-- UPDATED: Removed strong tags -->
-                                        <li>Pay off your mortgage 7 years and 10 months early.</li>
-                                        <!-- UPDATED: Removed strong tags -->
-                                        <li>Save over $119,000 in interest!</li>
-                                    </ul>
+                                 <!-- UPDATED: Wrapped text and sub-list in a div for correct alignment -->
+                                 <li class="flex items-start">
+                                    <span class="mr-2 text-accent font-bold flex-shrink-0">→</span>
+                                    <div>
+                                        <strong>Example:</strong> If you add just $200 extra per month to our $350k loan, you would:
+                                        <ul class="list-disc pl-5 mt-2">
+                                            <!-- UPDATED: Removed strong tags -->
+                                            <li>Pay off your mortgage 7 years and 10 months early.</li>
+                                            <!-- UPDATED: Removed strong tags -->
+                                            <li>Save over $119,000 in interest!</li>
+                                        </ul>
+                                    </div>
                                  </li>
                             </ul>
                             
