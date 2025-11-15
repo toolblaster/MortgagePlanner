@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="text-center text-xs space-y-1">
                     <p>&copy; <span id="copyright-year"></span> Strategic Mortgage Planner. All Rights Reserved.</p>
                     <!-- UPDATED: Removed "by Vikas Rana" and added heart icon -->
-                    <p>A proud part of the <a href="https://toolblaster.com" target="_blank" rel="noopener noreferrer" class="text-white hover:underline font-semibold">toolblaster.com</a> Network <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 inline-block text-red-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" /></svg></p>
+                    <p>A proud part of the <a href="https.toolblaster.com" target="_blank" rel="noopener noreferrer" class="text-white hover:underline font-semibold">toolblaster.com</a> Network <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 inline-block text-red-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" /></svg></p>
                      <p><strong>Disclaimer:</strong> This tool is for informational purposes only. Consult a financial professional before making decisions.</p>
                 </div>
             </div>
@@ -519,10 +519,59 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+
+    // --- NEW: Back to Top Button ---
+    /**
+     * Creates and manages a "Back to Top" button.
+     * The button appears on scroll and smoothly scrolls to the top on click.
+     */
+    function setupBackToTopButton() {
+        // Create the button element
+        const backToTopButton = document.createElement('button');
+        backToTopButton.classList.add('back-to-top'); // Uses style from style.css
+        backToTopButton.setAttribute('title', 'Back to top');
+        backToTopButton.setAttribute('aria-label', 'Back to top');
+        
+        // Add SVG icon
+        backToTopButton.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+            </svg>
+        `;
+
+        // Set initial state (hidden). The CSS transition will handle the fade-in.
+        backToTopButton.style.visibility = 'hidden';
+        backToTopButton.style.opacity = '0';
+        
+        // Add click event listener to scroll to top
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Add scroll event listener to show/hide button
+        window.addEventListener('scroll', () => {
+            // Show button after scrolling 200px
+            if (window.pageYOffset > 200) {
+                backToTopButton.style.visibility = 'visible';
+                backToTopButton.style.opacity = '1';
+            } else {
+                backToTopButton.style.visibility = 'hidden';
+                backToTopButton.style.opacity = '0';
+            }
+        }, { passive: true }); // Use passive listener for better scroll performance
+
+        // Add the button to the body
+        document.body.appendChild(backToTopButton);
+    }
     
     // --- Run on page load ---
     // --- REMOVED old setupSocialSharing() call ---
     setupRelatedArticles();
     // --- ADDED call to new global share link function ---
     setupGlobalShareLinks();
+    // --- ADDED call for Back to Top button ---
+    setupBackToTopButton();
 });
