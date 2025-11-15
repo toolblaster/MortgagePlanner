@@ -17,6 +17,8 @@
 
     <!-- Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ADDED: Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- App Configuration -->
@@ -117,7 +119,7 @@
               "acceptedAnswer": { "@type": "Answer", "text": "Total homeownership cost includes your mortgage (principal and interest), property taxes, homeowners insurance, any HOA fees, closing costs, and ongoing maintenance and repairs." }
             },
             {
-              "@type":I "Question",
+              "@type": "Question",
               "name": "How much should I budget beyond my mortgage?",
               "acceptedAnswer": { "@type": "Answer", "text": "A good rule of thumb is to budget an additional 20-30% of your mortgage payment for other costs like taxes, insurance, and routine upkeep." }
             },
@@ -148,10 +150,14 @@
         <div class="container-global my-4 md:my-8">
             <!-- UPDATED: Replaced relative max-w-4xl mx-auto with blog-layout-grid -->
             <div class="blog-layout-grid">
+                <!-- ADDED: shadow-2xl -->
                 <article class="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-2xl">
-                    <header class="text-center mb-8">
-                        <h1 class="font-extrabold text-primary">The Complete Guide to Hidden Homeownership Costs (And How to Calculate Them Accurately)</h1>
-                         <div class="mt-4 text-xs text-gray-700">
+                    <!-- ADDED: bg-gradient-to-r and shadow-lg, updated text colors -->
+                    <header class="text-center mb-8 p-4 rounded-lg bg-gradient-to-r from-primary to-accent shadow-lg">
+                        <h1 class="font-extrabold text-white">The Complete Guide to Hidden Homeownership Costs (And How to Calculate Them Accurately)</h1>
+                         <!-- ADDED: Secondary line/subtitle -->
+                         <p class="mt-2 text-sm sm:text-base text-gray-200">Don't let unexpected fees surprise you. Our guide breaks down every cost from closing to maintenance.</p>
+                         <div class="mt-4 text-xs text-gray-100">
                             <span>Published by <strong>Vikas Rana</strong></span>
                         </div>
                     </header>
@@ -168,17 +174,19 @@
                         <p>Most people focus on their mortgage payment when buying a home, but that's only part of the story. The <strong class="font-bold">true cost of homeownership</strong> includes many "hidden" fees like property taxes, insurance, and closing costs. This guide will walk you through every expense and link to free tools so you can calculate your budget with confidence *before* you buy.</p>
                         
                         <!-- NEW: Key Takeaways Section -->
-                        <div class="my-6 p-4 bg-sky-50 border-l-4 border-primary rounded-r-lg shadow-sm">
+                        <!-- ADDED: bg-gradient-to-r and shadow-lg -->
+                        <div class="my-6 p-4 bg-gradient-to-r from-sky-50 to-green-50 border-l-4 border-primary rounded-r-lg shadow-lg">
                             <h2 class="text-lg font-bold text-primary flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                                 </svg>
                                 Key Takeaways
                             </h2>
+                            <!-- UPDATED: Removed <strong> tags -->
                             <ul class="space-y-2 mt-3 list-none pl-2 text-sm text-gray-800">
-                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Your "true" monthly payment is <strong>PITI</strong>: Principal, Interest, Taxes, and Insurance.</li>
-                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Budget for <strong>one-time costs</strong> like closing fees (2-5% of loan) and home inspections.</li>
-                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Plan for <strong>ongoing costs</strong> like property taxes, insurance, HOA fees, and maintenance.</li>
+                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Your "true" monthly payment is PITI: Principal, Interest, Taxes, and Insurance.</li>
+                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Budget for one-time costs like closing fees (2-5% of loan) and home inspections.</li>
+                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Plan for ongoing costs like property taxes, insurance, HOA fees, and maintenance.</li>
                                 <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>A good rule is to save 1-3% of your home's value each year for maintenance and repairs.</li>
                             </ul>
                         </div>
@@ -192,6 +200,17 @@
                             <h2 class="!mt-0">Understanding PITI: The True Cost of Owning a Home</h2>
                             <p>The first step to smart budgeting is understanding the concept of <strong>PITI</strong>: Principal, Interest, Taxes, and Insurance. While your mortgage payment (Principal & Interest) is the largest piece, the other two can add hundreds of dollars to your monthly bill. Let’s break down each element so you can plan wisely.</p>
                             <p>→ First, you need a baseline. You can <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#mortgage-tab" class="font-semibold text-accent hover:underline">estimate your base monthly payment here</a>.</p>
+                            
+                            <!-- ADDED: New PITI Chart Section -->
+                            <div class="my-6 p-4 bg-white rounded-lg border border-gray-200 shadow-xl">
+                                <h3 class="text-base font-bold text-primary text-center">Visualizing Your True Monthly Cost (PITI)</h3>
+                                <p class="text-xs text-gray-600 text-center mb-3">Your mortgage is just one piece of the pie.</p>
+                                <div class="relative h-48 max-w-xs mx-auto">
+                                    <canvas id="pitiChart"></canvas>
+                                </div>
+                            </div>
+                            <!-- END: New PITI Chart Section -->
+
                         </section>
                         
                         <!-- UPDATED: Added content-section class and fixed heading margin -->
@@ -235,6 +254,16 @@
                                  <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Includes fees for loan origination, appraisal, title search, and more.</li>
                                  <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>On a $400,000 loan, you could expect to pay between $8,000 and $20,000 in closing costs.</li>
                             </ul>
+
+                            <!-- ADDED: New Closing Costs Chart Section -->
+                            <div class="my-6 p-4 bg-white rounded-lg border border-gray-200 shadow-xl">
+                                <h3 class="text-base font-bold text-primary text-center">Typical Closing Cost Breakdown</h3>
+                                <div class="relative h-48 max-w-xs mx-auto">
+                                    <canvas id="closingCostsChart"></canvas>
+                                </div>
+                            </div>
+                            <!-- END: New Closing Costs Chart Section -->
+
                             <div class="my-4 p-4 bg-primary/10 rounded-lg text-center shadow-inner border border-primary/20">
                                 <a href="https://mortgageplanner.toolblaster.com/calculators/closing-cost-calculator.html" class="font-bold text-primary hover:underline">👉 Find your total upfront costs with our Closing Cost Calculator</a>
                             </div>
@@ -337,6 +366,16 @@
                         <section class="mt-6 content-section">
                             <h2 class="!mt-0">The Lifecycle of Homeownership Costs: Beyond the First Year</h2>
                             <p>Thinking about homeownership as a long-term journey reveals a different set of costs and financial milestones. Here’s a look at the full financial arc:</p>
+                            
+                            <!-- ADDED: New Amortization Chart Section -->
+                            <div class="my-6 p-4 bg-white rounded-lg border border-gray-200 shadow-xl">
+                                <h3 class="text-base font-bold text-primary text-center">The "Interest Tipping Point" on a 30-Year Loan</h3>
+                                <div class="relative h-48 max-w-full mx-auto">
+                                    <canvas id="lifecycleChart"></canvas>
+                                </div>
+                            </div>
+                            <!-- END: New Amortization Chart Section -->
+
                             <ul class="space-y-4 mt-4">
                                 <li class="flex items-start">
                                     <span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></span>
@@ -452,8 +491,9 @@
                         <div class="mt-8 border-t pt-6">
                             <h2 class="text-xl font-bold text-primary">Conclusion</h2>
                             <p>Understanding your true homeownership cost can save you thousands and prevent financial stress. Use our free suite of mortgage tools to get complete clarity before buying your dream home.</p>
-                             <div class="my-4 p-4 bg-accent/10 rounded-lg text-center shadow-inner border border-accent/20">
-                                 <p class="font-bold text-gray-700">🏠 Plan your budget now → Try our <a href="https://mortgageplanner.toolblaster.com/calculators/property-tax-calculator.html" class="text-accent hover:underline">Property Tax Calculator</a> and <a href="https://mortgageplanner.toolblaster.com/calculators/closing-cost-calculator.html" class="text-accent hover:underline">Closing Cost Calculator</a> today.</p>
+                             <!-- ADDED: not-prose and !text-white/!text-gray-100 -->
+                             <div class="not-prose my-4 p-4 bg-gradient-to-r from-primary/80 to-accent/80 rounded-lg text-center shadow-lg">
+                                 <p class="font-bold !text-white">🏠 Plan your budget now → Try our <a href="https://mortgageplanner.toolblaster.com/calculators/property-tax-calculator.html" class="font-bold text-white hover:underline">Property Tax Calculator</a> and <a href="https://mortgageplanner.toolblaster.com/calculators/closing-cost-calculator.html" class="font-bold text-white hover:underline">Closing Cost Calculator</a> today.</p>
                             </div>
                         </div>
 
@@ -470,6 +510,141 @@
     <!-- NEW: Script for Accordion -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // --- ADDED: PITI Chart ---
+            const pitiCtx = document.getElementById('pitiChart');
+            if (pitiCtx) {
+                new Chart(pitiCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Principal & Interest (P&I)', 'Property Tax', 'Home Insurance', 'Maintenance (Est.)'],
+                        datasets: [{
+                            data: [2528, 400, 100, 333], // Example: $400k home, $2528 P&I, $400 Tax, $100 Ins, $333 Maint (1%)
+                            backgroundColor: [
+                                '#1C768F', // primary
+                                '#b45309', // secondary (amber-800)
+                                '#f59e0b', // amber-500
+                                '#166534'  // accent
+                            ],
+                            borderColor: '#ffffff',
+                            borderWidth: 2,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'bottom',
+                                labels: {
+                                    padding: 10,
+                                    font: { size: 10 }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed !== null) {
+                                            label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(context.parsed);
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // --- ADDED: Closing Costs Chart ---
+            const closingCostsCtx = document.getElementById('closingCostsChart');
+            if (closingCostsCtx) {
+                new Chart(closingCostsCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Lender Fees (25%)', 'Third-Party Fees (45%)', 'Prepaids & Escrow (30%)'],
+                        datasets: [{
+                            data: [25, 45, 30], // Example percentages
+                            backgroundColor: [
+                                '#1C768F', // primary
+                                '#166534', // accent
+                                '#b45309'  // secondary
+                            ],
+                            borderColor: '#ffffff',
+                            borderWidth: 2,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'bottom',
+                                labels: {
+                                    padding: 10,
+                                    font: { size: 10 }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+
+            // --- ADDED: Lifecycle Chart ---
+            const lifecycleCtx = document.getElementById('lifecycleChart');
+            if (lifecycleCtx) {
+                new Chart(lifecycleCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Year 1', 'Year 5', 'Year 10', 'Year 15', 'Year 20', 'Year 25', 'Year 30'],
+                        datasets: [{
+                            label: 'Interest Portion',
+                            data: [25500, 24500, 22000, 18500, 13500, 7000, 1000], // Example data for $400k @ 6.5%
+                            borderColor: '#b45309', // secondary
+                            backgroundColor: 'rgba(180, 83, 9, 0.1)',
+                            fill: 'origin',
+                            tension: 0.3,
+                        }, {
+                            label: 'Principal Portion',
+                            data: [4800, 5800, 8300, 11800, 16800, 23300, 29300], // Example data
+                            borderColor: '#166534', // accent
+                            backgroundColor: 'rgba(22, 101, 52, 0.1)',
+                            fill: 'origin',
+                            tension: 0.3,
+                        }]
+                    },
+                    options: {
+                        responsive: true, maintainAspectRatio: false,
+                        plugins: { 
+                            title: { display: false }, 
+                            tooltip: { mode: 'index', intersect: false },
+                            legend: { position: 'bottom', labels: { font: { size: 10 }, padding: 10 } }
+                        },
+                        scales: { 
+                            x: { stacked: true }, 
+                            y: { 
+                                stacked: true, 
+                                beginAtZero: true, 
+                                ticks: { callback: (value) => '$' + (value/1000) + 'k' } 
+                            } 
+                        }
+                    },
+                });
+            }
+
             const accordionItems = document.querySelectorAll('#faq-accordion .faq-item');
             accordionItems.forEach((item) => {
                 const summary = item.querySelector('summary');
