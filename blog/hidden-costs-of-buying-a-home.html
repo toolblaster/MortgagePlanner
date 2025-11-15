@@ -301,6 +301,17 @@
                                     <div><strong class="font-semibold">Maintenance & Repairs:</strong> This is the big one! The leaky faucet, the broken water heater... it's all on you now. A good rule of thumb is to budget 1-3% of your home's value per year for your <strong class="font-bold">maintenance budget</strong>.</div>
                                 </li>
                             </ul>
+
+                            <!-- ADDED: New PITI Chart Section -->
+                            <div class="my-6 p-4 bg-white rounded-lg border border-gray-200 shadow-xl">
+                                <h3 class="text-base font-bold text-primary text-center">Visualizing Your True Monthly Cost (PITI + M)</h3>
+                                <p class="text-xs text-gray-600 text-center mb-3">Your mortgage is just one piece of the pie.</p>
+                                <div class="relative h-48 max-w-xs mx-auto">
+                                    <canvas id="pitiChart"></canvas>
+                                </div>
+                            </div>
+                            <!-- END: New PITI Chart Section -->
+
                             <div class="text-center mt-4">
                                 <!-- ADDED: Gradient background and shadow-lg to CTA -->
                                 <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#mortgage-tab" class="inline-block bg-gradient-to-r from-accent to-green-700 text-white font-bold py-2 px-4 text-sm rounded-lg shadow-lg transition-transform transform hover:scale-105">
@@ -482,6 +493,56 @@
                         plugins: {
                             legend: {
                                 display: false // Keep it compact
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed !== null) {
+                                            label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(context.parsed);
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // --- ADDED: New PITI Chart ---
+            const pitiCtx = document.getElementById('pitiChart');
+            if (pitiCtx) {
+                new Chart(pitiCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Principal & Interest (P&I)', 'Property Tax', 'Home Insurance', 'Maintenance (Est.)'],
+                        datasets: [{
+                            data: [2028, 400, 100, 333], // Example: $400k home, $2028 P&I, $400 Tax, $100 Ins, $333 Maint (1%)
+                            backgroundColor: [
+                                '#1C768F', // primary
+                                '#b45309', // secondary
+                                '#f59e0b', // amber-500
+                                '#166534'  // accent
+                            ],
+                            borderColor: '#ffffff',
+                            borderWidth: 2,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'bottom',
+                                labels: {
+                                    padding: 10,
+                                    font: { size: 10 }
+                                }
                             },
                             tooltip: {
                                 callbacks: {
