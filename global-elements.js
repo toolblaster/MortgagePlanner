@@ -233,7 +233,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 <div class="text-center text-xs space-y-1">
                     <p>&copy; <span id="copyright-year"></span> Strategic Mortgage Planner. All Rights Reserved.</p>
-                    <p>A proud part of the <a href="https://toolblaster.com" target="_blank" rel="noopener noreferrer" class="text-white hover:underline font-semibold">toolblaster.com</a> Network by <a href="https://x.com/vikasrana03" target="_blank" rel="noopener noreferrer" class="text-white hover:underline font-semibold">Vikas Rana</a></p>
+                    <!-- UPDATED: Removed "by Vikas Rana" and added heart icon -->
+                    <p>A proud part of the <a href="https://toolblaster.com" target="_blank" rel="noopener noreferrer" class="text-white hover:underline font-semibold">toolblaster.com</a> Network <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 inline-block text-red-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" /></svg></p>
                      <p><strong>Disclaimer:</strong> This tool is for informational purposes only. Consult a financial professional before making decisions.</p>
                 </div>
             </div>
