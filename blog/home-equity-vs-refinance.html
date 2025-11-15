@@ -171,11 +171,13 @@
          <div class="container-global my-4 md:my-8">
             <!-- UPDATED: Replaced relative max-w-4xl mx-auto with blog-layout-grid -->
             <div class="blog-layout-grid">
+                <!-- ADDED: shadow-2xl -->
                 <article class="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-2xl">
-                    <header class="text-center mb-8">
-                        <h1 class="font-extrabold text-primary">HELOC vs. Cash-Out Refinance: Which Is Best for You?</h1>
-                        <p class="mt-2 text-sm sm:text-base text-gray-800">Your home's value has gone up, and you need cash. Let's explore the two best ways to get it.</p>
-                         <div class="mt-4 text-xs text-gray-700">
+                    <!-- ADDED: bg-gradient-to-r and shadow-lg, updated text colors -->
+                    <header class="text-center mb-8 p-4 rounded-lg bg-gradient-to-r from-primary to-accent shadow-lg">
+                        <h1 class="font-extrabold text-white">HELOC vs. Cash-Out Refinance: Which Is Best for You?</h1>
+                        <p class="mt-2 text-sm sm:text-base text-gray-200">Your home's value has gone up, and you need cash. Let's explore the two best ways to get it.</p>
+                         <div class="mt-4 text-xs text-gray-100">
                             <span>Published By <strong>Vikas Rana</strong></span>
                         </div>
                     </header>
@@ -194,7 +196,8 @@
                         <p>Choosing the right option between a <strong>HELOC vs. refinance</strong> can save you thousands in interest and provide the financial flexibility you need. This guide breaks down the pros and cons of each, helping you make an informed decision.</p>
 
                         <!-- Key Takeaways Section -->
-                        <div class="my-6 p-4 bg-sky-50 border-l-4 border-primary rounded-r-lg shadow-sm">
+                        <!-- ADDED: bg-gradient-to-r and shadow-lg -->
+                        <div class="my-6 p-4 bg-gradient-to-r from-sky-50 to-green-50 border-l-4 border-primary rounded-r-lg shadow-lg">
                             <h2 class="text-lg font-bold text-primary flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
@@ -212,6 +215,17 @@
                         <section class="mt-6 content-section">
                             <h2 class="!mt-0">What Is Home Equity & How Do I Build It?</h2>
                             <p>Before you decide <strong>how to tap home equity</strong>, it’s essential to understand what it is. In short, your equity is the portion of your home you *actually* own. It's the key to your financial power as a homeowner.</p>
+                            
+                            <!-- ADDED: New Equity Chart Section -->
+                            <div class="my-6 p-4 bg-white rounded-lg border border-gray-200 shadow-xl">
+                                <h3 class="text-base font-bold text-primary text-center">Example: Your Home Equity</h3>
+                                <p class="text-xs text-gray-600 text-center mb-3">On a $450k home with a $250k mortgage.</p>
+                                <div class="relative h-48 max-w-xs mx-auto">
+                                    <canvas id="equityBreakdownChart"></canvas>
+                                </div>
+                            </div>
+                            <!-- END: New Chart Section -->
+                            
                             <ul class="space-y-4 mt-4 text-sm">
                                 <li class="flex items-start">
                                     <span class="flex-shrink-0 w-6 h-6 mr-3 text-accent"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg></span>
@@ -246,7 +260,8 @@
                         <!-- End Ad Placeholder 2 -->
                         
                         <!-- CTA Block 1 -->
-                        <div class="my-6 p-4 bg-accent/10 rounded-lg text-center shadow-inner border border-accent/20">
+                        <!-- ADDED: not-prose class -->
+                        <div class="not-prose my-6 p-4 bg-accent/10 rounded-lg text-center shadow-inner border border-accent/20">
                             <h2 class="text-base font-bold text-accent">💠 Want to see how much you could borrow?</h2>
                             <p class="mt-1 text-xs text-gray-700">Before you go further, find out exactly how much equity you can access.</p>
                             <a href="https://mortgageplanner.toolblaster.com/calculators/home-equity-calculator.html" class="mt-3 inline-block bg-accent text-white font-bold py-1.5 px-4 rounded-lg shadow-lg hover:bg-green-800 transition-transform transform hover:scale-105 text-sm">
@@ -272,6 +287,16 @@
                         <section class="mt-6 content-section">
                             <h2 class="!mt-0">HELOC vs. Refinance: Side-by-Side Comparison</h2>
                             <p>Let's break down the core differences between a <strong>cash-out refinance vs. home equity loan</strong> (specifically a HELOC) to make the choice clearer.</p>
+                            
+                            <!-- ADDED: New Chart for Fund Access -->
+                            <div class="my-6 p-4 bg-white rounded-lg border border-gray-200 shadow-xl">
+                                <h3 class="text-base font-bold text-primary text-center">How You Access Your Funds</h3>
+                                <div class="relative h-48 max-w-full mx-auto">
+                                    <canvas id="fundsAccessChart"></canvas>
+                                </div>
+                            </div>
+                            <!-- END: New Chart -->
+                            
                             <div class="mt-4">
                                 <!-- Desktop Table -->
                                 <div class="hidden md:block">
@@ -368,7 +393,8 @@
                         </section>
                         
                         <!-- CTA Block 2 -->
-                        <div class="my-6 p-4 bg-primary/10 rounded-lg text-center shadow-inner border border-primary/20">
+                        <!-- ADDED: not-prose class -->
+                        <div class="not-prose my-6 p-4 bg-primary/10 rounded-lg text-center shadow-inner border border-primary/20">
                             <h2 class="text-base font-bold text-primary">💠 Could a refinance lower your overall rate?</h2>
                             <p class="mt-1 text-xs text-gray-700">Use our calculator to see if refinancing could save you money in the long run.</p>
                             <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#refinance-tab" class="mt-3 inline-block bg-primary text-white font-bold py-1.5 px-4 rounded-lg shadow-lg hover:bg-sky-800 transition-transform transform hover:scale-105 text-sm">
@@ -495,6 +521,49 @@
     <script src="../global-elements.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // --- ADDED: New Equity Breakdown Chart ---
+            const equityCtx = document.getElementById('equityBreakdownChart');
+            if (equityCtx) {
+                new Chart(equityCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Your Equity ($200k)', 'Mortgage Balance ($250k)'],
+                        datasets: [{
+                            data: [200000, 250000],
+                            backgroundColor: [
+                                '#166534', // accent
+                                '#1C768F'  // primary
+                            ],
+                            borderColor: '#ffffff',
+                            borderWidth: 2,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'bottom',
+                                labels: { font: { size: 10 }, padding: 10 }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (label) { label += ': '; }
+                                        if (context.parsed !== null) {
+                                            label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(context.parsed);
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
             // --- Chart Rendering ---
             const scenario1Ctx = document.getElementById('scenario1Chart');
             if (scenario1Ctx) {
@@ -537,6 +606,83 @@
                         plugins: { legend: { display: false }, title: { display: true, text: 'Interest Rate Comparison' } },
                         scales: { x: { beginAtZero: true, ticks: { callback: (value) => value + '%' } } }
                     },
+                });
+            }
+
+            // --- ADDED: New Chart for Fund Access ---
+            const fundsAccessCtx = document.getElementById('fundsAccessChart');
+            if (fundsAccessCtx) {
+                new Chart(fundsAccessCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
+                        datasets: [
+                            {
+                                type: 'bar',
+                                label: 'Cash-Out Refi (Lump Sum)',
+                                data: [50000, 0, 0, 0, 0, 0],
+                                backgroundColor: '#166534', // accent
+                                barPercentage: 0.5
+                            },
+                            {
+                                type: 'line',
+                                label: 'HELOC (Draws as Needed)',
+                                data: [10000, 10000, 25000, 20000, 20000, 35000],
+                                borderColor: '#1C768F', // primary
+                                backgroundColor: '#1C768F',
+                                fill: false,
+                                tension: 0.1,
+                                borderWidth: 3
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: { display: false },
+                            tooltip: { 
+                                mode: 'index', 
+                                intersect: false,
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        let value = context.parsed.y;
+                                        if (label) { label += ': '; }
+                                        if (value !== 0) {
+                                            label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value);
+                                        } else if (context.dataset.type === 'bar') {
+                                            label += '(Paid out in Month 1)';
+                                        } else {
+                                            // Don't show zero values for line chart after first point if it's 0
+                                            if (context.dataIndex > 0 && context.dataset.data[context.dataIndex-1] === 0) {
+                                                return null;
+                                            }
+                                            label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value);
+                                        }
+                                        return label;
+                                    }
+                                }
+                            },
+                            legend: {
+                                position: 'bottom',
+                                labels: { font: { size: 10 }, padding: 10 }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: { display: true, text: 'Amount Borrowed', font: { size: 10 } },
+                                ticks: { 
+                                    callback: (value) => '$' + (value/1000) + 'k',
+                                    font: { size: 10 }
+                                }
+                            },
+                            x: {
+                                ticks: { font: { size: 10 } }
+                            }
+                        }
+                    }
                 });
             }
             
