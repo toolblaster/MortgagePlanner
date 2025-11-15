@@ -158,7 +158,7 @@
               "text": "Hire an inspector to find any hidden problems with the home (for you). Your lender will hire an appraiser to ensure the home is worth the price (for them)."
             },
             {
-              "@type": "HowToStep",
+              "@type":Am: "HowToStep",
               "name": "Step 9: Finalize Your Loan and Do a Final Walkthrough",
               "text": "Your lender will give the 'clear to close' on your loan. Right before closing, you'll walk through the house one last time to ensure it's in the agreed-upon condition."
             },
@@ -198,7 +198,7 @@
             },
             {
               "@type": "Question",
-              "name": "How much do I need for a down payment?",
+              "name": "How much do I really need for a down payment?",
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "You don't always need 20%. FHA loans can be as low as 3.5% down, and some conventional loans for first-time buyers are 3% down. If you're eligible, VA and USDA loans can even be 0% down. However, putting down less than 20% usually means you'll have to pay Private Mortgage Insurance (PMI)."
@@ -225,13 +225,15 @@
             <!-- UPDATED: Replaced relative max-w-4xl mx-auto with blog-layout-grid -->
             <div class="blog-layout-grid">
                 <!-- Main Article Content -->
+                <!-- ADDED: shadow-2xl -->
                 <article class="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-2xl">
                     
                     <!-- Article Header -->
-                    <header class="text-center mb-6">
-                        <h1 class="font-extrabold text-primary">A Beginner's Guide to Buying Your First Home: The 10-Step Path</h1>
-                        <p class="mt-2 text-sm sm:text-base text-gray-800">The home buying process can be intimidating. We'll walk you through it, from saving up to signing the final papers.</p>
-                         <div class="mt-4 text-xs text-gray-700">
+                    <!-- ADDED: bg-gradient-to-r, shadow-lg, and updated text colors -->
+                    <header class="text-center mb-6 p-4 rounded-lg bg-gradient-to-r from-primary to-accent shadow-lg">
+                        <h1 class="font-extrabold text-white">A Beginner's Guide to Buying Your First Home: The 10-Step Path</h1>
+                        <p class="mt-2 text-sm sm:text-base text-gray-200">The home buying process can be intimidating. We'll walk you through it, from saving up to signing the final papers.</p>
+                         <div class="mt-4 text-xs text-gray-100">
                             <span>Published By <strong>Vikas Rana</strong></span>
                         </div>
                     </header>
@@ -250,17 +252,19 @@
                         <p>Don't worry. This 10-step guide is your roadmap. We'll walk you through each phase of the journey, explaining *what* to do and *why* it's important. Let's make this journey a smooth one.</p>
                         
                         <!-- UPDATED: Key Takeaways -->
-                        <div class="my-6 p-4 bg-sky-50 border-l-4 border-primary rounded-r-lg shadow-sm">
+                        <!-- ADDED: bg-gradient-to-r and shadow-lg -->
+                        <div class="my-6 p-4 bg-gradient-to-r from-sky-50 to-green-50 border-l-4 border-primary rounded-r-lg shadow-lg">
                             <h2 class="text-lg font-bold text-primary flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                                 </svg>
                                 Key Takeaways
                             </h2>
+                            <!-- UPDATED: Removed <strong> tags -->
                             <ul class="space-y-1.5 mt-3 list-none pl-2 text-xs text-gray-800">
                                 <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Your first step is financial: check your credit, calculate your Debt-to-Income (DTI) ratio, and save for a down payment.</li>
-                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Get a <strong class="font-bold">mortgage pre-approval</strong> (not just pre-qualification) *before* you start looking at homes.</li>
-                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Budget for <strong class="font-bold">closing costs</strong> (2-5% of the loan) *in addition* to your down payment.</li>
+                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Get a mortgage pre-approval (not just pre-qualification) *before* you start looking at homes.</li>
+                                <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Budget for closing costs (2-5% of the loan) *in addition* to your down payment.</li>
                                 <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>The inspection is for you (to find problems); the appraisal is for the bank (to confirm the home's value).</li>
                                 <li class="flex items-start"><span class="mr-2 text-primary font-bold">»</span>Don't be "house poor." Buy a home that fits your lifestyle, not just the maximum amount the bank will lend you.</li>
                             </ul>
@@ -276,6 +280,16 @@
                                 <li><strong>Action:</strong> Get your free credit report, check it for errors, and work on paying down credit card balances to boost your score.</li>
                             </ul>
                         </section>
+
+                        <!-- ADDED: New Chart Section for Credit Score -->
+                        <section class="my-6 p-4 bg-white rounded-lg border border-gray-200 shadow-xl">
+                            <h3 class="text-base font-bold text-primary text-center">What Makes Up Your Credit Score?</h3>
+                            <p class="text-xs text-gray-600 text-center mb-3">Understanding these factors is key to improving your score.</p>
+                            <div class="relative h-48 max-w-xs mx-auto">
+                                <canvas id="creditScoreChart"></canvas>
+                            </div>
+                        </section>
+                        <!-- END: New Chart Section -->
                         
                         <!-- Step 2: Calculate Your DTI -->
                         <section class="mt-6 content-section">
@@ -290,6 +304,15 @@
                                 <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#affordability-tab" class="font-bold text-accent hover:underline text-xs">Find your DTI with our Affordability Calculator &rarr;</a>
                             </div>
                         </section>
+
+                        <!-- ADDED: New DTI Chart Section -->
+                        <section class="my-6 p-4 bg-white rounded-lg border border-gray-200 shadow-xl">
+                            <h3 class="text-base font-bold text-primary text-center">Visualizing a Healthy DTI Ratio (36%)</h3>
+                            <div class="relative h-48 max-w-xs mx-auto">
+                                <canvas id="dtiBreakdownChart"></canvas>
+                            </div>
+                        </section>
+                        <!-- END: New DTI Chart Section -->
                         
                         <!-- Step 3: Save for Two Goals -->
                         <section class="mt-6 content-section">
@@ -307,42 +330,61 @@
                             </ul>
                         </section>
 
-                        <!-- Step 4: Get Pre-Approved -->
+                        <!-- ADDED: New Down Payment Chart Section -->
+                        <section class="my-6 p-4 bg-white rounded-lg border border-gray-200 shadow-xl">
+                            <h3 class="text-base font-bold text-primary text-center">3% Down vs. 20% Down Payment</h3>
+                            <p class="text-xs text-gray-600 text-center mb-3">Example: $350,000 Home @ 6.5% Interest</p>
+                            <div class="relative h-48 max-w-sm mx-auto">
+                                <canvas id="downPaymentChart"></canvas>
+                            </div>
+                        </section>
+                        <!-- END: New Chart Section -->
+                        
+                        <!-- ADDED: New Closing Costs Chart Section -->
+                        <section class="my-6 p-4 bg-white rounded-lg border border-gray-200 shadow-xl">
+                            <h3 class="text-base font-bold text-primary text-center">Typical Closing Cost Breakdown</h3>
+                            <div class="relative h-48 max-w-xs mx-auto">
+                                <canvas id="closingCostsChart"></canvas>
+                            </div>
+                        </section>
+                        <!-- END: New Closing Costs Chart Section -->
+
+                        <!-- NEW Ad Placeholder 2: In-Article -->
+                        <div class="my-8 flex min-h-[250px] w-full items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 text-gray-400 hidden" aria-hidden="true">
+                            Future Ad Placeholder (In-Article)
+                        </div>
+                        <!-- End Ad Placeholder 2 -->
+
+                         <!-- Step 4: Choose Loan Type -->
                         <section class="mt-6 content-section">
-                            <h2>Step 4: Get Pre-Approved (Your Golden Ticket)</h2>
+                            <h2><span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-base">4</span> Get Pre-Approved (Your Golden Ticket)</h2>
                             <p>A <strong class="font-bold">mortgage pre-approval</strong> is a formal letter from a lender stating they are conditionally willing to lend you a specific amount. It's far more powerful than a "pre-qualification."</p>
                              <ul class="space-y-2 mt-3 text-xs">
                                 <li><strong>Why it's crucial:</strong> It proves to sellers you're a serious buyer. Many agents won't even show you a home without one.</li>
                                 <li><strong>What you'll need:</strong> Be prepared with pay stubs, bank statements, tax returns, and ID. The lender will verify everything and run a hard credit check.</li>
                              </ul>
                         </section>
-                        
-                        <!-- Step 5: Find Your Team -->
+
+                        <!-- Step 5: Closing -->
                         <section class="mt-6 content-section">
-                            <h2>Step 5: Find a Great Real Estate Agent</h2>
+                            <h2><span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-base">5</span> Find a Great Real Estate Agent</h2>
                             <p>Don't just use the first agent you find. A good agent is your expert guide and fierce advocate. They will listen to your needs, find homes you won't see online, and (most importantly) negotiate on your behalf. As a buyer, you typically don't pay your agent—their commission is paid by the home seller.</p>
                         </section>
                         
-                        <!-- NEW Ad Placeholder 2: In-Article -->
-                        <div class="my-8 flex min-h-[250px] w-full items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 text-gray-400 hidden" aria-hidden="true">
-                            Future Ad Placeholder (In-Article)
-                        </div>
-                        <!-- End Ad Placeholder 2 -->
-                        
-                        <!-- Step 6: House Hunting -->
+                        <!-- Step 6 -->
                         <section class="mt-6 content-section">
-                            <h2>Step 6: Go House Hunting</h2>
-                            <p>This is the fun part! You'll start touring homes with your agent. Here are a few pro tips for your search:</p>
+                            <h2><span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-base">6</span> Go House Hunting (The Fun Part)</h2>
+                            <p>This is when it gets real! You'll start touring homes with your agent. Here are a few pro tips for your search:</p>
                              <ul class="space-y-2 mt-3 text-xs">
                                 <li><strong>Look past the paint:</strong> Ignore ugly colors or bad furniture. Focus on the "bones" of the house: the layout, foundation, roof, and location.</li>
                                 <li><strong>Visit at different times:</strong> See what the neighborhood is like on a weeknight and a weekend. How's the traffic? Is it noisy?</li>
                                 <li><strong>Stick to your budget:</strong> Don't get tempted to look at homes above your pre-approval amount.</li>
                              </ul>
                         </section>
-
-                        <!-- Step 7: Make an Offer -->
+                        
+                        <!-- Step 7 -->
                         <section class="mt-6 content-section">
-                            <h2>Step 7: Make an Offer</h2>
+                            <h2><span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-base">7</span> Make an Offer</h2>
                             <p>Found "the one"? Your agent will spring into action. They'll help you write a competitive offer, which includes:</p>
                              <ul class="space-y-2 mt-3 text-xs">
                                 <li><strong>The Price:</strong> What you're willing to pay.</li>
@@ -351,25 +393,34 @@
                              </ul>
                         </section>
                         
-                        <!-- Step 8: Inspection & Appraisal -->
+                        <!-- Step 8 -->
                         <section class="mt-6 content-section">
-                            <h2>Step 8: The "Escrow" Period (Inspection & Appraisal)</h2>
+                            <h2><span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-base">8</span> Get a Home Inspection & Appraisal</h2>
                             <p>Your offer was accepted! You now enter a 30-45 day period called "escrow" where you finalize the deal. Two major things happen now:</p>
                              <ul class="space-y-3 mt-3">
                                 <li class="flex items-start"><span class="flex-shrink-0 w-6 h-6 mr-3 text-primary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg></span><div><strong class="font-semibold">The Home Inspection (For You):</strong> You hire a professional inspector to do a deep dive and find any hidden problems (bad roof, faulty wiring, plumbing issues). This is your chance to negotiate repairs with the seller or back out.</div></li>
                                 <li class="flex items-start"><span class="flex-shrink-0 w-6 h-6 mr-3 text-accent"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.5h-8.01a1.5 1.5 0 01-1.5-1.5V7.5a1.5 1.5 0 011.5-1.5h8.01" /></svg></span><div><strong class="font-semibold">The Appraisal (For the Bank):</strong> Your *lender* hires an appraiser to make sure the home is worth the price you're paying. This is to protect their investment.</div></li>
                             </ul>
                         </section>
+
+                        <!-- ADDED: New Inspection vs. Appraisal Chart Section -->
+                        <section class="my-6 p-4 bg-white rounded-lg border border-gray-200 shadow-xl">
+                            <h3 class="text-base font-bold text-primary text-center">Inspection (For You) vs. Appraisal (For the Bank)</h3>
+                            <div class="relative h-48 max-w-full mx-auto mt-2">
+                                <canvas id="inspectionAppraisalChart"></canvas>
+                            </div>
+                        </section>
+                        <!-- END: New Chart Section -->
                         
-                        <!-- Step 9: Final Walkthrough -->
+                        <!-- Step 9 -->
                         <section class="mt-6 content-section">
-                            <h2>Step 9: Final Walkthrough and "Clear to Close"</h2>
+                            <h2><span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-base">9</span> Do a Final Walkthrough</h2>
                             <p>You're almost there! In the last 24-48 hours before closing, you'll do a "final walkthrough" of the house to make sure it's in the condition you agreed upon (e.g., any negotiated repairs are done, and no new holes are in the walls). At the same time, your lender will give the "clear to close" on your loan.</p>
                         </section>
                         
-                        <!-- Step 10: Closing Day -->
+                        <!-- Step 10 -->
                         <section class="mt-6 content-section">
-                            <h2>Step 10: Closing Day!</h2>
+                            <h2><span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold text-base">10</span> Close the Deal!</h2>
                             <p>This is the day you've been waiting for. You'll go to a title company or attorney's office and sign a mountain of paperwork. At this meeting, you will:</p>
                              <ul class="space-y-3 mt-3">
                                 <li class="flex items-start"><span class="flex-shrink-0 w-6 h-6 mr-3 text-accent"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg></span><div>Sign the final loan and title documents.</div></li>
@@ -433,7 +484,7 @@
                                 <!-- FAQ 4 -->
                                 <details class="faq-item group">
                                     <summary class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 cursor-pointer hover:bg-gray-50 transition list-none">
-                                        <h3 class="text-xs">How much do I need for a down payment?</h3>
+                                        <h3 class="text-xs">How much do I really need for a down payment?</h3>
                                         <!-- UPDATED: Icon -->
                                         <span class="plus-minus-icon text-primary">
                                             <svg class="w-5 h-5 plus-icon" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
@@ -458,7 +509,7 @@
                                     </summary>
                                     <div class="faq-answer">
                                         <div class="p-4 pt-0 text-gray-600 text-xs">
-                                            <p>The inspection is for YOU. You hire an inspector to find any problems with the home (bad roof, plumbing issues, etc.). The appraisal is for the LENDER. The bank hires an appraiser to make sure the home is worth the price you're paying, protecting their investment.</p>
+                                            <p>The inspection is for YOU. It's a detailed check of the home's condition to uncover any potential problems. The appraisal is for the LENDER. It's an assessment of the home's value to ensure the bank isn't lending more money than the property is worth.</p>
                                         </div>
                                     </div>
                                 </details>
@@ -467,10 +518,11 @@
 
                         <!-- Final CTA -->
                         <section class="mt-8">
-                            <div class="bg-primary/10 p-4 rounded-lg text-center shadow-inner border border-primary/20">
-                                <h2 class="text-lg font-bold text-primary">Ready to Take the First Step?</h2>
-                                <p class="mt-2 text-xs text-gray-700">The journey starts with a solid plan. Use our tools to find out exactly what you can afford.</p>
-                                 <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#affordability-tab" class="mt-3 inline-block bg-accent hover:bg-green-700 text-white font-bold py-1.5 px-3 text-xs rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                            <!-- ADDED: not-prose, gradient background, shadow-lg, and !text-white -->
+                            <div class="not-prose bg-gradient-to-r from-primary/80 to-accent/80 p-4 rounded-lg text-center shadow-lg">
+                                <h2 class="text-lg font-bold !text-white">Ready to Take the First Step?</h2>
+                                <p class="mt-2 text-xs !text-gray-100">The journey starts with a solid plan. Use our tools to find out exactly what you can afford.</p>
+                                 <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#affordability-tab" class="mt-3 inline-block bg-white text-accent font-bold py-1.5 px-3 text-xs rounded-lg shadow-lg transition-transform transform hover:scale-105">
                                     Start with our Affordability Calculator
                                 </a>
                             </div>
@@ -488,6 +540,7 @@
         <div id="mobile-sidebar-placeholder"></div>
     </main>
     <script src="../global-elements.js" defer></script>
+    <!-- UNCOMMENTED SCRIPT BLOCK and removed downPaymentChart logic -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // --- Chart Rendering ---
@@ -497,28 +550,245 @@
                     type: 'doughnut',
                     data: {
                         labels: ['Payment History (35%)', 'Amounts Owed (30%)', 'Credit History (15%)', 'Credit Mix (10%)', 'New Credit (10%)'],
-                        datasets: [{ data: [35, 30, 15, 10, 10], backgroundColor: ['#1C768F', '#25a2c3', '#70cce2', '#a6ddeb', '#d1eaf1'], borderWidth: 2, borderColor: '#fff' }]
+                        datasets: [{ 
+                            data: [35, 30, 15, 10, 10], 
+                            backgroundColor: ['#1C768F', '#1e8749', '#1d4ed8', '#b45309', '#6b7280'], 
+                            borderColor: '#fff',
+                            borderWidth: 2 
+                        }]
                     },
-                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top' }, title: { display: true, text: 'What Makes Up Your Credit Score?' } } },
+                    options: { 
+                        responsive: true, 
+                        maintainAspectRatio: false, 
+                        plugins: { 
+                            legend: { 
+                                position: 'bottom',
+                                labels: {
+                                    padding: 10,
+                                    font: { size: 10 }
+                                }
+                            }, 
+                            title: { display: false } 
+                        } 
+                    },
                 });
             }
 
+            // ADDED: DTI Chart logic
+            const dtiCtx = document.getElementById('dtiBreakdownChart');
+            if (dtiCtx) {
+                new Chart(dtiCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Total Debts (36%)', 'Remaining Income (64%)'],
+                        datasets: [{
+                            data: [36, 64],
+                            backgroundColor: ['#f59e0b', '#166534'], // amber-500, accent
+                            borderColor: '#ffffff',
+                            borderWidth: 2,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'bottom',
+                                labels: {
+                                    padding: 10,
+                                    font: { size: 10 }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // ADDED: Down Payment Chart logic
             const downPaymentCtx = document.getElementById('downPaymentChart');
             if (downPaymentCtx) {
                 new Chart(downPaymentCtx, {
                     type: 'bar',
                     data: {
-                        labels: ['5% Down Payment', '20% Down Payment'],
+                        labels: ['3% Down Payment', '20% Down Payment'],
                         datasets: [
-                            { label: 'Principal & Interest', data: [1801, 1517], backgroundColor: 'rgba(28, 118, 143, 0.8)' }, 
-                            { label: 'PMI', data: [119, 0], backgroundColor: 'rgba(239, 68, 68, 0.8)' }
+                            {
+                                label: 'Principal & Interest',
+                                data: [2134, 1770], // P&I on $339.5k vs $280k
+                                backgroundColor: '#1C768F', // primary
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'PMI (Est.)',
+                                data: [198, 0], // Estimated PMI vs. Zero
+                                backgroundColor: '#ef4444', // red-500 for cost
+                                borderWidth: 1
+                            }
                         ]
                     },
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
-                        plugins: { legend: { position: 'top' }, title: { display: true, text: 'Monthly Payment on a $300k Home' }, tooltip: { callbacks: { label: (c) => `${c.dataset.label}: ${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(c.parsed.y)}` } } },
-                        scales: { x: { stacked: true }, y: { stacked: true, ticks: { callback: (v) => '$' + v } } }
+                        plugins: {
+                            legend: { 
+                                position: 'bottom',
+                                labels: {
+                                    padding: 10,
+                                    font: { size: 10 }
+                                }
+                            },
+                            title: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.y !== null) {
+                                            label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(context.parsed.y);
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: { stacked: true },
+                            y: {
+                                stacked: true,
+                                beginAtZero: true,
+                                ticks: { 
+                                    callback: (value) => '$' + value.toLocaleString(),
+                                    font: { size: 10 }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // ADDED: Closing Costs Chart
+            const closingCostsCtx = document.getElementById('closingCostsChart');
+            if (closingCostsCtx) {
+                new Chart(closingCostsCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Lender Fees (25%)', 'Third-Party Fees (45%)', 'Prepaids & Escrow (30%)'],
+                        datasets: [{
+                            data: [25, 45, 30], // Example percentages
+                            backgroundColor: [
+                                '#1C768F', // primary
+                                '#166534', // accent
+                                '#b45309'  // secondary
+                            ],
+                            borderColor: '#ffffff',
+                            borderWidth: 2,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'bottom',
+                                labels: {
+                                    padding: 10,
+                                    font: { size: 10 }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // --- ADDED: New Inspection vs. Appraisal Chart ---
+            const inspectionAppraisalCtx = document.getElementById('inspectionAppraisalChart');
+            if (inspectionAppraisalCtx) {
+                new Chart(inspectionAppraisalCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Who is it for?', 'What it checks?', 'Who pays?'],
+                        datasets: [
+                            {
+                                label: 'Inspection',
+                                data: [1, 1, 1], // Use 1 as a categorical value
+                                backgroundColor: '#1C768F', // primary
+                                tooltips: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            const labels = ['You (The Buyer)', 'Home Condition (Problems)', 'You (The Buyer)'];
+                                            return 'Inspection: ' + labels[context.dataIndex];
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                label: 'Appraisal',
+                                data: [1, 1, 1],
+                                backgroundColor: '#166534', // accent
+                                tooltips: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            const labels = ['The Bank (Lender)', 'Home Value (Price)', 'You (The Buyer)'];
+                                            return 'Appraisal: ' + labels[context.dataIndex];
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        indexAxis: 'y',
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { font: { size: 10 }, padding: 10 }
+                            },
+                            title: { display: false },
+                            tooltip: {
+                                filter: function (tooltipItem) {
+                                    return tooltipItem.datasetIndex === 0; // Only show tooltips for the first dataset
+                                },
+                                callbacks: {
+                                    label: function(context) {
+                                        const inspectionLabels = ['You (The Buyer)', 'Home Condition (Problems)', 'You (The Buyer)'];
+                                        const appraisalLabels = ['The Bank (Lender)', 'Home Value (Price)', 'You (The Buyer)'];
+                                        
+                                        if (context.datasetIndex === 0) {
+                                            return 'Inspection: ' + inspectionLabels[context.dataIndex];
+                                        } else {
+                                            return 'Appraisal: ' + appraisalLabels[context.dataIndex];
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: { display: false },
+                            y: { 
+                                stacked: true,
+                                ticks: { font: { size: 10 } }
+                            }
+                        }
                     }
                 });
             }
