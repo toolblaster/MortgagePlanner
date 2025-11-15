@@ -249,22 +249,23 @@
                             
                             <!-- ADDED: New Chart Section for Bi-weekly Payments -->
                             <div class="my-6 p-4 bg-white rounded-lg border border-gray-200 shadow-xl">
-                        <!-- How to Use This Section -->
+                                <!-- H3: Chart heading -->
+                                <h3 class="text-base font-bold text-primary text-center">Bi-Weekly vs. Monthly Payments</h3>
+                                <p class="text-xs text-gray-600 text-center mb-3">Example: $350,000 Loan @ 6.5%</p>
+                                <div class="relative h-48 max-w-sm mx-auto">
+                                    <canvas id="biweeklyChart"></canvas>
+                                </div>
+                            </div>
+                            <!-- END: New Chart Section -->
+                        </section>
+
+                        <!-- 2. Extra Monthly Payments -->
                         <section class="mt-6 content-section">
-                            <h2>How to Use This to Your Advantage</h2>
-                            <!-- UPDATED: Removed strong tags -->
-                            <p>So, how do you beat this system? You make extra principal payments. Any dollar you pay *in addition* to your regular payment goes 100% to your principal. This not only reduces your balance but also reduces the amount of interest you'll be charged next month, and every month after. This is the key to paying off your mortgage early.</p>
-                            <ul class="space-y-3 mt-3 list-none pl-2 text-sm text-gray-800">
-                                 <!-- UPDATED: Removed strong tags -->
-                                 <li class="flex items-start"><span class="mr-2 text-accent font-bold">→</span><strong>Example:</strong> If you add just $200 extra per month to our $350k loan, you would:
-                                    <ul class="list-disc pl-5 mt-2">
-                                        <li>Pay off your mortgage 7 years and 10 months early.</li>
-                                        <li>Save over $119,000 in interest!</li>
-                                    </ul>
-                                 </li>
-                            </ul>
+                            <h2>2. Add a Little Extra Each Month</h2>
+                            <p>This is the most direct approach. By adding even a small amount—$50, $100, or whatever you can afford—to your regular payment, you attack the principal directly. Make sure to clearly mark this extra amount as "for principal only." You'd be amazed at the impact: adding just $100 extra per month on a $350,000, 30-year loan at 6.5% could save you over $57,000 in interest and pay off your loan 4.5 years early!</p>
                             
-                            <!-- ADDED: New Chart Section for Extra Payments -->
+                            <!-- ADDED: not-prose class -->
+                            <div class="not-prose my-4 p-4 bg-primary/10 rounded-lg text-center shadow-inner border border-primary/20">
                                 <h3 class="text-base font-bold text-primary">Curious how much you could save?</h3>
                                 <p class="mt-1 text-xs text-gray-900">See the exact date your mortgage will be paid off by adding a little extra.</p>
                                 <a href="https://mortgageplanner.toolblaster.com/calculators/extra-payment-calculator.html" class="mt-3 inline-block bg-primary text-white font-bold py-2 px-4 text-sm rounded-lg shadow-lg transition-transform transform hover:scale-105">
@@ -283,9 +284,13 @@
                         <section class="mt-6 content-section">
                             <h2>3. Make One Extra Payment Per Year</h2>
                             <p>This is similar to the bi-weekly plan but done in a single payment. Use your annual tax refund, a bonus from work, or other windfalls to make a 13th payment. On a 30-year loan, this one change alone can often shave 4-6 years off your mortgage term.</p>
-                            <div class="mt-4 p-4 bg-amber-50 border-l-4 border-amber-400 rounded-r-lg">
-                                <h3 class="font-bold text-sm text-amber-800">Critically Important Tip!</h3>
-                                <p class="text-xs text-gray-700 mt-1">You <strong class="font-bold">must</strong> specify that your extra payment should be applied "to principal only." If you don't, the lender may just hold it and apply it to the following month's regular payment (interest + principal), which doesn't save you nearly as much money.</p>
+                            <!-- UPDATED: Tip box styling enhanced with icon and shadow -->
+                            <div class="mt-4 p-4 bg-amber-50 border-l-4 border-amber-400 rounded-r-lg shadow-md">
+                                <h3 class="font-bold text-base text-amber-800 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                                    Critically Important Tip!
+                                </h3>
+                                <p class="text-xs text-gray-700 mt-1.5 pl-7">You <strong class="font-bold">must</strong> specify that your extra payment should be applied "to principal only." If you don't, the lender may just hold it and apply it to the following month's regular payment (interest + principal), which doesn't save you nearly as much money.</p>
                             </div>
                         </section>
                         
@@ -345,8 +350,9 @@
                                 </div>
                             </div>
                             <!-- END: New Chart Section -->
-
-                            <p class.="mt-2"><strong>A balanced approach is often best:</strong> Once you have a healthy emergency fund, consider doing both. Send a little extra to your mortgage principal each month *and* consistently contribute to your retirement accounts.</p>
+                            
+                            <!-- ***** FIX: Corrected typo class.="mt-2" to class="mt-2" ***** -->
+                            <p class="mt-2"><strong>A balanced approach is often best:</strong> Once you have a healthy emergency fund, consider doing both. Send a little extra to your mortgage principal each month *and* consistently contribute to your retirement accounts.</p>
                         </section>
 
                         <!-- FAQ SECTION -->
