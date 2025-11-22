@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </a>
                 <a href="${calcHubPath}" class="slide-out-link">
                      <svg class="w-4 h-4 text-primary/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg>
-                    Calculator's Hub
+                    Calculator's
                 </a>
                 <a href="${blogPath}" class="slide-out-link">
                      <svg class="w-4 h-4 text-primary/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>
@@ -583,11 +583,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     "property-tax-calculator.html": `<svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>`,
                     "closing-cost-calculator.html": `<svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621.504-1.125-1.125-1.125H3.375z" /></svg>`,
                     "Refinance-Readiness-Quiz.html": `<svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+                    // Article icons
+                    "how-to-buy-your-first-home-guide.html": `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" /></svg>`,
+                    "mortgage-amortization-explained.html": `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg>`,
+                    "fixed-vs-variable-mortgage-guide.html": `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" /></svg>`,
+                    "how-much-house-can-i-afford.html": `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>`,
+                    "first-time-home-buyer-checklist.html": `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>`,
+                    "hidden-costs-of-buying-a-home.html": `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" /></svg>`,
+                    "hidden-homeownership-costs-guide.html": `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25-2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3" /></svg>`,
+                    "home-equity-vs-refinance.html": `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>`,
+                    "how-to-pay-off-your-mortgage-early.html": `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`
                 };
                 const defaultIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 16.382V5.618a1 1 0 00-1.447-.894L15 7m-6 13v-8.5" /></svg>`;
 
                 return links.map(link => {
+                    // Use `file` for icon lookup, `href` for the link
                     const iconKey = link.file || link.href;
+                    // For blog articles, the href needs to be prefixed with the blog path.
                     const linkHref = fullPath.includes('/blog/') ? `${rootPath}blog/${link.href}` : link.href;
                     const iconSVG = icons[iconKey] || defaultIcon;
                     return `
@@ -620,27 +632,36 @@ document.addEventListener('DOMContentLoaded', function() {
                 const showSidebar = () => { if (!sidebarShown) { mobileSidebar.classList.remove('translate-y-full'); sidebarShown = true; } };
                 const hideSidebar = () => { mobileSidebar.classList.add('translate-y-full'); sidebarShown = false; };
                 closeButton.addEventListener('click', hideSidebar);
+                // Show the bar when user scrolls towards the bottom 60% of the page
                 window.addEventListener('scroll', () => { if (!sidebarShown && window.scrollY > (document.body.scrollHeight * 0.6)) { showSidebar(); } }, { passive: true });
             }
         }
     }
 
     // --- NEW: Back to Top Button ---
+    /**
+     * Creates and manages a "Back to Top" button.
+     * The button appears on scroll and smoothly scrolls to the top on click.
+     */
     function setupBackToTopButton() {
+        // Create the button element
         const backToTopButton = document.createElement('button');
-        backToTopButton.classList.add('back-to-top'); 
+        backToTopButton.classList.add('back-to-top'); // Uses style from style.css
         backToTopButton.setAttribute('title', 'Back to top');
         backToTopButton.setAttribute('aria-label', 'Back to top');
         
+        // Add SVG icon
         backToTopButton.innerHTML = `
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
             </svg>
         `;
 
+        // Set initial state (hidden). The CSS transition will handle the fade-in.
         backToTopButton.style.visibility = 'hidden';
         backToTopButton.style.opacity = '0';
         
+        // Add click event listener to scroll to top
         backToTopButton.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
@@ -648,7 +669,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
+        // Add scroll event listener to show/hide button
         window.addEventListener('scroll', () => {
+            // Show button after scrolling 200px
             if (window.pageYOffset > 200) {
                 backToTopButton.style.visibility = 'visible';
                 backToTopButton.style.opacity = '1';
@@ -656,12 +679,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 backToTopButton.style.visibility = 'hidden';
                 backToTopButton.style.opacity = '0';
             }
-        }, { passive: true });
+        }, { passive: true }); // Use passive listener for better scroll performance
 
+        // Add the button to the body
         document.body.appendChild(backToTopButton);
     }
     
+    // --- Run on page load ---
+    // --- REMOVED old setupSocialSharing() call ---
     setupRelatedArticles();
+    // --- ADDED call to new global share link function ---
     setupGlobalShareLinks();
+    // --- ADDED call for Back to Top button ---
     setupBackToTopButton();
 });
