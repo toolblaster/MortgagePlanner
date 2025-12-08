@@ -78,7 +78,7 @@
             background-color: #e5e7eb; /* Gray-200 line */
         }
         .path-step-list > li:last-child::before {
-            display: none; /* Hide line on the last element */
+            display: none; /* Hide line for the last element */
         }
         .path-step-list > li .step-marker {
             position: absolute;
@@ -153,28 +153,58 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Strategic Mortgage Planner: Your Guide to Smarter Home Finance",
-      "description": "Your all-in-one hub for mortgage planning. Start with our guided paths, explore standalone calculators, or read expert guides to master your home finances.",
-      "url": "https://mortgageplanner.toolblaster.com/index.html",
-      "mainEntity": {
-        "@type": "ItemList",
-        "name": "Financial Planning Tools & Guides",
-        "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "First-Time Buyer Path" },
-            { "@type": "ListItem", "position": 2, "name": "Homeowner Optimization Path" },
-            { "@type": "ListItem", "position": 3, "name": "Real Estate Investor Path" },
-            { "@type": "ListItem", "position": 4, "name": "All-in-One Mortgage Planner", "url": "https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html" },
-            { "@type": "ListItem", "position": 5, "name": "Calculators Hub", "url": "https://mortgageplanner.toolblaster.com/calculators/" },
-            { "@type": "ListItem", "position": 6, "name": "Blog & Guides", "url": "https://mortgageplanner.toolblaster.com/blog/" }
-        ]
-      }
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Strategic Mortgage Planner",
+          "url": "https://mortgageplanner.toolblaster.com/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://mortgageplanner.toolblaster.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "name": "Strategic Mortgage Planner: Your Guide to Smarter Home Finance",
+          "description": "Your all-in-one hub for mortgage planning. Start with our guided paths, explore standalone calculators, or read expert guides to master your home finances.",
+          "url": "https://mortgageplanner.toolblaster.com/index.html",
+          "mainEntity": {
+            "@type": "ItemList",
+            "name": "Financial Planning Tools & Guides",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "First-Time Buyer Path" },
+                { "@type": "ListItem", "position": 2, "name": "Homeowner Optimization Path" },
+                { "@type": "ListItem", "position": 3, "name": "Real Estate Investor Path" },
+                { "@type": "ListItem", "position": 4, "name": "All-in-One Mortgage Planner", "url": "https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html" },
+                { "@type": "ListItem", "position": 5, "name": "Calculators Hub", "url": "https://mortgageplanner.toolblaster.com/calculators/" },
+                { "@type": "ListItem", "position": 6, "name": "Blog & Guides", "url": "https://mortgageplanner.toolblaster.com/blog/" }
+            ]
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://mortgageplanner.toolblaster.com/"
+          }]
+        }
+      ]
     }
     </script>
 
 </head>
 <body class="bg-gray-100 text-sm">
     <main class="content-wrapper">
+        <!-- Breadcrumb (Hidden visually but present in DOM) -->
+        <nav aria-label="Breadcrumb" class="hidden">
+            <ol>
+                <li><a href="https://mortgageplanner.toolblaster.com/">Home</a></li>
+            </ol>
+        </nav>
+
         <div class="container-global my-4 md:my-8">
             <!-- UPDATED: Main container shadow increased to shadow-xl -->
             <div class="bg-white p-4 sm:p-6 rounded-xl shadow-xl">
