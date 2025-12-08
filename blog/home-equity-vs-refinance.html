@@ -167,8 +167,26 @@
 <body class="bg-gray-100">
     <!-- Main Content Area -->
     <main class="content-wrapper">
+        
+         <!-- Breadcrumb (Visible, Left Aligned) -->
+        <nav aria-label="Breadcrumb" class="container-global mt-4 mb-1 text-xs text-gray-500">
+            <ol class="list-none p-0 inline-flex">
+                <li class="flex items-center">
+                    <a href="https://mortgageplanner.toolblaster.com/" class="hover:text-primary">Home</a>
+                    <svg class="w-3 h-3 mx-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                </li>
+                <li class="flex items-center">
+                    <a href="https://mortgageplanner.toolblaster.com/blog/" class="hover:text-primary">Blog</a>
+                    <svg class="w-3 h-3 mx-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                </li>
+                <li>
+                    <span class="text-gray-800 font-semibold" aria-current="page">Home Equity vs. Refinance Guide</span>
+                </li>
+            </ol>
+        </nav>
+
          <!-- UPDATED: Replaced max-w-7xl and padding with .container-global -->
-         <div class="container-global my-4 md:my-8">
+         <div class="container-global mt-3 mb-8">
             <!-- UPDATED: Replaced relative max-w-4xl mx-auto with blog-layout-grid -->
             <div class="blog-layout-grid">
                 <!-- ADDED: shadow-2xl -->
@@ -220,6 +238,7 @@
                             <div class="my-6 p-4 bg-white rounded-lg border border-gray-200 shadow-xl">
                                 <h3 class="text-base font-bold text-primary text-center">Example: Your Home Equity</h3>
                                 <p class="text-xs text-gray-600 text-center mb-3">On a $450k home with a $250k mortgage.</p>
+                                
                                 <div class="relative h-48 max-w-xs mx-auto">
                                     <canvas id="equityBreakdownChart"></canvas>
                                 </div>
@@ -291,6 +310,7 @@
                             <!-- ADDED: New Chart for Fund Access -->
                             <div class="my-6 p-4 bg-white rounded-lg border border-gray-200 shadow-xl">
                                 <h3 class="text-base font-bold text-primary text-center">How You Access Your Funds</h3>
+                                
                                 <div class="relative h-48 max-w-full mx-auto">
                                     <canvas id="fundsAccessChart"></canvas>
                                 </div>
