@@ -166,7 +166,7 @@
 <body class="bg-gray-100 text-sm">
     <main class="content-wrapper">
         <!-- Breadcrumb (Visible, Left Aligned) -->
-        <nav aria-label="Breadcrumb" class="container-global my-2 text-xs text-gray-500">
+        <nav aria-label="Breadcrumb" class="container-global mt-4 mb-1 text-xs text-gray-500">
             <ol class="list-none p-0 inline-flex">
                 <li class="flex items-center">
                     <a href="https://mortgageplanner.toolblaster.com/" class="hover:text-primary">Home</a>
@@ -183,7 +183,7 @@
         </nav>
 
         <!-- UPDATED: Added .calculator-layout-grid class -->
-        <div class="container-global calculator-layout-grid my-4 space-y-4 lg:space-y-0">
+        <div class="container-global calculator-layout-grid mt-1 mb-4 space-y-4 lg:space-y-0">
             <!-- UPDATED: Wrapped main content in <main> tag for 80% column -->
             <main class="space-y-4">
                 <!-- UPDATED: Reduced padding from p-3 sm:p-4 to p-3 -->
@@ -339,7 +339,7 @@
                             
                             <div class="sticky bottom-2 sm:bottom-4">
                                 <button id="saveScenarioBtn" class="w-full px-4 py-1.5 bg-accent text-white font-bold rounded-lg shadow-lg hover:bg-green-800 transition duration-150 text-xs">
-                                    Save & Share Scenario
+                                    Save & Share Estimate
                                 </button>
                                 <p id="saveFeedback" class="text-xs text-accent text-center h-5 mt-1"></p>
                             </div>
@@ -570,7 +570,7 @@
                         <ul class="space-y-2 mt-2 text-xs">
                             <li class="flex items-start">
                                 <!-- Decorative SVG icon -->
-                                <span class="flex-shrink-0 w-5 h-5 mr-2 text-accent" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></span>
+                                <span class="flex-shrink-0 w-5 h-5 mr-2 text-accent" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></span>
                                 <div><strong>Lower Monthly Payment:</strong> You're borrowing less money, which directly reduces your monthly mortgage payment.</div>
                             </li>
                             <li class="flex items-start">
@@ -596,13 +596,12 @@
                         </div>
                     </section>
     
-                    <!-- FAQ Section -->
+                    <!-- FAQ Section (Updated to match Closing Cost style) -->
                     <section class="py-4">
-                        <!-- H2: FAQ grouping -->
                         <h2 class="text-lg font-bold text-primary mb-4 text-center">Frequently Asked Questions</h2>
                         <div class="max-w-3xl mx-auto space-y-4">
                             <!-- FAQ 1 -->
-                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm border-l-4 border-primary">
                                 <div class="flex items-start">
                                     <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs mr-3 mt-0.5">1</span>
                                     <div>
@@ -612,42 +611,42 @@
                                 </div>
                             </div>
                             <!-- FAQ 2 -->
-                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm border-l-4 border-primary">
                                 <div class="flex items-start">
                                     <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs mr-3 mt-0.5">2</span>
                                     <div>
                                         <h3 class="text-sm font-bold text-gray-900 mb-2">What is the minimum down payment for a mortgage?</h3>
-                                        <p class="text-xs text-gray-700 leading-relaxed">The minimum down payment depends on the loan type. VA and USDA loans can be 0% down for eligible borrowers. FHA loans require as little as 3.5% down. Some conventional loan programs for first-time homebuyers offer 3% down options. Our <strong>mortgage down payment calculator</strong> can help you model these scenarios.</p>
+                                        <p class="text-xs text-gray-700 leading-relaxed">The minimum down payment depends on the loan type. VA and USDA loans can be 0% for eligible borrowers. FHA loans require as little as 3.5% down. Some conventional loan programs for first-time homebuyers offer 3% down options. Our mortgage down payment calculator can help you model these different scenarios.</p>
                                     </div>
                                 </div>
                             </div>
                             <!-- FAQ 3 -->
-                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm border-l-4 border-primary">
                                 <div class="flex items-start">
                                     <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs mr-3 mt-0.5">3</span>
                                     <div>
                                         <h3 class="text-sm font-bold text-gray-900 mb-2">Do I need 20% down to avoid PMI?</h3>
-                                        <p class="text-xs text-gray-700 leading-relaxed">For conventional loans, yes. A down payment of less than 20% (meaning your Loan-to-Value ratio is over 80%) typically requires you to pay Private Mortgage Insurance (PMI). This is an extra monthly fee that protects the lender, not you. Government-backed loans like VA loans do not have PMI, and FHA loans have their own form of mortgage insurance.</p>
+                                        <p class="text-xs text-gray-700 leading-relaxed">For conventional loans, yes. A down payment of less than 20% (resulting in a Loan-to-Value ratio over 80%) typically requires you to pay Private Mortgage Insurance (PMI). This is an extra monthly fee that protects the lender. Government-backed loans like VA do not have PMI, and FHA loans have their own form of mortgage insurance.</p>
                                     </div>
                                 </div>
                             </div>
                             <!-- FAQ 4 -->
-                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm border-l-4 border-primary">
                                 <div class="flex items-start">
                                     <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs mr-3 mt-0.5">4</span>
                                     <div>
                                         <h3 class="text-sm font-bold text-gray-900 mb-2">Does a higher down payment lower my monthly payment?</h3>
-                                        <p class="text-xs text-gray-700 leading-relaxed">Yes, absolutely. A higher down payment means you are borrowing less money, which directly reduces the principal and interest portion of your monthly payment. It can also help you avoid PMI, further lowering your total monthly cost.</p>
+                                        <p class="text-xs text-gray-700 leading-relaxed">Yes, absolutely. A higher down payment means you are borrowing less money, which directly reduces the principal and interest portion of your monthly payment. It can also help you avoid PMI, further lowering your total monthly housing cost.</p>
                                     </div>
                                 </div>
                             </div>
                             <!-- FAQ 5 -->
-                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm border-l-4 border-primary">
                                 <div class="flex items-start">
                                     <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs mr-3 mt-0.5">5</span>
                                     <div>
                                         <h3 class="text-sm font-bold text-gray-900 mb-2">What’s included in a mortgage payment besides principal and interest?</h3>
-                                        <p class="text-xs text-gray-700 leading-relaxed">Your total monthly housing payment is often called "PITI." It includes Principal, Interest, Taxes (property taxes), and Insurance (homeowner's insurance). Your lender often collects the tax and insurance portions in an escrow account and pays them on your behalf. Our main <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#mortgage-tab" class="font-bold hover:underline">Mortgage Calculator</a> allows you to input all these costs for a complete picture.</p>
+                                        <p class="text-xs text-gray-700 leading-relaxed">Your total monthly housing payment is often called 'PITI.' It includes Principal, Interest, Taxes (property taxes), and Insurance (homeowner's insurance). Your lender often collects the tax and insurance portions in an escrow account and pays them on your behalf. Our main Mortgage Calculator allows you to input all these costs for a complete picture.</p>
                                     </div>
                                 </div>
                             </div>
