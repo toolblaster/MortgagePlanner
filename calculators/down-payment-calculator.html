@@ -37,17 +37,7 @@
     <!-- Global & Page-Specific Styles -->
     <link rel="stylesheet" href="../style.css">
     <style>
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-in-out;
-        }
-        .faq-chevron {
-            transition: transform 0.3s ease-in-out;
-        }
-        .faq-item button[aria-expanded="true"] .faq-chevron {
-            transform: rotate(180deg);
-        }
+        /* UPDATED: Removed FAQ specific styles as they are no longer needed */
         details summary::-webkit-details-marker { display: none; }
         
         /* UPDATED: Plus/minus icon styles */
@@ -76,20 +66,6 @@
           }
         },
         {
-          "@type": "MathSolver",
-          "name": "Advanced Down Payment Calculator",
-          "description": "Calculates the down payment amount, total loan principal, and estimated monthly payments based on home price and down payment percentage or amount.",
-          "toolType": "DownPaymentCalculator",
-          "url": "https://mortgageplanner.toolblaster.com/calculators/down-payment-calculator.html",
-          "variable": [
-            { "name": "Home Price", "variableType": "https://schema.org/Price" },
-            { "name": "Down Payment Percentage", "variableType": "https://schema.org/Number" },
-            { "name": "Down Payment Amount", "variableType": "https://schema.org/Price" },
-            { "name": "Loan Term", "variableType": "https://schema.org/Duration" },
-            { "name": "Interest Rate", "variableType": "https://schema.org/Number" }
-          ]
-        },
-        {
           "@type": "BreadcrumbList",
           "itemListElement": [{
             "@type": "ListItem",
@@ -104,8 +80,7 @@
           },{
             "@type": "ListItem",
             "position": 3,
-            "name": "Down Payment Calculator",
-            "item": "https://mortgageplanner.toolblaster.com/calculators/down-payment-calculator.html"
+            "name": "Down Payment Calculator"
           }]
         },
         {
@@ -190,7 +165,7 @@
 </head>
 <body class="bg-gray-100 text-sm">
     <main class="content-wrapper">
-        <!-- Breadcrumb (Visible) -->
+        <!-- Breadcrumb (Visible, Left Aligned) -->
         <nav aria-label="Breadcrumb" class="container-global my-2 text-xs text-gray-500">
             <ol class="list-none p-0 inline-flex">
                 <li class="flex items-center">
@@ -620,98 +595,59 @@
                             <p class="mt-2 text-xs text-gray-700">Wondering how your down payment fits into your total buying power? Our <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#affordability-tab" class="font-bold hover:underline">Affordability Calculator</a> helps you connect the dots between your savings, income, and dream home price.</p>
                         </div>
                     </section>
-                    
-                    <!-- NEW HOW-TO SECTION -->
-                    <section class="bg-gray-50/70 p-4 rounded-lg border border-gray-400">
-                        <!-- H3: Content sub-heading -->
-                        <h3 class="text-base font-bold text-gray-800">How to Use the Advanced Down Payment Calculator</h3>
-                        <p class="mt-2 text-xs">This tool is designed to be interactive and insightful. Follow these steps to get the most out of it:</p>
-                        <ul class="space-y-3 mt-3 text-xs">
-                            <li class="flex items-start">
-                               <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold" aria-hidden="true">1</span>
-                                <div><strong class="font-semibold text-primary block">Enter the Home Price:</strong> Start by inputting the total price of the home you are considering. You can use the slider for quick adjustments or type in a precise number.</div>
-                            </li>
-                             <li class="flex items-start">
-                               <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold" aria-hidden="true">2</span>
-                                <div><strong class="font-semibold text-primary block">Set Your Down Payment:</strong> Use the toggle to switch between a percentage (%) of the home price or a specific dollar amount ($). Adjust the slider to see how different down payment amounts affect your loan in real-time.</div>
-                            </li>
-                             <li class="flex items-start">
-                               <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold" aria-hidden="true">3</span>
-                                <div><strong class="font-semibold text-primary block">Adjust Loan Assumptions:</strong> Enter your expected loan term (e.g., 30 or 15 years) and the interest rate you anticipate. This is crucial for calculating your monthly payment.</div>
-                            </li>
-                             <li class="flex items-start">
-                               <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold" aria-hidden="true">4</span>
-                                <div><strong class="font-semibold text-primary block">Plan Your Savings Goal (Optional):</strong> In the 'Advanced Features' section, enter your target down payment percentage and how much you can save each month to see a projection of how long it will take to reach your goal.</div>
-                            </li>
-                             <li class="flex items-start">
-                               <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold" aria-hidden="true">5</span>
-                                <div><strong class="font-semibold text-primary block">Analyze Your Results:</strong> Review the output section to see your final down payment, loan amount, total monthly payment (including PMI, taxes, and insurance), and key metrics like the LTV ratio.</div>
-                            </li>
-                        </ul>
-                    </section>
     
                     <!-- FAQ Section -->
                     <section class="py-4">
                         <!-- H2: FAQ grouping -->
-                        <h2 class="text-lg font-bold text-primary mb-3 text-center">Frequently Asked Questions</h2>
-                        <div class="max-w-3xl mx-auto border-t border-b border-gray-400 divide-y divide-gray-400" id="faq-accordion">
-                           <div class="faq-item">
-                                <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-expanded="false">
-                                    <!-- H3: FAQ Question -->
-                                    <h3 class="text-xs">How much should I put down on a house?</h3>
-                                    <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                                </button>
-                                <div class="faq-answer">
-                                    <div class="p-4 pt-0 text-gray-600 text-xs">
-                                        <p>While 20% is ideal to avoid PMI and get the best terms, it's not always necessary. Many first-time buyers put down 3-5%. The right amount depends on your savings, the type of loan you qualify for, and your comfort level with the resulting monthly payment.</p>
+                        <h2 class="text-lg font-bold text-primary mb-4 text-center">Frequently Asked Questions</h2>
+                        <div class="max-w-3xl mx-auto space-y-4">
+                            <!-- FAQ 1 -->
+                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                                <div class="flex items-start">
+                                    <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs mr-3 mt-0.5">1</span>
+                                    <div>
+                                        <h3 class="text-sm font-bold text-gray-900 mb-2">How much should I put down on a house?</h3>
+                                        <p class="text-xs text-gray-700 leading-relaxed">While 20% is the traditional goal to avoid Private Mortgage Insurance (PMI) and secure better loan terms, it is not always required. Many first-time buyers use programs like FHA loans (3.5% down) or conventional loans (3-5% down). The right amount depends on your savings, the loan type you qualify for, and your comfort with the monthly payment.</p>
                                     </div>
                                 </div>
                             </div>
-                             <div class="faq-item">
-                                <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-expanded="false">
-                                    <!-- H3: FAQ Question -->
-                                    <h3 class="text-xs">What is the minimum down payment for a mortgage?</h3>
-                                     <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                                </button>
-                                <div class="faq-answer">
-                                    <div class="p-4 pt-0 text-gray-600 text-xs">
-                                        <p>This depends on the loan type. VA and USDA loans can be 0% down for eligible borrowers. FHA loans require as little as 3.5% down. Some conventional loan programs for first-time buyers offer 3% down options. Our <strong>mortgage down payment calculator</strong> can help you model these scenarios.</p>
+                            <!-- FAQ 2 -->
+                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                                <div class="flex items-start">
+                                    <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs mr-3 mt-0.5">2</span>
+                                    <div>
+                                        <h3 class="text-sm font-bold text-gray-900 mb-2">What is the minimum down payment for a mortgage?</h3>
+                                        <p class="text-xs text-gray-700 leading-relaxed">The minimum down payment depends on the loan type. VA and USDA loans can be 0% down for eligible borrowers. FHA loans require as little as 3.5% down. Some conventional loan programs for first-time homebuyers offer 3% down options. Our <strong>mortgage down payment calculator</strong> can help you model these scenarios.</p>
                                     </div>
                                 </div>
                             </div>
-                             <div class="faq-item">
-                                <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-expanded="false">
-                                    <!-- H3: FAQ Question -->
-                                    <h3 class="text-xs">Do I need 20% down to avoid PMI?</h3>
-                                     <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                                </button>
-                                <div class="faq-answer">
-                                    <div class="p-4 pt-0 text-gray-600 text-xs">
-                                       <p>For conventional loans, yes. A down payment of less than 20% (meaning your Loan-to-Value ratio is over 80%) typically requires you to pay Private Mortgage Insurance (PMI). This is an extra monthly fee that protects the lender, not you. Government-backed loans like VA loans do not have PMI, and FHA loans have their own form of mortgage insurance.</p>
+                            <!-- FAQ 3 -->
+                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                                <div class="flex items-start">
+                                    <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs mr-3 mt-0.5">3</span>
+                                    <div>
+                                        <h3 class="text-sm font-bold text-gray-900 mb-2">Do I need 20% down to avoid PMI?</h3>
+                                        <p class="text-xs text-gray-700 leading-relaxed">For conventional loans, yes. A down payment of less than 20% (meaning your Loan-to-Value ratio is over 80%) typically requires you to pay Private Mortgage Insurance (PMI). This is an extra monthly fee that protects the lender, not you. Government-backed loans like VA loans do not have PMI, and FHA loans have their own form of mortgage insurance.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="faq-item">
-                                <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-expanded="false">
-                                    <!-- H3: FAQ Question -->
-                                    <h3 class="text-xs">Does a higher down payment lower my monthly payment?</h3>
-                                     <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                                </button>
-                                <div class="faq-answer">
-                                    <div class="p-4 pt-0 text-gray-600 text-xs">
-                                       <p>Yes, absolutely. A higher down payment means you are borrowing less money, which directly reduces the principal and interest portion of your monthly payment. It can also help you avoid PMI, further lowering your total monthly cost.</p>
+                            <!-- FAQ 4 -->
+                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                                <div class="flex items-start">
+                                    <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs mr-3 mt-0.5">4</span>
+                                    <div>
+                                        <h3 class="text-sm font-bold text-gray-900 mb-2">Does a higher down payment lower my monthly payment?</h3>
+                                        <p class="text-xs text-gray-700 leading-relaxed">Yes, absolutely. A higher down payment means you are borrowing less money, which directly reduces the principal and interest portion of your monthly payment. It can also help you avoid PMI, further lowering your total monthly cost.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="faq-item">
-                                <button class="faq-question w-full flex justify-between items-center text-left text-gray-800 font-semibold p-4 hover:bg-gray-50 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-expanded="false">
-                                    <!-- H3: FAQ Question -->
-                                    <h3 class="text-xs">What’s included in a mortgage payment besides principal and interest?</h3>
-                                     <svg class="faq-chevron w-5 h-5 transform transition-transform text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                                </button>
-                                <div class="faq-answer">
-                                    <div class="p-4 pt-0 text-gray-600 text-xs">
-                                       <p>Your total monthly housing payment is often called "PITI." It includes Principal, Interest, Taxes (property taxes), and Insurance (homeowner's insurance). Your lender often collects the tax and insurance portions in an escrow account and pays them on your behalf. Our main <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#mortgage-tab" class="font-bold hover:underline">Mortgage Calculator</a> allows you to input all these costs for a complete picture.</p>
+                            <!-- FAQ 5 -->
+                            <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                                <div class="flex items-start">
+                                    <span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs mr-3 mt-0.5">5</span>
+                                    <div>
+                                        <h3 class="text-sm font-bold text-gray-900 mb-2">What’s included in a mortgage payment besides principal and interest?</h3>
+                                        <p class="text-xs text-gray-700 leading-relaxed">Your total monthly housing payment is often called "PITI." It includes Principal, Interest, Taxes (property taxes), and Insurance (homeowner's insurance). Your lender often collects the tax and insurance portions in an escrow account and pays them on your behalf. Our main <a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html#mortgage-tab" class="font-bold hover:underline">Mortgage Calculator</a> allows you to input all these costs for a complete picture.</p>
                                     </div>
                                 </div>
                             </div>
