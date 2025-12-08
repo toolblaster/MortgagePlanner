@@ -82,18 +82,13 @@
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": ["FinancialService", "WebApplication"],
+          "@type": "WebApplication",
           "name": "Strategic Mortgage Planner",
           "alternateName": "Advanced Mortgage Calculator with NPV, DTI & Equity Forecaster",
           "description": "An advanced mortgage calculator to analyze payoff scenarios, equity growth, Debt-to-Income (DTI), Net Present Value (NPV) of costs, and potential refinance options for homeowners in the US, UK, Canada, and Australia.",
           "applicationCategory": "FinanceApplication",
           "operatingSystem": "Any (Web Application)",
           "serviceType": "Mortgage Calculator",
-          "provider": {
-            "@type": "Organization",
-            "name": "Toolblaster.com",
-            "url": "https://toolblaster.com"
-          },
           "offers": {
             "@type": "Offer",
             "price": "0",
@@ -105,12 +100,13 @@
           "itemListElement": [{
             "@type": "ListItem",
             "position": 1,
-            "name": "Toolblaster Home",
-            "item": "https://toolblaster.com"
+            "name": "Home",
+            "item": "https://mortgageplanner.toolblaster.com/"
           },{
             "@type": "ListItem",
             "position": 2,
-            "name": "Strategic Mortgage Planner"
+            "name": "All-in-One Mortgage Planner",
+            "item": "https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html"
           }]
         },
         {
@@ -174,6 +170,14 @@
 <body class="text-xs">
     <!-- Main Content Area -->
     <main class="content-wrapper">
+        <!-- Breadcrumb (Hidden visually but present in DOM) -->
+        <nav aria-label="Breadcrumb" class="hidden">
+            <ol>
+                <li><a href="https://mortgageplanner.toolblaster.com/">Home</a></li>
+                <li><a href="https://mortgageplanner.toolblaster.com/all-in-one-mortgage-planner.html">All-in-One Mortgage Planner</a></li>
+            </ol>
+        </nav>
+
          <!-- Hero Section -->
         <section class="bg-sky-50 border-b border-sky-100 no-print">
             <!-- UPDATED: Replaced max-w-7xl and related classes with container-global -->
