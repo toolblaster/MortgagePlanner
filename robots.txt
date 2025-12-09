@@ -1,7 +1,5 @@
 User-agent: *
-Disallow: /script.js
 Disallow: /admin/
-Disallow: /style.css
 Disallow: /cgi-bin/
 
 Allow: /
